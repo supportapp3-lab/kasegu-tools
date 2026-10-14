@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>防災備蓄 計算｜家族の水・食料・携帯トイレ必要量を自動計算</title>
+  <meta name="description" content="家族の人数と日数から、飲料・調理用水、2Lボトル本数、携帯トイレ、主食の必要量の目安を無料計算。計算根拠・早見表・FAQと共有機能付き。">
+  <meta name="color-scheme" content="light dark">
+  <link rel="canonical" href="https://supportapp3-lab.github.io/kasegu-tools/tools/bichiku/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="防災備蓄 計算｜家族の水・食料・携帯トイレ必要量を自動計算">
+  <meta property="og:description" content="家族の人数と日数から、飲料・調理用水、2Lボトル本数、携帯トイレ、主食の必要量の目安を無料計算。計算根拠・早見表・FAQと共有機能付き。">
+  <meta property="og:url" content="https://supportapp3-lab.github.io/kasegu-tools/tools/bichiku/">
+  <meta property="og:locale" content="ja_JP">
+  <meta property="og:site_name" content="暮らしの計算室">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="防災備蓄 計算｜家族の水・食料・携帯トイレ必要量を自動計算">
+  <meta name="twitter:description" content="家族の人数と日数から、飲料・調理用水、2Lボトル本数、携帯トイレ、主食の必要量の目安を無料計算。計算根拠・早見表・FAQと共有機能付き。">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebApplication", "name": "防災備蓄 計算", "url": "https://supportapp3-lab.github.io/kasegu-tools/tools/bichiku/", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "description": "家族人数と日数から水・携帯トイレ・主食の目安を計算する無料ツール。"}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "子どもや乳幼児も大人と同じ数量で計算するのですか？", "acceptedAnswer": {"@type": "Answer", "text": "このツールでは、大人・子ども・乳幼児を合計した人数に同じ係数を掛けます。年齢別の細かな飲水量や食事量を推定する機能はありません。家族全体の備えを数える簡易的な目安として使い、乳幼児にはミルク、離乳食、おむつなどを別に用意してください。主食の食数は成人食を乳幼児に与える指示ではありません。実際には普段の食事と個別の事情に合わせて内容を調整し、必要に応じて専門家に相談してください。人数の入力を分けているのは、乳幼児向けの補足表示を見落としにくくするためです。"}}, {"@type": "Question", "name": "2Lペットボトルの本数が割り切れない場合は？", "acceptedAnswer": {"@type": "Answer", "text": "必要な水の量を2Lで割り、小数点以下を切り上げます。1人で3日なら9Lなので、2Lボトルは5本、合計10Lです。切り上げは不足を避けるための本数換算であり、必要量そのものが10Lに変わるわけではありません。500mLなど別の容量を使う場合は、必要なリットル数をその容量で割って切り上げてください。開封後の扱いは製品の表示を確認し、大きい容器だけに偏らず家族が持ち運べる大きさも考えましょう。"}}, {"@type": "Question", "name": "水の結果には、お風呂や洗濯、ペット用の水も含まれますか？", "acceptedAnswer": {"@type": "Answer", "text": "含まれません。結果は、人の飲料・調理用水の目安です。入浴、洗濯、湯せん、食器洗いなどに使う生活用水や、ペットの飲水は別途考えてください。ペット有りにすると補足チェックリストを表示しますが、種類や体重を入力しないため、ペットの必要量を自動計算しません。人用の結果だけで家庭内のすべての水が足りると判断せず、停電・断水時にどの用途が必要かを書き出して確認してください。"}}, {"@type": "Question", "name": "まず3日と7日、どちらで計算すればよいですか？", "acceptedAnswer": {"@type": "Answer", "text": "この画面では3日・7日のボタンと、1〜365日の任意入力を用意しています。3日と7日を切り替えると、人数が同じでも必要量がどれだけ増えるかを比較できます。計算した日数が安全を保証するものではありません。自治体の備蓄案内、住まいの立地、物資を受け取るまでの条件などを確認して、各家庭で準備する日数を決めてください。いきなりすべてを購入するのが難しいときは、家にあるものを数え、不足分の候補を整理するところから始められます。"}}, {"@type": "Question", "name": "主食だけを用意すれば食料の備えは十分ですか？", "acceptedAnswer": {"@type": "Answer", "text": "結果に出る主食の食数は、1人1日3食を掛けた数です。栄養、カロリー、食物アレルギー、調理に必要な水や燃料まで計算するものではありません。ごはんやパンなどの主食に加えて、普段食べ慣れたおかず、必要な栄養を補う食品、体調や年齢に合うものを別に確認してください。火を使えない場合、器や缶切りが必要な場合なども想定し、実際に食べるまでの手順を確かめておくと、食数だけでは見えない不足に気づけます。"}}, {"@type": "Question", "name": "入力した家族の人数は送信・保存されますか？", "acceptedAnswer": {"@type": "Answer", "text": "計算はブラウザ内で行い、家族の人数を当サイトの独自サーバーへ送信する処理はありません。ただし、入力内容は共有できるよう現在のURLのクエリに反映されます。共有先の人はURLから人数・日数・ペットの有無を読み取れます。アクセス時のURLは、ホスティング事業者などの通常のアクセス記録に残る可能性があります。気になる場合は、家族の氏名・住所などを書き込まず、共有範囲を確認してください。詳しくはプライバシーポリシーをご覧ください。"}}, {"@type": "Question", "name": "結果をコピーできない場合はどうすればよいですか？", "acceptedAnswer": {"@type": "Answer", "text": "ブラウザの権限や接続方法によっては、クリップボードへ直接コピーできないことがあります。その場合は結果の文章を選択できる欄を表示するので、端末のコピー操作を使ってください。コピー内容には数量、計算の前提、補足事項、共有URLが入ります。買い物に使う前に人数と日数が合っているか確認し、現在家にある在庫を差し引いて不足を整理してください。結果を共有する場合は、前の質問にあるURLの情報にも注意してください。"}}]}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "トップ", "item": "https://supportapp3-lab.github.io/kasegu-tools/"}, {"@type": "ListItem", "position": 2, "name": "防災備蓄 計算", "item": "https://supportapp3-lab.github.io/kasegu-tools/tools/bichiku/"}]}]}</script>
+  <script src="../../assets/js/bichiku.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">本文へ移動</a>
+  <header class="site-header"><div class="container header-inner">
+    <a class="brand" href="../../index.html"><span class="brand-mark" aria-hidden="true">備</span>暮らしの計算室</a>
+    <nav aria-label="メインナビゲーション"><a href="../../tools/bichiku/index.html">防災備蓄 計算</a><a href="../../about/index.html">運営者情報</a><a href="../../contact/index.html">お問い合わせ</a></nav>
+  </div></header>
+  <main id="main" class="container"><div class="breadcrumbs"><a href="../../index.html">トップ</a> / 防災備蓄 計算</div>
+<section class="hero" aria-labelledby="page-title">
+  <p class="eyebrow">備えを、数字で見えるように。</p>
+  <h1 id="page-title">家族の防災備蓄、<br>どれくらい必要？</h1>
+  <p class="lead">人数と日数を入れるだけで、水・携帯トイレ・主食の目安を計算。まずは家にある備えと比べてみましょう。</p>
+  <span class="tag">無料・登録不要</span><span class="tag">ブラウザ内で計算</span><span class="tag">結果を共有</span>
+</section>
+<div class="ad-slot" data-slot="top" aria-label="広告掲載枠・準備中"></div>
+<div class="calculator">
+  <section class="inputs" aria-labelledby="input-title">
+    <h2 id="input-title" class="step"><b aria-hidden="true">1</b>家族と日数を入力</h2>
+    <form id="bichiku-form" novalidate>
+      <div class="field-grid">
+        <div><label for="adults">大人<small>人数</small></label><input id="adults" name="adults" type="number" inputmode="numeric" min="0" max="999" step="1" value="2" required></div>
+        <div><label for="children">子ども<small>人数</small></label><input id="children" name="children" type="number" inputmode="numeric" min="0" max="999" step="1" value="0" required></div>
+        <div><label for="infants">乳幼児<small>人数</small></label><input id="infants" name="infants" type="number" inputmode="numeric" min="0" max="999" step="1" value="0" required></div>
+      </div>
+      <div class="days"><label for="days">備える日数</label>
+        <div class="day-buttons"><button type="button" data-days="3" aria-pressed="false">3日分</button><button type="button" data-days="7" aria-pressed="true">7日分</button></div>
+        <input id="days" name="days" type="number" inputmode="numeric" min="1" max="365" step="1" value="7" aria-describedby="days-help" required>
+        <p id="days-help" class="help">任意の日数は1〜365日。人数は各0〜999人で入力できます。</p>
+      </div>
+      <label class="checkbox" for="pets"><input id="pets" name="pets" type="checkbox">ペットがいる（補足を表示）</label>
+      <p class="help">子ども・乳幼児も同じ係数の簡易目安です。ペットの数量は計算に含みません。</p>
+      <p id="input-error" class="error" role="alert"></p>
+    </form>
+    <noscript><p class="note">計算にはJavaScriptが必要です。下の計算式と人数別の早見表をご利用ください。右の初期値は2人・7日分です。</p></noscript>
+  </section>
+  <section class="results" aria-labelledby="result-title">
+    <div class="result-heading"><h2 id="result-title" class="step"><b aria-hidden="true">2</b>備蓄の目安</h2><p id="result-context">2人 × 7日分</p></div>
+    <dl class="result-list" aria-live="polite" aria-atomic="true">
+      <div class="result-item"><dt>飲料・調理用水</dt><dd><span id="waterLiters" class="value">42</span> L <span>／ 2Lボトル <strong id="bottles">21</strong> 本</span></dd></div>
+      <div class="result-item"><dt>携帯トイレ</dt><dd><span id="toilets" class="value">70</span> 回分</dd></div>
+      <div class="result-item"><dt>主食</dt><dd><span id="meals" class="value">42</span> 食分</dd></div>
+    </dl>
+    <button id="copy-result" class="primary" type="button">結果と共有URLをコピー</button>
+    <p id="copy-status" class="help" role="status"></p>
+    <label id="manual-copy-label" for="manual-copy" class="help" hidden>コピー用の結果</label><textarea id="manual-copy" readonly hidden></textarea>
+    <p class="help">入力内容はURLに反映されます。共有すると家族構成も伝わります。</p>
+  </section>
+</div>
+<div id="infant-note" class="note" hidden>乳幼児のために：ミルク・離乳食・おむつなどを別途確認してください。食数は成人食を与える指示ではありません。</div>
+<div id="pet-note" class="note" hidden>ペットのために：普段の水・フード・トイレ用品・常用薬・キャリーを別途確認してください。種類や体重による数量は計算していません。</div>
+<div class="sources">
+  <p><strong>計算の根拠：</strong>水は1人1日3L、携帯トイレは1人1日5回、主食は当サイトの簡易基準で1人1日3食。生活用水・おかず・個別の必需品は別途必要です。</p>
+  <ul><li><a href="https://www.maff.go.jp/j/zyukyu/foodstock/imadoki/imadoki02_10.html" target="_blank" rel="noopener">農林水産省「大事な水、どうやって備えますか？」</a></li>
+  <li><a href="https://www.bousai.go.jp/kohou/kouhoubousai/r06/111/news_08.html" target="_blank" rel="noopener">内閣府 広報誌ぼうさい「トイレ備蓄忘れていませんか？」（経済産業省・35回分／週）</a></li></ul>
+</div>
+<section aria-labelledby="shopping-title"><h2 id="shopping-title">備えるものを整理する</h2>
+<p class="help">まず在庫を確認し、足りないものを整理しましょう。商品リンクは準備中です。</p>
+<div class="affiliate-grid">
+<section class="affiliate" data-category="water" aria-labelledby="water-card"><h3 id="water-card">水</h3><p>保存期限・容器の重さ・収納場所を確認。</p><span class="placeholder">Amazon・楽天の商品リンク枠（未設定）</span></section>
+<section class="affiliate" data-category="toilet" aria-labelledby="toilet-card"><h3 id="toilet-card">携帯トイレ</h3><p>回数と使用方法、処分方法を確認。</p><span class="placeholder">Amazon・楽天の商品リンク枠（未設定）</span></section>
+<section class="affiliate" data-category="food" aria-labelledby="food-card"><h3 id="food-card">主食・保存食</h3><p>食べ慣れたものと調理条件を確認。</p><span class="placeholder">Amazon・楽天の商品リンク枠（未設定）</span></section>
+</div></section>
+<nav class="section-nav" aria-label="このページの内容"><a href="#usage">使い方</a><a href="#formula">計算式</a><a href="#quick-table">早見表</a><a href="#checklist">チェックリスト</a><a href="#faq">よくある質問</a></nav>
+<div class="content"><section id="usage" class="article-section"><h2>使い方：計算から、家にある備えの確認まで</h2>
+<p>このツールは、家庭の防災備蓄を考えるための入口です。家族の人数と備える日数を入力すると、水のリットル数、2Lペットボトルの本数、携帯トイレの回数、主食の食数がすぐに表示されます。買い物の前に家にあるものを数え、何が足りないかを整理するために使ってください。表示された数字がそのまま購入数量になるわけではなく、使える在庫を確認してから不足を考えることが大切です。</p>
+<h3>1. 同じ人を二重に数えず、家族全体を入力する</h3>
+<p>大人、子ども、乳幼児の欄に、それぞれの人数を入力します。乳幼児の人数は子どもの人数にも入れず、一人を一つの欄で数えてください。人数は各0〜999人までの整数です。家族構成の区切り方によって、乳幼児の補足表示以外の基本計算は変わりません。合計人数に同じ係数を掛ける仕組みだからです。年齢による実際の必要量を細かく見積もるものではないので、ミルクや離乳食、常備薬などの個別の備えは別途確認してください。</p>
+<h3>2. 備える日数を選んで、数量の違いを比較する</h3>
+<p>「3日分」「7日分」のボタンを押すか、日数の欄に1〜365日の整数を入力します。人数を変えずに日数だけを切り替えると、準備する量がどれくらい変わるかが分かります。例えば2人では3日分の水が18L、7日分では42Lです。ここで選んだ日数は、安全を保証する期限ではありません。自治体の備蓄案内や避難の方針、住まいの条件なども確認し、各家庭で準備する日数を決めてください。迷う場合は両方の結果を保存し、収納や買い足しの計画を比較できます。</p>
+<h3>3. 水・トイレ・主食を、同じ単位で在庫と比べる</h3>
+<p>水はまずリットルで確認し、容器の容量が異なる場合は合計の水量で比べます。2Lボトルの本数は、2L容器で用意する場合の換算です。携帯トイレは箱や袋の個数だけでなく、製品に書かれた使用回数を確認してください。主食は何食分あるかを数えます。家族で一度に何人分を食べるか、調理に水や火が必要かも合わせて確認すると、数は足りていても使う条件が整っていない備蓄を見つけられます。</p>
+<h3>4. 補足チェックリストを見て、計算に含まれないものを確認する</h3>
+<p>乳幼児を入力すると、ミルク・離乳食・おむつなどの補足を表示します。ペットがいる場合はチェックを入れてください。ペット用の補足が表示されますが、人用の水や食料の数値へ加算されるわけではありません。種類や体重によって事情が違うため、普段使っているものを基準に別途整理します。カセットコンロ、ボンベ、常備薬、照明なども自動計算していません。下の一覧を使って、必要なものと家にあるものを照合しましょう。</p>
+<h3>5. 結果をコピーして、家族と確認する</h3>
+<p>「結果と共有URLをコピー」を押すと、計算結果と前提、共有用URLをコピーします。ブラウザがコピーを許可しない場合は、選択できる文章の欄を表示します。端末のコピー操作を使ってください。URLには家族の人数、日数、ペットの有無が含まれるので、共有先を確認しましょう。氏名や住所を入力する必要はありません。共有した相手が同じURLを開くと、入力を復元できます。買い物メモに貼り付ける際も、いつの家族構成で計算したかを確認すると混乱を防げます。</p>
+<h3>6. 入力の誤りと、古い結果に注意する</h3>
+<p>空欄、負の数、小数、範囲外の日数ではエラーメッセージを表示し、結果をコピーできない状態にします。直前の数字を有効な結果と取り違えないよう、表示も「—」へ変わります。共有URLの不正な値は初期値へ戻すため、開いた後にフォームの値を確認してください。家族構成や在庫が変わった場合は再計算し、古いメモを更新しましょう。JavaScriptが使えない場合でも、計算式と早見表は静的な文章として読めます。</p>
+</section><div class="ad-slot" data-slot="middle" aria-label="広告掲載枠・準備中"></div><section id="formula" class="article-section"><h2>計算式と前提を確認する</h2>
+<p>結果は入力された人数と日数に係数を掛ける簡易計算です。計算は端末のブラウザ内で行い、入力を変えると表示が更新されます。ここでは式を公開し、手計算でも照合できるようにしています。何を数えていて、何を数えていないかを理解してから、家庭の備蓄計画へ使ってください。数値は目安であり、災害時の状況や健康状態を診断するものではありません。</p>
+<h3>合計人数：大人＋子ども＋乳幼児</h3>
+<p>計算の人数は、大人の人数、子どもの人数、乳幼児の人数を足した合計です。例えば大人2人、子ども1人、乳幼児1人なら4人として計算します。このツールには、年齢別・体重別の係数や医療上の条件を入力する欄はありません。同じ係数で計算することを明示したうえで、家族全体の準備量を大まかに確認します。乳幼児や特別な配慮が必要な人の食品、用品などは、普段の暮らしと個別の事情に合わせて別に検討してください。</p>
+<h3>水：3L × 合計人数 × 日数</h3>
+<p>水の計算は、1人1日3Lに合計人数と日数を掛けます。4人で7日なら、3×4×7＝84Lです。農林水産省の案内にある飲料・調理用水の目安を参考にしています。ここでの84Lには、入浴や洗濯などの生活用水を含みません。湯せん、食品や食器を洗う用途なども別に考える必要があります。この式の結果だけを見て、断水時のすべての用途に足りると判断しないでください。ペット用の水も人の人数には含めず、別途確認します。</p>
+<h3>2Lボトル：必要な水量 ÷ 2、端数は切り上げ</h3>
+<p>2Lペットボトル本数は、必要な水のリットル数を2で割り、小数点以下を切り上げます。1人3日分の水は9Lなので、9÷2＝4.5本を切り上げて5本です。必要な水量は9Lのままで、ボトルで準備すると10Lになるという意味です。水を1L、500mL、その他の容器で用意する場合は、本数よりも合計リットル数で照合してください。端数を切り捨てると必要量に届かないため、このツールでは必ず切り上げています。</p>
+<h3>携帯トイレ：5回 × 合計人数 × 日数</h3>
+<p>携帯トイレは1人1日5回を簡易的な目安として計算します。4人7日なら5×4×7＝140回分です。内閣府の広報誌に掲載された経済産業省の案内では、成人の平均をもとに1人35回分／週が示されています。このツールでは、子ども・乳幼児にも同じ係数を使った家族全体の簡易目安としています。おむつなどの個別用品の数は計算しません。製品によって付属品や一回の使い方が異なるため、使用回数の表示と使う手順を確認してください。</p>
+<h3>主食：3食 × 合計人数 × 日数</h3>
+<p>主食の結果は、このツールの簡易基準である1人1日3食を掛けた食数です。4人7日なら3×4×7＝84食分になります。食事の回数を数えるための式であり、カロリーや栄養素を計算した結果ではありません。食品1袋が何食分に相当するかは製品や家庭の使い方で異なります。おかず、アレルギーへの対応、ミルク、離乳食などは別に確認してください。主食の食数が揃っていても、調理条件や食べられる内容を確認しなければ準備が完了したとはいえません。</p>
+<h3>0人・任意の日数を入力したとき</h3>
+<p>人数をすべて0にすると、基本の計算結果は0になります。これは備蓄が不要という判断ではなく、入力上の合計人数が0であることを表しています。ペットがいる場合は補足表示が残ります。日数を10日、14日などに変えても、同じ式で計算します。入力上限は誤入力を抑えるための画面の仕様であり、365日分の備蓄を勧めるものではありません。実際の計画は自治体などの案内と生活上の条件を確認して決めてください。</p>
+<h3>計算のあとに必要な確認</h3>
+<p>計算は不足を整理する一つの材料です。現在の在庫、期限、保管状態、調理方法、持ち運びやすさなどを確認し、数字と現物が対応しているかを見てください。家庭によって必要なものが違うため、この計算にない品目も補足チェックリストから整理できます。備蓄品は使ったら数量が変わるので、見直した日付をメモしておくと次に確認しやすくなります。購入や保管は、製品の表示と自治体の指示を優先してください。</p>
+</section><section id="quick-table" class="article-section"><h2>家族人数別の早見表：7日分</h2>
+<p>下の表は、合計人数が1〜6人の場合に、7日分を同じ計算式で求めた静的な早見表です。JavaScriptが無効でも読めます。大人・子ども・乳幼児の内訳にかかわらず、このツールでは合計人数に同じ係数を掛けます。水の本数は2Lペットボトルに換算して切り上げています。生活用水、ペット用の水、おかず、個別の必需品は表に含まれません。</p>
+<div class="table-wrap" tabindex="0" role="region" aria-label="7日分の備蓄早見表。狭い画面では横にスクロールできます。"><table>
+<caption>7日分：水3L・トイレ5回・主食3食 × 人数 × 7日</caption>
+<thead><tr><th scope="col">人数</th><th scope="col">水</th><th scope="col">2Lボトル</th><th scope="col">トイレ</th><th scope="col">主食</th></tr></thead><tbody><tr><th scope="row">1人</th><td>21L</td><td>11本</td><td>35回分</td><td>21食分</td></tr><tr><th scope="row">2人</th><td>42L</td><td>21本</td><td>70回分</td><td>42食分</td></tr><tr><th scope="row">3人</th><td>63L</td><td>32本</td><td>105回分</td><td>63食分</td></tr><tr><th scope="row">4人</th><td>84L</td><td>42本</td><td>140回分</td><td>84食分</td></tr><tr><th scope="row">5人</th><td>105L</td><td>53本</td><td>175回分</td><td>105食分</td></tr><tr><th scope="row">6人</th><td>126L</td><td>63本</td><td>210回分</td><td>126食分</td></tr></tbody></table></div>
+<h3>1人暮らしの場合：21L・35回分・21食分</h3>
+<p>1人で7日分なら、水21L、2Lボトル11本、携帯トイレ35回分、主食21食分です。ボトル11本は22Lになるので、水量21Lに対して1Lの端数が生じます。家にある水の容器が違う場合は、ボトル本数だけでなく合計リットル数を数えてください。一人暮らしでも、普段の薬や食べられる食品、停電時の照明などの個別の備えは同じ表に入りません。表の数字を起点に、チェックリストで必要なものを補います。</p>
+<h3>2人の場合：42L・70回分・42食分</h3>
+<p>2人7日分なら、水42L、2Lボトル21本、携帯トイレ70回分、主食42食分です。二人で共有するものと、それぞれに必要なものを分けて確認すると、数えやすくなります。例えば主食の食数をそろえる際も、二人が同じ食品を食べられるか、調理の手段が用意できるかを確認してください。家族が別の場所で過ごす時間がある場合、表が家庭の在庫全体を示していることと、持ち出す分をどこに置くかを混同しないようにしましょう。</p>
+<h3>3〜4人の場合：人数を増やすと量は比例する</h3>
+<p>3人では水63L、4人では84Lです。携帯トイレは105回分と140回分、主食は63食分と84食分になります。水を2Lボトルで揃えると3人は32本、4人は42本です。人数が増えれば収納や買い足しの量も増えますが、計算は単純な比例なので手計算でも確認できます。例えば大人2人・子ども1人・乳幼児1人は4人の行を見ます。ただし乳幼児の食事や用品は表の数字だけで決めず、補足を別に確認してください。</p>
+<h3>5〜6人の場合：保管場所と使える在庫を確認する</h3>
+<p>5人7日分なら水105L、2Lボトル53本、トイレ175回分、主食105食分です。6人では水126L、2Lボトル63本、トイレ210回分、主食126食分になります。数が多くなるため、まず現在使える在庫を数え、どこにどれだけ置いてあるかを家族が分かるようにしておくと確認しやすくなります。表は収納方法や建物の耐荷重を判断する機能ではありません。保管する際は製品の表示や住まいの条件を確かめてください。</p>
+<h3>3日分や任意の日数へ読み替えるには</h3>
+<p>この表は7日で固定されています。3日分なら、水は人数×9L、トイレは人数×15回分、主食は人数×9食分です。2Lボトルは、水量を2で割って端数を切り上げます。7日分の本数をそのまま7で割って3倍すると、切り上げのタイミングが違うため正しい本数にならないことがあります。別の日数では画面の計算機を使うか、先に水量を求めてから容器の本数に換算してください。</p>
+<h3>表と実際の買い物をつなげる</h3>
+<p>買い物では、表の数字と商品の単位が一致しているかを確認します。携帯トイレの「一箱」は製品ごとに回数が違い、食品の「一袋」も人数分とは限りません。水や食品の期限、開封の有無、調理に使う水や燃料も確認しましょう。必要量の目安から使える在庫を差し引き、不足を整理すると、同じ物を二重に買うのを避けやすくなります。数字だけを残すのではなく、家族人数・日数と一緒にメモを保存してください。</p>
+</section><section id="checklist" class="article-section"><h2>数量だけでは分からない、補足チェックリスト</h2>
+<p>必要なものは家庭ごとに違います。現在使っている品目、保存期限、使い方と保管場所を確認しましょう。以下の品目は自動計算していません。</p>
+<ul class="checklist"><li>カセットコンロ・適合するボンベ</li><li>常備薬・処方薬の確認事項</li><li>懐中電灯・予備電池</li><li>携帯電話の充電手段</li><li>食器・袋・衛生用品</li><li>携帯トイレの使い方・処分方法</li><li>乳幼児のミルク・離乳食・おむつ</li><li>体調やアレルギーに合う食品</li><li>ペットの水・フード・トイレ用品</li><li>ペットのキャリー・常用薬</li></ul>
+</section><section id="faq" class="article-section"><h2>よくある質問</h2><details><summary>子どもや乳幼児も大人と同じ数量で計算するのですか？</summary><p>このツールでは、大人・子ども・乳幼児を合計した人数に同じ係数を掛けます。年齢別の細かな飲水量や食事量を推定する機能はありません。家族全体の備えを数える簡易的な目安として使い、乳幼児にはミルク、離乳食、おむつなどを別に用意してください。主食の食数は成人食を乳幼児に与える指示ではありません。実際には普段の食事と個別の事情に合わせて内容を調整し、必要に応じて専門家に相談してください。人数の入力を分けているのは、乳幼児向けの補足表示を見落としにくくするためです。</p></details><details><summary>2Lペットボトルの本数が割り切れない場合は？</summary><p>必要な水の量を2Lで割り、小数点以下を切り上げます。1人で3日なら9Lなので、2Lボトルは5本、合計10Lです。切り上げは不足を避けるための本数換算であり、必要量そのものが10Lに変わるわけではありません。500mLなど別の容量を使う場合は、必要なリットル数をその容量で割って切り上げてください。開封後の扱いは製品の表示を確認し、大きい容器だけに偏らず家族が持ち運べる大きさも考えましょう。</p></details><details><summary>水の結果には、お風呂や洗濯、ペット用の水も含まれますか？</summary><p>含まれません。結果は、人の飲料・調理用水の目安です。入浴、洗濯、湯せん、食器洗いなどに使う生活用水や、ペットの飲水は別途考えてください。ペット有りにすると補足チェックリストを表示しますが、種類や体重を入力しないため、ペットの必要量を自動計算しません。人用の結果だけで家庭内のすべての水が足りると判断せず、停電・断水時にどの用途が必要かを書き出して確認してください。</p></details><details><summary>まず3日と7日、どちらで計算すればよいですか？</summary><p>この画面では3日・7日のボタンと、1〜365日の任意入力を用意しています。3日と7日を切り替えると、人数が同じでも必要量がどれだけ増えるかを比較できます。計算した日数が安全を保証するものではありません。自治体の備蓄案内、住まいの立地、物資を受け取るまでの条件などを確認して、各家庭で準備する日数を決めてください。いきなりすべてを購入するのが難しいときは、家にあるものを数え、不足分の候補を整理するところから始められます。</p></details><details><summary>主食だけを用意すれば食料の備えは十分ですか？</summary><p>結果に出る主食の食数は、1人1日3食を掛けた数です。栄養、カロリー、食物アレルギー、調理に必要な水や燃料まで計算するものではありません。ごはんやパンなどの主食に加えて、普段食べ慣れたおかず、必要な栄養を補う食品、体調や年齢に合うものを別に確認してください。火を使えない場合、器や缶切りが必要な場合なども想定し、実際に食べるまでの手順を確かめておくと、食数だけでは見えない不足に気づけます。</p></details><details><summary>入力した家族の人数は送信・保存されますか？</summary><p>計算はブラウザ内で行い、家族の人数を当サイトの独自サーバーへ送信する処理はありません。ただし、入力内容は共有できるよう現在のURLのクエリに反映されます。共有先の人はURLから人数・日数・ペットの有無を読み取れます。アクセス時のURLは、ホスティング事業者などの通常のアクセス記録に残る可能性があります。気になる場合は、家族の氏名・住所などを書き込まず、共有範囲を確認してください。詳しくはプライバシーポリシーをご覧ください。</p></details><details><summary>結果をコピーできない場合はどうすればよいですか？</summary><p>ブラウザの権限や接続方法によっては、クリップボードへ直接コピーできないことがあります。その場合は結果の文章を選択できる欄を表示するので、端末のコピー操作を使ってください。コピー内容には数量、計算の前提、補足事項、共有URLが入ります。買い物に使う前に人数と日数が合っているか確認し、現在家にある在庫を差し引いて不足を整理してください。結果を共有する場合は、前の質問にあるURLの情報にも注意してください。</p></details></section><section class="article-section"><h2>ご利用にあたって</h2><p>計算結果は一般的な備蓄計画の目安です。必要量や安全を保証するものではありません。自治体・公的機関の最新の指示と、各家庭の健康状態・生活条件を優先してください。掲載情報は変更される場合があります。購入・使用・保管の判断では各製品の表示を確認してください。</p></section><div class="ad-slot" data-slot="bottom" aria-label="広告掲載枠・準備中"></div></div></main>
+  <footer class="site-footer"><div class="container">
+    <nav aria-label="フッターナビゲーション"><a href="../../tools/bichiku/index.html">防災備蓄 計算</a><a href="../../about/index.html">運営者情報</a><a href="../../contact/index.html">お問い合わせ</a><a href="../../privacy/index.html">プライバシーポリシー</a></nav>
+    <p>広告・アフィリエイトを含みます。現在、広告配信・商品リンク・トラッキングは未設置です。</p>
+    <p>運営：supportapp3-lab ／ 暮らしの計算室</p>
+    <span class="placeholder">運営を応援するリンク（Ko-fiなど）は準備中です。</span>
+  </div></footer>
+</body>
+</html>
