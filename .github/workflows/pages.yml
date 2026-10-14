@@ -15,7 +15,9 @@ jobs:
       - name: Test calculation and validate source
         run: |
           node tests/bichiku.test.js
+          node tests/pet-bichiku.test.js
           node --check assets/js/bichiku.js
+          node --check assets/js/pet-bichiku.js
           python3 scripts/lint.py
       - name: Prepare static files
         run: |
