@@ -4,18 +4,18 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>プライバシーポリシー｜暮らしの計算室</title>
-  <meta name="description" content="計算ツールの入力、共有URL、Cookie、広告・アフィリエイトと個人情報の取り扱いについて。">
+  <meta name="description" content="計算ツールの入力、備蓄リストのlocalStorage保存、共有URL、Cookie・広告の導入状況と情報の取り扱いについて。">
   <meta name="color-scheme" content="light dark">
   <link rel="canonical" href="https://supportapp3-lab.github.io/kasegu-tools/privacy/">
   <meta property="og:type" content="website">
   <meta property="og:title" content="プライバシーポリシー｜暮らしの計算室">
-  <meta property="og:description" content="計算ツールの入力、共有URL、Cookie、広告・アフィリエイトと個人情報の取り扱いについて。">
+  <meta property="og:description" content="計算ツールの入力、備蓄リストのlocalStorage保存、共有URL、Cookie・広告の導入状況と情報の取り扱いについて。">
   <meta property="og:url" content="https://supportapp3-lab.github.io/kasegu-tools/privacy/">
   <meta property="og:locale" content="ja_JP">
   <meta property="og:site_name" content="暮らしの計算室">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="プライバシーポリシー｜暮らしの計算室">
-  <meta name="twitter:description" content="計算ツールの入力、共有URL、Cookie、広告・アフィリエイトと個人情報の取り扱いについて。">
+  <meta name="twitter:description" content="計算ツールの入力、備蓄リストのlocalStorage保存、共有URL、Cookie・広告の導入状況と情報の取り扱いについて。">
   <link rel="stylesheet" href="../assets/css/style.css">
 
 
@@ -26,7 +26,17 @@
     <a class="brand" href="../index.html"><span class="brand-mark" aria-hidden="true">備</span>暮らしの計算室</a>
     <nav aria-label="メインナビゲーション"><a href="../tools/bichiku/index.html">防災備蓄 計算</a><a href="../about/index.html">運営者情報</a><a href="../contact/index.html">お問い合わせ</a></nav>
   </div></header>
-  <main id="main" class="container"><section class="hero"><p class="eyebrow">PRIVACY</p><h1>プライバシーポリシー</h1><p class="lead">入力と共有の仕組みを、ご利用前に確認できます。</p></section><div class="content"><section class="article-section"><h2>計算に入力した情報</h2><p>計算はブラウザ内で行います。当サイトのコードには入力を独自サーバーへ送信する機能、アカウント登録、入力履歴を保存する機能はありません。</p><h2>共有URL</h2><p>人数、日数、ペットの有無をURLのクエリに保持します。URLの共有先はこれらの情報を読み取れます。アクセスしたURLは、ホスティング事業者などの通常のアクセス記録に残る可能性があります。家族の氏名や住所を入力する必要はありません。共有範囲を確認してください。</p><h2>Cookieとアクセス解析</h2><p>現在、当サイトのコードはCookieやローカルストレージを設定せず、アクセス解析や追跡用スクリプトも導入していません。ホスティング事業者やリンク先の情報の扱いは、それぞれのポリシーをご確認ください。</p><h2>広告・アフィリエイト</h2><p>広告と商品紹介の枠は準備中です。現在AdSense等の広告タグやAmazon・楽天等の商品リンクは未設置です。将来広告サービスを導入する際は、Cookie等の利用と必要な同意対応を確認し、このページへサービスの情報を追記します。商品紹介リンクには広告である旨を表示し、リンク属性にsponsoredとnoopenerを設定します。</p><h2>外部サービス・お問い合わせ</h2><p>公的機関の出典リンクを含みます。リンク先の利用条件と情報の扱いは各提供元の案内を確認してください。お問い合わせの外部フォームは未設定のため、現在当サイトで問い合わせ内容を収集する機能はありません。</p><h2>見直し</h2><p>機能や外部サービスの変更に合わせて内容を更新します。最終更新日：2026年10月14日。</p></section></div></main>
+  <main id="main" class="container">
+    <section class="hero"><p class="eyebrow">PRIVACY</p><h1>プライバシーポリシー</h1><p class="lead">入力した情報の保存先と、共有するときの注意を説明します。</p></section>
+    <div class="content">
+      <section class="article-section"><h2>計算に入力した情報</h2><p>暮らしの計算室の計算ツールは、入力した条件をブラウザ内で計算します。当サイトのコードには、入力を独自サーバーへ送信する処理、アカウント登録、外部データベースへ入力履歴を保存する機能はありません。ただし、ローリングストックの備蓄リストはブラウザ内に保存し、各計算ツールは共有URLを使います。これらの仕組みは以下のとおりです。</p></section>
+      <section class="article-section"><h2>備蓄リストとlocalStorage</h2><p><a href="../tools/rolling-stock/index.html">ローリングストック 賞味期限管理</a>は、登録した品目の名前、カテゴリ、数量、単位、期限、メモを、端末・ブラウザ内のlocalStorageに保存します。このリストをサーバーへ送信する機能はありません。ブラウザを閉じた後も保存されますが、別の端末・ブラウザ・ブラウザプロフィールには自動で共有されません。</p><p>端末を変更した場合は、元の端末のリストが新しい端末へ自動で移るわけではありません。閲覧データの削除やブラウザ設定などによって、保存したリストが消えたり利用できなくなったりする場合があります。必要な内容はJSONの書き出しで控えてください。JSONには名前やメモも含まれます。ファイルやコピー文を保管・共有する際は、個人情報が含まれていないか確認してください。</p><p>ページ内の全削除や品目の削除は、確認後に保存内容へ反映されます。JSONを別の端末へ取り込む際は、追記か上書きかを選びます。保存データを読み込めない場合や保存できない場合は、画面に注意を表示します。機能の詳細は期限管理ページの使い方をご確認ください。</p></section>
+      <section class="article-section"><h2>共有URLとコピーした結果</h2><p>防災備蓄、携帯トイレ、ペット、赤ちゃんの計算ツールは、人数・日数・数量などの計算条件をURLのクエリに含めます。ペットやお子さんの呼び名は、それぞれのツールの共有URLには入れません。遠征費の計算は、数値の条件と費目名をURLに含めます。費目名に氏名、予約番号、連絡先などを書かないでください。</p><p>URLの共有先は、その条件を読み取れます。アクセスしたURLはブラウザの履歴や、ホスティング事業者などの通常のアクセス記録に残る可能性があります。当サイトに独自の送信処理がないことと、URLが誰にも見えないことは同じではありません。共有範囲を確認してください。</p><p>ローリングストックは、個人の備蓄リストをURLへ載せません。リストを控える・移す場合はJSONを使います。また、各ツールでコピーする結果には、画面で入力した呼び名や費目名、数量、共有URLなどが含まれる場合があります。URLに呼び名を含めないツールでも、コピーする文章は共有前に読み直してください。</p></section>
+      <section class="article-section"><h2>Cookie・アクセス解析・広告</h2><p>現時点では、当サイトのコードによるCookieの設定、アクセス解析、追跡用スクリプト、AdSenseなどの広告タグは未導入です。localStorageの利用は、上記の備蓄リスト保存のためです。広告・アフィリエイト用の枠は準備中で、Amazon・楽天などの商品紹介リンクも未設置です。</p><p>将来、広告やアクセス解析などを導入するときは、実際に利用するサービスと情報の扱い、Cookieなどの利用、必要な同意対応を確認し、このポリシーを更新します。導入済みのサービスや契約を装った説明は掲載していません。</p></section>
+      <section class="article-section"><h2>外部リンクとお問い合わせ</h2><p>参考資料として公的機関へのリンクを掲載しています。リンク先やホスティング事業者による情報の扱いは、それぞれの案内をご確認ください。外部のお問い合わせフォームは現在未設定です。当サイトには、問い合わせ内容を送信・収集するフォームはありません。</p><p><a href="../contact/index.html">お問い合わせの準備状況</a>／<a href="../about/index.html">運営者情報</a></p></section>
+      <section class="article-section"><h2>ポリシーの見直し</h2><p>機能や外部サービスの変更に合わせて、このページを更新します。</p><p>最終更新日：<time datetime="2026-10-14">2026年10月14日</time></p></section>
+    </div>
+  </main>
   <footer class="site-footer"><div class="container">
     <nav aria-label="フッターナビゲーション"><a href="../tools/bichiku/index.html">防災備蓄 計算</a><a href="../about/index.html">運営者情報</a><a href="../contact/index.html">お問い合わせ</a><a href="../privacy/index.html">プライバシーポリシー</a></nav>
     <p>広告・アフィリエイトを含みます。現在、広告配信・商品リンク・トラッキングは未設置です。</p>

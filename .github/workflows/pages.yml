@@ -31,7 +31,7 @@ jobs:
         run: |
           mkdir _site
           cp index.html 404.html robots.txt sitemap.xml _site/
-          cp -R assets tools about privacy contact _site/
+          cp -R assets tools guides about privacy contact _site/
       - uses: actions/upload-pages-artifact@v4
         if: github.event_name != 'pull_request'
         with:
