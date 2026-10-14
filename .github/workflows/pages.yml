@@ -19,11 +19,13 @@ jobs:
           node tests/baby-bichiku.test.js
           node tests/toilet-bichiku.test.js
           node tests/rolling-stock.test.js
+          node tests/ensei-hi.test.js
           node --check assets/js/bichiku.js
           node --check assets/js/pet-bichiku.js
           node --check assets/js/baby-bichiku.js
           node --check assets/js/toilet-bichiku.js
           node --check assets/js/rolling-stock.js
+          node --check assets/js/ensei-hi.js
           python3 scripts/lint.py
       - name: Prepare static files
         run: |
