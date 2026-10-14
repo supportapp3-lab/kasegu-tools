@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ローリングストック 賞味期限管理｜備蓄の期限をブラウザで一覧</title>
+  <meta name="description" content="水・非常食・携帯トイレ・日用品の賞味期限や使用期限をブラウザ内で管理。期限順・カテゴリ順の並び替え、期限切れ・近い期限の絞り込み、JSONの書き出しと取込に対応。無料・登録不要。">
+  <meta name="color-scheme" content="light dark">
+  <link rel="canonical" href="https://supportapp3-lab.github.io/kasegu-tools/tools/rolling-stock/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="ローリングストック 賞味期限管理｜備蓄の期限をブラウザで一覧">
+  <meta property="og:description" content="水・非常食・携帯トイレ・日用品の賞味期限や使用期限をブラウザ内で管理。期限順・カテゴリ順の並び替え、期限切れ・近い期限の絞り込み、JSONの書き出しと取込に対応。無料・登録不要。">
+  <meta property="og:url" content="https://supportapp3-lab.github.io/kasegu-tools/tools/rolling-stock/">
+  <meta property="og:locale" content="ja_JP">
+  <meta property="og:site_name" content="暮らしの計算室">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="ローリングストック 賞味期限管理｜備蓄の期限をブラウザで一覧">
+  <meta name="twitter:description" content="水・非常食・携帯トイレ・日用品の賞味期限や使用期限をブラウザ内で管理。期限順・カテゴリ順の並び替え、期限切れ・近い期限の絞り込み、JSONの書き出しと取込に対応。無料・登録不要。">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebApplication", "name": "ローリングストック 賞味期限管理", "url": "https://supportapp3-lab.github.io/kasegu-tools/tools/rolling-stock/", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "inLanguage": "ja", "isAccessibleForFree": true, "description": "水・非常食・携帯トイレ・日用品の賞味期限や使用期限をブラウザ内で管理。期限順・カテゴリ順の並び替え、期限切れ・近い期限の絞り込み、JSONの書き出しと取込に対応。無料・登録不要。"}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "データはどこに保存されますか？", "acceptedAnswer": {"@type": "Answer", "text": "このブラウザのlocalStorageに保存します。サーバーや外部データベースへ備蓄リストを送る機能はありません。同じ端末でも別のブラウザや別のブラウザプロフィールには共有されません。閲覧データの削除やブラウザ設定によって保存内容が消える場合もあるため、JSONを書き出して控えておいてください。保存できない場合は画面に注意を表示します。"}}, {"@type": "Question", "name": "あと30日以内は、備えるべき日数の推奨ですか？", "acceptedAnswer": {"@type": "Answer", "text": "違います。期限を確認しやすくするための絞り込み条件です。7・14・30・60日から選べ、期限当日も含みます。食べ物が何日持つか、家庭で何日分備えるべきかをこのツールが決める機能ではありません。数量を考える場合は家族向けや携帯トイレ向けの計算ページへ移動し、期限は製品に書かれた日付を確認して登録してください。"}}, {"@type": "Question", "name": "期限当日と期限切れは、どう区別しますか？", "acceptedAnswer": {"@type": "Answer", "text": "ブラウザのローカル日付を基準に、期限当日は残り0日、翌日から期限切れとして表示します。画面の基準日も確認してください。端末の時計や日付が誤っていると表示も影響を受けます。この区分は登録した日付との比較であり、食品が安全に食べられるか、製品が使用できるかを判定するものではありません。実際の製品表示と保管状態を優先します。"}}, {"@type": "Question", "name": "賞味期限を過ぎた品目は、必ず捨てる必要がありますか？", "acceptedAnswer": {"@type": "Answer", "text": "このツールの期限切れ表示だけで、食品の廃棄や使用を決めないでください。賞味期限は品質に関する期限、消費期限は安全性に関する期限として説明されています。いずれも未開封で表示どおりに保存した場合が前提です。開封や保存状態によって扱いは変わります。製品表示を確認し、食品の安全性に不安があるときは自己判断で食べることを避け、必要に応じて相談してください。"}}, {"@type": "Question", "name": "別の端末へ移すにはどうすればよいですか？", "acceptedAnswer": {"@type": "Answer", "text": "「JSONを書き出す」でファイルを保存するか、「JSONをコピー」で文章を控えます。移行先で同じページを開き、ファイルを選択するか文章を貼り付け、追記か上書きを選んでインポートします。追記すると重複品もそのまま追加されるので、同じ控えを繰り返し取り込む場合は注意してください。JSONには名前やメモが含まれます。保管先と共有相手を確認しましょう。"}}, {"@type": "Question", "name": "インポートで不正な行がある場合は？", "acceptedAnswer": {"@type": "Answer", "text": "読めるJSON配列の中に不正な行があれば、その行をスキップし件数を表示します。日付、固定カテゴリ、数量や文字数の条件を確認してください。JSON全体が壊れている場合や、有効な行が1つもない場合は、現在の一覧を変更しません。空配列での上書きは確認後に一覧を空にするので、保存した控えを確認してから操作してください。"}}, {"@type": "Question", "name": "数量やカテゴリの標準値は補ってくれますか？", "acceptedAnswer": {"@type": "Answer", "text": "補いません。数量は任意で、製品や手元の在庫に合う正の数を入力します。単位は本・袋・回分など短い文字で指定できます。カテゴリは水、主食・非常食、携帯トイレ、日用品・その他の4種類です。期限や保存期間を品名から推定することもありません。同じ品目でも期限が異なる場合は行を分けると確認しやすくなります。"}}]}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "トップ", "item": "https://supportapp3-lab.github.io/kasegu-tools/"}, {"@type": "ListItem", "position": 2, "name": "ローリングストック 賞味期限管理", "item": "https://supportapp3-lab.github.io/kasegu-tools/tools/rolling-stock/"}]}]}</script>
+  <script src="../../assets/js/rolling-stock.js" defer></script>
+  <style>
+    #stock-form .field-grid, .filter-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+    input[type="text"], input[type="date"], input[type="file"], select { width: 100%; min-width: 0; min-height: 52px; padding: 8px; font: inherit; color: var(--ink); background: var(--surface); border: 1px solid var(--line); border-radius: 10px; }
+    .inputs, .results { min-width: 0; }
+    #stock-form textarea { min-height: 100px; }
+    .stock-card { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 16px; margin-block: 16px; overflow-wrap: anywhere; }
+    .stock-card h3 { margin-top: 0; }
+    .stock-card button { margin-right: 8px; }
+    .stock-card.expired { border: 2px solid var(--error); }
+    .expired .deadline { color: var(--error); font-weight: 700; }
+    .near .deadline { font-weight: 700; }
+    .transfer { padding: 24px; margin-top: 28px; border: 1px solid var(--line); background: var(--surface); border-radius: 16px; }
+    .transfer button { margin-block: 10px; }
+    #clear-all { margin-top: 16px; }
+    .error, #draft-status { overflow-wrap: anywhere; }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">本文へ移動</a>
+  <header class="site-header"><div class="container header-inner">
+    <a class="brand" href="../../index.html"><span class="brand-mark" aria-hidden="true">備</span>暮らしの計算室</a>
+    <nav aria-label="メインナビゲーション"><a href="../../tools/bichiku/index.html">防災備蓄 計算</a><a href="../../about/index.html">運営者情報</a><a href="../../contact/index.html">お問い合わせ</a></nav>
+  </div></header>
+  <main id="main" class="container">
+    <div class="breadcrumbs"><a href="../../index.html">トップ</a> / ローリングストック 賞味期限管理</div>
+    <section class="hero" aria-labelledby="page-title"><p class="eyebrow">備えたものを、使い忘れないために。</p>
+      <h1 id="page-title">備蓄品の期限を、<br>ひとつの一覧に。</h1><p class="lead">水・非常食・携帯トイレ・日用品の期限を、ブラウザ内で管理します。期限が近いものを見つけて、使う・買い足す順番を確認しましょう。</p>
+      <span class="tag">無料・登録不要</span><span class="tag">備蓄リストをURLに載せません</span>
+    </section><div class="ad-slot" data-slot="top" aria-label="広告掲載枠・準備中"></div>
+    <p id="storage-notice" class="error" role="status" aria-live="polite"></p>
+    <div class="calculator">
+      <section class="inputs" aria-labelledby="input-title"><h2 id="input-title" class="step"><b aria-hidden="true">1</b>品目と期限を登録</h2>
+        <form id="stock-form"><label for="itemName">名前<small>必須・80文字以内</small></label><input id="itemName" name="itemName" type="text" maxlength="80" required autocomplete="off">
+          <div class="days field-grid"><div><label for="category">カテゴリ</label><select id="category" name="category"><option value="water">水</option><option value="food">主食・非常食</option><option value="toilet">携帯トイレ</option><option value="other">日用品・その他</option></select></div>
+            <div><label for="expiry">賞味期限・使用期限<small>製品の日付を入力</small></label><input id="expiry" name="expiry" type="date" min="0001-01-01" max="9999-12-31" required></div></div>
+          <div class="days field-grid"><div><label for="quantity">数量（任意）<small>正の数。空欄でも可</small></label><input id="quantity" name="quantity" type="number" inputmode="decimal" min="0.000000001" max="9007199254740991" step="any"></div>
+            <div><label for="unit">単位（任意）<small>本・袋・回分など、12文字以内</small></label><input id="unit" name="unit" type="text" maxlength="12"></div></div>
+          <div class="days"><label for="memo">メモ（任意）<small>200文字以内。期限の種類や保管場所など</small></label><textarea id="memo" name="memo" maxlength="200"></textarea></div>
+          <p id="draft-status" class="help" aria-live="polite">名前と期限を入力してください。</p><p id="input-error" class="error" role="status"></p>
+          <button id="save-item" class="primary" type="submit">一覧に追加</button><button id="cancel-edit" type="button" hidden>編集を取り消す</button>
+        </form><noscript><p class="note">一覧管理にはJavaScriptが必要です。下の説明・出典・FAQはそのまま読めます。</p></noscript>
+      </section>
+      <section class="results" aria-labelledby="list-title"><h2 id="list-title" class="step"><b aria-hidden="true">2</b>期限を確認する</h2>
+        <div class="filter-grid"><div><label for="sort">並び順</label><select id="sort"><option value="expiry">期限が近い順</option><option value="category">カテゴリ順</option></select></div>
+          <div><label for="filter">絞り込み</label><select id="filter"><option value="all">すべて</option><option value="expired">期限切れ</option><option value="near">あとN日以内</option><option value="other">それ以外</option></select></div>
+          <div><label for="window-days">N日の範囲</label><select id="window-days"><option value="7">7日</option><option value="14">14日</option><option value="30" selected>30日</option><option value="60">60日</option></select></div></div>
+        <p class="help">N日は絞り込み用の条件です。備える日数や製品の保存期間を勧める値ではありません。</p><p id="list-context" class="help" aria-live="polite"></p>
+        <p id="empty-note">表示する品目はありません。登録や絞り込み条件を確認してください。</p><div id="stock-list"></div>
+        <button id="clear-all" type="button">一覧をすべて削除</button>
+        <div class="note">データはこの端末・ブラウザ内に保存します。別の端末へはJSONを移してください。製品表示や自治体の案内を優先し、データは定期的に控えてください。</div>
+      </section>
+    </div>
+    <section class="transfer" aria-labelledby="transfer-title"><h2 id="transfer-title">JSONで控える・移す</h2>
+      <p>書き出しとコピーは、絞り込み前の全一覧が対象です。JSONには名前・メモも入るため、保管先と共有相手を確認してください。</p>
+      <button id="export-json" type="button">JSONを書き出す</button> <button id="copy-json" type="button">JSONをコピー</button>
+      <label for="import-file">JSONファイルを選ぶ（任意）</label><input id="import-file" type="file" accept=".json,application/json">
+      <label for="json-text">JSONの文章<small>貼り付け・確認・手動コピー用</small></label><textarea id="json-text" spellcheck="false"></textarea>
+      <label for="import-mode">インポート方法</label><select id="import-mode"><option value="append">現在の一覧に追記</option><option value="replace">現在の一覧を上書き</option></select>
+      <button id="import-json" type="button">インポート</button><p id="action-status" role="status" aria-live="polite"></p>
+      <p class="help">上書きと全削除は確認画面を出します。不正な行はスキップし件数を表示します。追記では同じ品目も追加されるため重複を確認してください。</p>
+    </section>
+    <div class="affiliate-grid">
+      <section class="affiliate" data-category="long-life-food"><h3>長期保存食</h3><p>普段の食事・製品の期限を確認。</p><span class="placeholder">商品リンク枠（未設定）</span></section>
+      <section class="affiliate" data-category="water"><h3>水</h3><p>容器・期限・保管方法を確認。</p><span class="placeholder">商品リンク枠（未設定）</span></section>
+      <section class="affiliate" data-category="toilet"><h3>携帯トイレ</h3><p>構成品の期限・手元の回数を確認。</p><span class="placeholder">商品リンク枠（未設定）</span></section>
+    </div><div class="ad-slot" data-slot="middle" aria-label="広告掲載枠・準備中"></div>
+    <nav class="section-nav" aria-label="このページの内容"><a href="#usage">使い方</a><a href="#rolling">ローリングストック</a><a href="#dates">期限の違い</a><a href="#backup">データの控え方</a><a href="#faq">よくある質問</a></nav>
+    <div class="content">
+      <section id="usage" class="article-section"><h2>使い方：期限が違うものは、行を分ける</h2>
+        <p>品目の名前、固定の4カテゴリ、製品に書かれた期限を入力して「一覧に追加」を押します。数量は任意で、手元の本数や袋数などを入れられます。単位は短い文字で指定でき、メモには期限の種類や保管場所を残せます。同じ水でも期限が違う箱があれば、行を分けて登録すると確認しやすくなります。</p>
+        <p>編集する場合は品目の「編集」を押し、入力欄を修正して「変更を保存」を押してください。入力中の期限比較はすぐに表示しますが、一覧への反映は保存操作で行います。使い切ったものは削除したり、買い足した後の数量・期限に更新したりできます。削除した内容を元に戻す機能はないため、JSONの控えも使ってください。</p>
+        <p>期限が近い順で確認し、カテゴリ順に切り替えて同じ種類の備えを見比べることもできます。「あとN日以内」は期限当日から選んだ日数までで、期限切れは別の区分です。「それ以外」は選んだ日数より先の期限を表示します。食べられるか、製品が使えるかを自動判定する区分ではありません。</p>
+      </section>
+      <section id="rolling" class="article-section"><h2>ローリングストックとは</h2>
+        <p>農林水産省の案内では、普段使う食品を少し多めに持ち、古いものから使って、その分を補充する備え方が紹介されています。期限だけを控えて終わりにせず、手元の在庫と普段の食事を見ながら、使う・買い足す作業へつなげる考え方です。</p>
+        <p>このツールは期限と在庫の整理を助けます。名前から製品の標準保存期間を推定したり、家庭に必要な備蓄日数を決めたりする機能はありません。登録した数量も、製品の使用量や買い物の回数を自動で差し引くものではないので、使った後や買い足した後に一覧を更新してください。</p>
+      </section>
+      <section id="dates" class="article-section"><h2>賞味期限と消費期限、製品表示を確認</h2>
+        <p>消費者庁の説明では、賞味期限は品質を保っておいしく食べられる期限、消費期限は安全性に関わる期限として区別されています。いずれも、未開封で表示された方法に沿って保存した場合が前提です。開封後や保管状態の変化を、一覧の日付だけでは評価できません。</p>
+        <p>登録するときは製品の日付を見て、賞味期限・消費期限・使用期限などの種類をメモに残すと確認しやすくなります。年月だけの表示の場合、日をこのサイトで推定しません。メーカーの表示や案内を確認して、管理用の日付を自分で決める場合はメモにもその前提を記載してください。</p>
+        <p>「期限切れ」は登録日付との比較を示す表示です。これだけで廃棄・飲食・使用の可否を決めないでください。実際の製品表示や保管状態、自治体の案内を優先し、食品の安全性に不安がある場合は自己判断で食べることを避けてください。</p>
+      </section>
+      <section id="backup" class="article-section"><h2>端末内のデータを、JSONで控える</h2>
+        <p>一覧はlocalStorageというブラウザ内の保存領域を使います。同じ端末でも別ブラウザや別プロフィールへ自動では移りません。端末の買い替え、閲覧データの削除、プライベートモードの終了などで失われる場合があります。大切な記録はJSONファイルやコピーした文章で定期的に控えてください。</p>
+        <p>JSONは名前・カテゴリ・数量・単位・期限・メモを持つ配列です。書き出し時は全一覧を対象にし、画面の絞り込みには左右されません。ファイルを読み込むか文章を貼り付けて、追記または上書きを選びます。上書きする前に確認画面を表示し、不正な行があればスキップ件数を知らせます。JSON全体が壊れている場合は現在の一覧を変更しません。</p>
+        <p>壊れた保存データを読み込んだ場合は空の一覧で開き、注意を表示します。読み込みだけで元のデータを消しませんが、その後に品目の保存やインポートをすると、新しい一覧で保存し直します。読み書きに失敗した場合は、画面の注意を確認し、再読み込み前にJSONを書き出してください。</p>
+      </section>
+      <section class="article-section"><h2>数量の計算は、用途ごとのツールへ</h2><p>この一覧の数量は登録した在庫です。必要量や「何日分」を自動推定する値ではありません。</p>
+        <a class="button" href="../bichiku/index.html">家族の防災備蓄を計算</a> <a class="button" href="../toilet-bichiku/index.html">携帯トイレの必要数を計算</a> <a class="button" href="../pet-bichiku/index.html">ペットの備蓄量を計算</a> <a class="button" href="../baby-bichiku/index.html">赤ちゃんの用品を計算</a>
+      </section><section class="article-section"><h2>計算の範囲と出典</h2>
+        <p>管理は利用者自身で行い、製品表示・自治体の案内を優先してください。日付比較は端末のローカル日付を基準にします。データの消失や食品・用品の安全性を保証する機能ではありません。備蓄リストはURLには載せず、共有する場合はJSONの内容と相手を確認してください。</p><ul class="sources">
+          <li><a href="https://www.maff.go.jp/j/zyukyu/foodstock/" target="_blank" rel="noopener">農林水産省：家庭備蓄ポータル</a></li>
+          <li><a href="https://www.maff.go.jp/j/zyukyu/foodstock/chapter02.html" target="_blank" rel="noopener">農林水産省：食品ストックガイド・ローリングストック</a></li>
+          <li><a href="https://www.maff.go.jp/j/zyukyu/foodstock/imadoki/imadoki02_10.html" target="_blank" rel="noopener">農林水産省：家庭で備える水（数量の相互参照）</a></li>
+          <li><a href="https://www.no-foodloss.caa.go.jp/digitalbook/2025/pageindices/index55.html" target="_blank" rel="noopener">消費者庁：食品ロス削減ガイドブック・期限表示</a></li>
+        </ul>
+      </section><section id="faq" class="article-section"><h2>よくある質問</h2>
+        <details><summary>データはどこに保存されますか？</summary><p>このブラウザのlocalStorageに保存します。サーバーや外部データベースへ備蓄リストを送る機能はありません。同じ端末でも別のブラウザや別のブラウザプロフィールには共有されません。閲覧データの削除やブラウザ設定によって保存内容が消える場合もあるため、JSONを書き出して控えておいてください。保存できない場合は画面に注意を表示します。</p></details>
+        <details><summary>あと30日以内は、備えるべき日数の推奨ですか？</summary><p>違います。期限を確認しやすくするための絞り込み条件です。7・14・30・60日から選べ、期限当日も含みます。食べ物が何日持つか、家庭で何日分備えるべきかをこのツールが決める機能ではありません。数量を考える場合は家族向けや携帯トイレ向けの計算ページへ移動し、期限は製品に書かれた日付を確認して登録してください。</p></details>
+        <details><summary>期限当日と期限切れは、どう区別しますか？</summary><p>ブラウザのローカル日付を基準に、期限当日は残り0日、翌日から期限切れとして表示します。画面の基準日も確認してください。端末の時計や日付が誤っていると表示も影響を受けます。この区分は登録した日付との比較であり、食品が安全に食べられるか、製品が使用できるかを判定するものではありません。実際の製品表示と保管状態を優先します。</p></details>
+        <details><summary>賞味期限を過ぎた品目は、必ず捨てる必要がありますか？</summary><p>このツールの期限切れ表示だけで、食品の廃棄や使用を決めないでください。賞味期限は品質に関する期限、消費期限は安全性に関する期限として説明されています。いずれも未開封で表示どおりに保存した場合が前提です。開封や保存状態によって扱いは変わります。製品表示を確認し、食品の安全性に不安があるときは自己判断で食べることを避け、必要に応じて相談してください。</p></details>
+        <details><summary>別の端末へ移すにはどうすればよいですか？</summary><p>「JSONを書き出す」でファイルを保存するか、「JSONをコピー」で文章を控えます。移行先で同じページを開き、ファイルを選択するか文章を貼り付け、追記か上書きを選んでインポートします。追記すると重複品もそのまま追加されるので、同じ控えを繰り返し取り込む場合は注意してください。JSONには名前やメモが含まれます。保管先と共有相手を確認しましょう。</p></details>
+        <details><summary>インポートで不正な行がある場合は？</summary><p>読めるJSON配列の中に不正な行があれば、その行をスキップし件数を表示します。日付、固定カテゴリ、数量や文字数の条件を確認してください。JSON全体が壊れている場合や、有効な行が1つもない場合は、現在の一覧を変更しません。空配列での上書きは確認後に一覧を空にするので、保存した控えを確認してから操作してください。</p></details>
+        <details><summary>数量やカテゴリの標準値は補ってくれますか？</summary><p>補いません。数量は任意で、製品や手元の在庫に合う正の数を入力します。単位は本・袋・回分など短い文字で指定できます。カテゴリは水、主食・非常食、携帯トイレ、日用品・その他の4種類です。期限や保存期間を品名から推定することもありません。同じ品目でも期限が異なる場合は行を分けると確認しやすくなります。</p></details>
+      </section>
+    </div><div class="ad-slot" data-slot="bottom" aria-label="広告掲載枠・準備中"></div>
+  </main>
+  <footer class="site-footer"><div class="container">
+    <nav aria-label="フッターナビゲーション"><a href="../../tools/bichiku/index.html">防災備蓄 計算</a><a href="../../about/index.html">運営者情報</a><a href="../../contact/index.html">お問い合わせ</a><a href="../../privacy/index.html">プライバシーポリシー</a></nav>
+    <p>広告・アフィリエイトを含みます。現在、広告配信・商品リンク・トラッキングは未設置です。</p>
+    <p>運営：supportapp3-lab ／ 暮らしの計算室</p>
+    <span class="placeholder">運営を応援するリンク（Ko-fiなど）は準備中です。</span>
+  </div></footer>
+</body>
+</html>
