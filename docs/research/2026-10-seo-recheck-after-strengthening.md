@@ -1,6 +1,6 @@
 # 強化後の既存ページ SEO 再監査
 
-調査日：2026-10-16（JST）  
+調査日：2026-10-16（JST）
 対象：supportapp3-lab/kasegu-tools の main。公開URLの現況をリポジトリ上のHTML・sitemap.xml・robots.txtとGit履歴で照合した。検索ボリュームや検索パフォーマンスは推定していない。Google Search Consoleの権限がないため、実際の表示回数・検索語・順位・Googleが選択したcanonical・インデックス状態は未確認である。方針は docs/research/2026-10-seo-audit.md と docs/research/2026-10-strategy.md に従い、新URLや記事を増やさず、実際の備え方と購入前確認の分かりやすさを優先する。
 
 ## 1. #56 監査の指摘の追跡
