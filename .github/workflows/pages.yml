@@ -12,6 +12,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
       - name: Test calculation and validate source
         run: |
           node tests/bichiku.test.js
@@ -31,6 +33,7 @@ jobs:
         run: |
           mkdir _site
           cp index.html 404.html robots.txt sitemap.xml _site/
+          python3 scripts/build_sitemap.py --out _site/sitemap.xml
           cp -R assets tools guides about privacy contact _site/
       - uses: actions/upload-pages-artifact@v4
         if: github.event_name != 'pull_request'

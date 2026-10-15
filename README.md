@@ -44,6 +44,8 @@ HTML lintはPython標準ライブラリで、タグの対応、重複ID/属性�
 
 Pagesの設定やブランチ保護、Secretsなどは変更していません。公開は未実施です。
 
+sitemap の `lastmod` は公開時に git 履歴から自動生成されます。`sitemap.xml` には URL だけを書き、新しいページを追加するときは従来どおり `<loc>` を追加してください。
+
 ## 広告・商品・問い合わせの枠
 
 広告は `data-slot="top|middle|bottom"`、商品枠は `data-category="water|toilet|food"` にあります。
