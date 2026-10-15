@@ -131,4 +131,3 @@ JSON-LDは30ページで本文のFAQを記述しています。Googleは構造�
 - [Google Search Central: structured data general guidelines](https://developers.google.com/search/docs/appearance/structured-data/sd-policies)
 
 監査日: 2026-10-15（Asia/Tokyo）
-
