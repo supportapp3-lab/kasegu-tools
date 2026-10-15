@@ -67,6 +67,21 @@
 | G. サイズ違いの乳幼児用品を現在庫・家族が定めた備え目標で整理する | tools/baby-bichiku と guides/baby-bousai-bichiku の #set-check が同じ用品を扱う。対象を「サイズ別の在庫差」に限れば新機能の余地はあるが、発育や使用時期の予測は既存機能にない。 | 既存 `baby-supply`。 | 農林水産省の[要配慮者向け食品ストックガイド](https://www.maff.go.jp/j/zyukyu/foodstock/guidebook.html)は乳幼児向け備えを扱う。ただしおむつサイズの将来需要や個人別使用量の新たな数値は根拠なし。 | 発育・授乳・食事の個人差。将来サイズ、年齢別必要数、医学的助言を表示しない。現在の製品表示と家族の実使用量だけを本人が入力する。 | 中 | **中**。乳幼児の備えは公式ガイドにあるが、既存の専用計算機能と競合する。専用機能に新たな流入があるとの実測はない。 |
 | H. ペットごとの製品在庫と家庭が決めた目標との差を表示する | tools/pet-bichiku と guides/pet-bousai-bichiku がペット別量・持ち出し・在庫を扱う。品目の在庫照合のほかに新規計算を足すと重複が大きい。 | 既存 `pet-food`、`pet-water`、`pet-toilet` 等。 | [環境省のペット災害対策](https://www.env.go.jp/nature/dobutsu/aigo/1_law/disaster.html)は飼い主の備えと自治体避難所ルールの確認を案内する。個体の食餌や飲水量をサイト側で一般化する数値は使わない。 | 動物の健康、療法食、水分、避難施設の受入れ。獣医療や避難可否を判定せず、普段の量・かかりつけ獣医師・自治体情報を優先。 | 小〜中 | **中**。環境省がペット備えを案内し、検索結果にペットの防災計算ツールが複数ある。ただし既存の自サイト計算との食い合いが強く、追加価値は限られる。 |
 
+## 検索結果に現れた競合・公式案内の例
+
+下表の外部ページは、記載した検索テーマの調査時に見つかった例です。企業・独立サイトを含む競合例は比較対象としてのみ示し、内容の正しさ、検索順位、需要量、ユーザー数を評価する根拠にはしていません。公式機関の資料は数値根拠として使う場合に限り前節の根拠欄に置き、民間サイトの数字や方式は計算式へ持ち込みません。
+
+| 候補 | 検索結果で確認したページの型 | この確認から言える範囲 |
+|---|---|---|
+| A. 電力量整理 | [DIY数量計算のポータブル電源容量計算](https://www.diy-keisan.jp/electrical/portable-power-capacity-calculator/)、[Gadget Labの容量計算](https://gadget-lab.jp/power-station-calculator/)、[もしもの防災の容量計算](https://moshimono-bousai.com/portable-power-capacity-calculator/) | このテーマに計算ツール形式の検索結果が複数現れる。競争があるため単純に同じ機能を追加するだけでは差別化しにくい。これらの式・係数を本候補に引用しない。 |
+| B. 特別な食品在庫 | [農林水産省の要配慮者向け食品ストックガイド](https://www.maff.go.jp/j/zyukyu/foodstock/guidebook.html) | 公的な資料が乳幼児・高齢者・慢性疾患・アレルギー等の備えを扱う。検索結果だけでは、利用者自身が決めた目標在庫を差分計算する機能の検索需要は分からない。 |
+| C. カセットボンベ | [農林水産省の熱源・備蓄案内](https://www.maff.go.jp/j/zyukyu/foodstock/chapter07.html)、[福島県の災害時の給食施設向け資料](https://www.pref.fukushima.lg.jp/uploaded/attachment/730007.pdf) | 公式の備蓄目安や施設条件を含む試算資料が見つかる。家庭向けに条件を単純化した独自計算が必要とは言えず、製品別条件を外した数字は使わない。 |
+| D. 冬の防寒 | [札幌市北区の備蓄品チェックリスト](https://www.city.sapporo.jp/somu/koho-shi/202012/documents/202012kitaall21.pdf)、[斜里町の暴風雪対策資料](https://www.town.shari.hokkaido.jp/material/files/group/1/bouhuusetutaisaku.pdf) | 地域の気候を前提とする公式チェック例がある。全国共通の品目数・基準に広げない。 |
+| E. 収納寸法 | [図解手帖の分散収納ガイド](https://zukai-techo.hibibako.com/guide/bichiku-storage-map/)、[そなえぐらしの収納チェックリスト](https://sonaegurashi.com/bosai-goods-storage/) | 置き場所・分散収納を扱う記事や記入式の表がある。体積計算だけで使いやすさや耐荷重を判断できない。 |
+| F. 汎用備蓄量 | [JP Toolsの防災備蓄計算](https://jptools.jp/disaster-stockpile)、[はそこんの備蓄計算](https://hasokon.com/tools/bosai-bichiku-keisan/) | 家族人数や日数から複数カテゴリを計算する競合例がある。現行 `tools/bichiku` と同じ一般計算を重ねない。 |
+| G. 乳幼児用品 | [農林水産省の食品ストックガイド](https://www.maff.go.jp/j/zyukyu/foodstock/guidebook.html) | 公的な乳幼児向け備え案内がある。実際のサイズ別消費・発育に基づく数量を本資料からは算定できない。 |
+| H. ペット在庫 | [計算ツールズのペット備蓄量計算](https://ta5k.com/tools/daily/pet-bichiku)、[サクポチのペット備蓄量計算](https://sakupochi.com/pet-senior-tools/pet-disaster-stockpile) | ペットの条件を入力する計算ツールが検索結果に複数現れる。既存 `tools/pet-bichiku` との食い合いを考慮し、新機能の独自価値を確認する。 |
+
 ## 推奨仕様案
 
 ### A. 停電時の機器別電力量を足し合わせる
@@ -127,4 +142,4 @@
 
 ## 調査上の限界
 
-競合ページは調査時の検索結果から選んだ例です。運営者や公開状態、内容は変わることがあり、個別ページの閲覧結果は検索順位・集客数・運営者属性を証明しません。比較例は直接検索に現れた資料ではありませんが、需要規模を表すものではありません。上の仕様は安全面と既存ページとの差を検討するためのたたき台で、実装前に対象利用者・Search Console・サイトのaffiliate方針を再確認してください。
+競合例は次節に調査時の検索結果で見つかったページとして記録しました。運営者や公開状態、内容は変わることがあり、個別ページの確認は検索結果上の掲載順位・集客数・運営者属性を証明しません。例は需要規模を表すものではありません。上の仕様は安全面と既存ページとの差を検討するためのたたき台で、実装前に対象利用者・Search Console・サイトのaffiliate方針を再確認してください。
