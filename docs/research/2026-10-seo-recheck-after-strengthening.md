@@ -108,7 +108,7 @@ lastmodはHTMLファイルの最終コミット日時を表し、各本文が検
 1. GitHubのmainからsitemap.xmlが列挙する公開パスと、404.htmlを除くHTMLページを読み、35ページを対象にした。
 2. #84後の基準コミット c3b685b611c79d644063844d670caba7c5914580 とmainのGit差分・履歴で変更ページと新しいidを列挙した。
 3. 各HTMLのtitle、meta description、og:title、og:description、twitter:title、twitter:descriptionを読み、文字列の長さを数えた。Google検索結果画面での実表示は測っていない。
-4. Python標準ライブラリ相当のHTML parser手順で全a hrefを取得し、相対パス・fragmentを現在のページURLに対して解決する。対象HTMLのファイル存在とid一覧を照合する。
+4. 一時的なHTML検査処理で全a hrefを取得し、相対パス・fragmentを現在のページURLに対して解決する。対象HTMLのファイル存在とid一覧を照合する。
 5. application/ld+json scriptごとにJSONパースし、FAQPageのQuestion.nameを本文FAQのsummaryと順番・件数で比較する。BreadcrumbListの最後のitem URLをcanonicalと照合する。
 6. sitemapのloc集合を35公開canonical URL集合と比較する。robots.txtのAllowとSitemap行を読む。Pages workflowと既存sitemap生成スクリプトを確認し、ソースとデプロイ用出力の違いを判定する。
 7. 検索意図の実績は主張せず、title・H1・meta・導入文の内容を並べて説明上の役割を確認する。
