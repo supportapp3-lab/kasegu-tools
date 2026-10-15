@@ -71,6 +71,14 @@
         <div class="note">データはこの端末・ブラウザ内に保存します。別の端末へはJSONを移してください。製品表示や自治体の案内を優先し、データは定期的に控えてください。</div>
       </section>
     </div>
+    <section aria-labelledby="restock-title"><h2 id="restock-title">期限切れ・期限が近い品目を補充する前に</h2>
+      <p class="help">一覧で期限切れ・期限が近い品目を確認し、使い切る予定や家にある在庫と照らして足りないものだけ補充を検討してください。不足がなければ買い足しは不要です。商品リンクは準備中です。</p>
+      <div class="affiliate-grid">
+        <section class="affiliate" data-category="long-life-food" aria-labelledby="rs-food-card"><h3 id="rs-food-card">長期保存食</h3><p>期限を確認し、普段食べ慣れたものから補充。</p><span class="placeholder">商品リンク枠（未設定）</span></section>
+        <section class="affiliate" data-category="water" aria-labelledby="rs-water-card"><h3 id="rs-water-card">水</h3><p>登録した期限と容器の表示を照合。</p><span class="placeholder">商品リンク枠（未設定）</span></section>
+        <section class="affiliate" data-category="toilet" aria-labelledby="rs-toilet-card"><h3 id="rs-toilet-card">携帯トイレ</h3><p>登録した品の残量・期限を確認。</p><span class="placeholder">商品リンク枠（未設定）</span></section>
+      </div>
+    </section>
     <section class="transfer" aria-labelledby="transfer-title"><h2 id="transfer-title">JSONで控える・移す</h2>
       <p>書き出しとコピーは、絞り込み前の全一覧が対象です。JSONには名前・メモも入るため、保管先と共有相手を確認してください。</p>
       <button id="export-json" type="button">JSONを書き出す</button> <button id="copy-json" type="button">JSONをコピー</button>
@@ -80,11 +88,7 @@
       <button id="import-json" type="button">インポート</button><p id="action-status" role="status" aria-live="polite"></p>
       <p class="help">上書きと全削除は確認画面を出します。不正な行はスキップし件数を表示します。追記では同じ品目も追加されるため重複を確認してください。</p>
     </section>
-    <div class="affiliate-grid">
-      <section class="affiliate" data-category="long-life-food"><h3>長期保存食</h3><p>普段の食事・製品の期限を確認。</p><span class="placeholder">商品リンク枠（未設定）</span></section>
-      <section class="affiliate" data-category="water"><h3>水</h3><p>容器・期限・保管方法を確認。</p><span class="placeholder">商品リンク枠（未設定）</span></section>
-      <section class="affiliate" data-category="toilet"><h3>携帯トイレ</h3><p>構成品の期限・手元の回数を確認。</p><span class="placeholder">商品リンク枠（未設定）</span></section>
-    </div><div class="ad-slot" data-slot="middle" aria-label="広告掲載枠・準備中"></div>
+    <div class="ad-slot" data-slot="middle" aria-label="広告掲載枠・準備中"></div>
     <nav class="section-nav" aria-label="このページの内容"><a href="#usage">使い方</a><a href="#rolling">ローリングストック</a><a href="#dates">期限の違い</a><a href="#backup">データの控え方</a><a href="#faq">よくある質問</a></nav>
     <div class="content">
       <section id="usage" class="article-section"><h2>使い方：期限が違うものは、行を分ける</h2>
