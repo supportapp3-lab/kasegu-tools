@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>塗料 必要量 計算｜面積と塗り回数から必要缶数を整理</title>
+  <meta name="description" content="塗る面積・塗り回数・製品表示の1缶当たりの塗り面積から、必要な塗り面積と最小缶数を整理します。塗料の適合や施工条件は判定しません。">
+  <meta name="color-scheme" content="light dark">
+  <link rel="canonical" href="https://supportapp3-lab.github.io/kasegu-tools/tools/paint-quantity/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="塗料 必要量 計算｜必要缶数を整理">
+  <meta property="og:description" content="塗る面積・塗り回数・製品表示の1缶当たりの塗り面積から、必要な塗り面積と最小缶数を整理します。">
+  <meta property="og:url" content="https://supportapp3-lab.github.io/kasegu-tools/tools/paint-quantity/">
+  <meta property="og:locale" content="ja_JP">
+  <meta property="og:site_name" content="暮らしの計算室">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="塗料 必要量 計算｜必要缶数を整理">
+  <meta name="twitter:description" content="塗る面積・塗り回数・製品表示の1缶当たりの塗り面積から、必要な塗り面積と最小缶数を整理します。">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","name":"塗料 必要量 計算","url":"https://supportapp3-lab.github.io/kasegu-tools/tools/paint-quantity/","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","inLanguage":"ja","isAccessibleForFree":true,"description":"塗る面積・塗り回数・製品表示の塗り面積から必要缶数を整理します。"},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"複数の面を計算できますか？","acceptedAnswer":{"@type":"Answer","text":"はい。各面の面積を入力すると合計して計算します。幅と高さから面積を計算する補助機能はありません。"}},{"@type":"Question","name":"製品表示の塗り面積が範囲の場合はどう入力しますか？","acceptedAnswer":{"@type":"Answer","text":"表示範囲の下限側を入力すると不足しにくい計算になりますが、必要量を保証するものではありません。"}},{"@type":"Question","name":"計算に使う1缶当たりの塗り面積はどこで確認しますか？","acceptedAnswer":{"@type":"Answer","text":"利用する製品の表示や公式資料で確認してください。製品ごとに目安や条件が異なります。"}},{"@type":"Question","name":"結果は塗料の適合や施工方法を示しますか？","acceptedAnswer":{"@type":"Answer","text":"いいえ。面積と入力値の数量整理です。塗料の種類・適合・下地処理・施工方法・安全性は判定しません。"}},{"@type":"Question","name":"出典メモは共有URLに含まれますか？","acceptedAnswer":{"@type":"Answer","text":"いいえ。共有URLには面積、塗り回数、1缶当たりの塗り面積だけを含め、出典メモは含めません。入力内容は独自サーバーへ送信しません。"}},{"@type":"Question","name":"計算した缶数が表示されたら購入が必要ですか？","acceptedAnswer":{"@type":"Answer","text":"いいえ。手持ちの塗料で足りるなら購入は不要です。計算結果は容量だけから出した最小缶数で、製品や施工条件による増減は含みません。"}}]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"トップ","item":"https://supportapp3-lab.github.io/kasegu-tools/"},{"@type":"ListItem","position":2,"name":"塗料 必要量 計算","item":"https://supportapp3-lab.github.io/kasegu-tools/tools/paint-quantity/"}]}]}</script>
+  <script src="../../assets/js/paint-quantity.js" defer></script>
+  <style>
+    #surface-list { display: grid; gap: 12px; margin-bottom: 16px; }
+    .surface-row { margin: 0; }
+    .surface-row .field-grid { grid-template-columns: minmax(0, 1fr); }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">本文へ移動</a>
+  <header class="site-header"><div class="container header-inner">
+    <a class="brand" href="../../index.html"><span class="brand-mark" aria-hidden="true">暮</span>暮らしの計算室</a>
+    <nav aria-label="メインナビゲーション"><a href="../../tools/bichiku/index.html">防災備蓄 計算</a><a href="../../about/index.html">運営者情報</a><a href="../../contact/index.html">お問い合わせ</a></nav>
+  </div></header>
+  <main id="main" class="container">
+    <div class="breadcrumbs"><a href="../../index.html">トップ</a> / 塗料 必要量 計算</div>
+    <section class="hero" aria-labelledby="page-title">
+      <p class="eyebrow">塗る面積から、容量を整理。</p>
+      <h1 id="page-title">塗料の必要缶数を<br>面積と回数から計算</h1>
+      <p class="lead">塗る面の面積、塗り回数、製品表示の1缶当たりの塗り面積を使って、容量だけから計算した最小缶数を整理します。塗料や施工条件の適合は判定しません。</p>
+      <span class="tag">無料・登録不要</span><span class="tag">入力はブラウザ内で計算</span>
+    </section>
+    <div class="ad-slot" data-slot="top" aria-label="広告掲載枠・準備中"></div>
+    <section id="usage" class="article-section">
+      <h2>使い方</h2>
+      <ol>
+        <li>塗る面ごとの面積を㎡で入力します。面は追加・削除できます。</li>
+        <li>塗り回数と、利用する製品に表示された1缶当たりの塗り面積を入力します。</li>
+        <li>製品表示が範囲の場合は、下限側を入力すると不足しにくい計算になります。ただし必要量を保証するものではありません。</li>
+      </ol>
+      <p>製品表示や範囲は、利用する製品の表示・公式資料で確認してください。出典メモは任意で、共有URLには含めません。</p>
+    </section>
+    <section class="calculator" aria-label="塗料の必要缶数計算">
+      <section class="inputs" aria-labelledby="input-title">
+        <h2 id="input-title" class="step"><b aria-hidden="true">1</b>面積と製品表示を入力</h2>
+        <form id="paint-quantity-form" novalidate>
+          <fieldset>
+            <legend>塗る面</legend>
+            <div id="surface-list">
+              <fieldset class="surface-row">
+                <legend>塗る面 1</legend>
+                <div><label for="surface-area-0">面積（㎡）</label><input id="surface-area-0" name="surface-area" data-field="area" type="number" inputmode="decimal" min="0.01" max="10000" step="any" required></div>
+                <button type="button" class="button remove-surface" disabled>この面を削除</button>
+              </fieldset>
+            </div>
+            <button type="button" id="add-surface" class="button">塗る面を追加</button>
+            <p class="help">1面ごとに正の面積を入力します。幅と高さから面積を補助計算する機能はありません。</p>
+          </fieldset>
+          <div class="field-grid">
+            <div><label for="coats">塗り回数（回）</label><input id="coats" name="coats" type="number" inputmode="numeric" min="1" max="10" step="1" required></div>
+            <div><label for="coverage">1缶当たりの塗り面積（㎡/回/缶）</label><input id="coverage" name="coverage" type="number" inputmode="decimal" min="0.01" max="10000" step="any" required></div>
+          </div>
+          <p class="help">製品表示が範囲の場合は、下限側を入力すると不足しにくくなりますが、必要量の保証ではありません。サイト側で製品ごとの数値は設定していません。</p>
+          <div class="days">
+            <label for="memo">出典メモ（任意・共有URLには含みません）</label>
+            <textarea id="memo" name="memo" maxlength="200" rows="3" autocomplete="off"></textarea>
+            <p class="help">表示を確認した場所などを200文字以内で控えられます。個人情報は入力しないでください。</p>
+          </div>
+          <p id="input-error" class="error" role="status" aria-live="polite"></p>
+        </form>
+        <noscript><p class="note">自動計算にはJavaScriptが必要です。計算式と注意点はこのページ内で確認できます。</p></noscript>
+      </section>
+      <section class="results" aria-labelledby="result-title">
+        <section id="calculation-warning" class="note" role="note" aria-label="計算結果を読む前の注意">
+          <strong>結果を読む前にご確認ください</strong>
+          <p>1缶当たりの塗り面積は製品の目安です。素材、下地、塗装方法、施工条件や気象条件によって増減します。表示が範囲の場合は下限側を使うと不足しにくくなりますが、保証ではありません。</p>
+          <p>この計算は面積の整理であり、塗料の種類・適合・下地処理・施工方法・安全性を判定しません。換気・保護具・取扱いは、製品のカタログ・安全データシート（SDS）・販売店・施工業者の説明を優先してください。手持ちの塗料で足りるなら購入は不要です。</p>
+        </section>
+        <div id="result-summary" hidden>
+          <h2 id="result-title" class="step"><b aria-hidden="true">2</b>面積と最小缶数</h2>
+          <dl class="result-list">
+            <div class="result-item"><dt>塗る面積の合計</dt><dd><span id="result-total-area" class="value">—</span> ㎡</dd></div>
+            <div class="result-item"><dt>塗り回数</dt><dd><span id="result-coats" class="value">—</span> 回</dd></div>
+            <div class="result-item"><dt>必要な塗り面積</dt><dd><span id="result-required-area" class="value">—</span> ㎡</dd></div>
+            <div class="result-item"><dt>入力した1缶当たりの塗り面積</dt><dd><span id="result-coverage" class="value">—</span> ㎡/回/缶</dd></div>
+            <div class="result-item"><dt>容量だけから計算した最小缶数</dt><dd><span id="result-cans" class="value">—</span> 缶</dd></div>
+          </dl>
+          <p class="help">塗料のロス、下地による増減、希釈、塗装方法による補正は含みません。手持ちの塗料で足りるなら購入は不要です。</p>
+        </div>
+      </section>
+    </section>
+
+    <section class="affiliate" data-category="paint" aria-label="塗料関連の紹介枠">
+      <span class="placeholder">商品リンク枠（未設定）</span>
+    </section>
+    <div class="ad-slot" data-slot="middle" aria-label="広告掲載枠・準備中"></div>
+    <nav class="section-nav" aria-label="このページの内容"><a href="#formula">計算式</a><a href="#limits">この計算で分からないこと</a><a href="#pre-buy-check">購入前の確認</a><a href="#sources">出典</a><a href="#faq">よくある質問</a></nav>
+    <div class="content">
+      <section id="formula" class="article-section">
+        <h2>計算式と結果の意味</h2>
+        <p>面積の合計は、入力した各面の面積を足して求めます。必要な塗り面積は「面積の合計 × 塗り回数」、最小缶数は「必要な塗り面積 ÷ 製品表示の1缶当たりの塗り面積」を切り上げます。</p>
+        <p>切り上げた缶数は、入力した容量だけから求めた数量整理です。ロス率、下地による増減、希釈、塗装方法による補正は加えません。</p>
+      </section>
+      <section id="limits" class="article-section">
+        <h2>この計算で分からないこと</h2>
+        <ul>
+          <li>塗料の種類が素材や下地に適合するか、下地処理や施工方法が適切か。</li>
+          <li>実際の塗り面積。製品の表示、塗り方、下地、気象条件等で変わります。</li>
+          <li>安全な換気、保護具、保管、廃棄などの取扱い。</li>
+        </ul>
+        <p>日本ペイントの公式製品ページには、製品ごとの1缶当たり塗り面積の目安と、施工条件等で増減する旨が記載されています。具体的な製品値はこのページに転記せず、<a href="https://www.nipponpaint.co.jp/products/building/345/" target="_blank" rel="noopener">公式製品情報とSDSの確認先</a>として掲載します。</p>
+      </section>
+      <section id="pre-buy-check" class="article-section">
+        <h2>購入を考える前に</h2>
+        <p>容量だけから計算した最小缶数が表示されます。製品表示や条件を確認し、手持ちの塗料で足りるなら購入は不要です。適合や安全性が分からない場合は、製品の説明や販売店・施工業者に確認してください。</p>
+        <ul class="checklist">
+          <li>塗る面ごとの面積を測って入力した</li>
+          <li>塗り回数と製品表示の1缶当たり塗り面積を確認した</li>
+          <li>表示範囲の場合は下限側を使った（保証ではない）</li>
+          <li>素材・下地・施工条件で使用量が変わると確認した</li>
+          <li>換気・保護具・取扱いを製品カタログやSDSで確認した</li>
+          <li>手持ちの塗料で足りるなら追加購入しない</li>
+        </ul>
+      </section>
+      <section id="sources" class="article-section">
+        <h2>出典</h2>
+        <ul>
+          <li><a href="https://www.nipponpaint.co.jp/products/building/345/" target="_blank" rel="noopener">日本ペイント公式製品情報：塗り面積の目安・施工条件・SDSの確認先</a>（製品ごとの目安と条件による増減を確認する資料。製品名・具体的な塗り面積は転記していません。）</li>
+        </ul>
+      </section>
+      <section id="faq" class="article-section">
+        <h2>よくある質問</h2>
+        <details><summary>複数の面を計算できますか？</summary><p>はい。各面の面積を入力すると合計して計算します。幅と高さから面積を計算する補助機能はありません。</p></details>
+        <details><summary>製品表示の塗り面積が範囲の場合はどう入力しますか？</summary><p>表示範囲の下限側を入力すると不足しにくい計算になりますが、必要量を保証するものではありません。</p></details>
+        <details><summary>計算に使う1缶当たりの塗り面積はどこで確認しますか？</summary><p>利用する製品の表示や公式資料で確認してください。製品ごとに目安や条件が異なります。</p></details>
+        <details><summary>結果は塗料の適合や施工方法を示しますか？</summary><p>いいえ。面積と入力値の数量整理です。塗料の種類・適合・下地処理・施工方法・安全性は判定しません。</p></details>
+        <details><summary>出典メモは共有URLに含まれますか？</summary><p>いいえ。共有URLには面積、塗り回数、1缶当たりの塗り面積だけを含め、出典メモは含めません。入力内容は独自サーバーへ送信しません。</p></details>
+        <details><summary>計算した缶数が表示されたら購入が必要ですか？</summary><p>いいえ。手持ちの塗料で足りるなら購入は不要です。計算結果は容量だけから出した最小缶数で、製品や施工条件による増減は含みません。</p></details>
+      </section>
+    </div>
+    <div class="ad-slot" data-slot="bottom" aria-label="広告掲載枠・準備中"></div>
+  </main>
+  <footer class="site-footer"><div class="container">
+    <nav aria-label="フッターナビゲーション"><a href="../../tools/bichiku/index.html">防災備蓄 計算</a><a href="../../about/index.html">運営者情報</a><a href="../../contact/index.html">お問い合わせ</a><a href="../../privacy/index.html">プライバシーポリシー</a></nav>
+    <p>広告・アフィリエイトの導入を予定しています。Amazonアソシエイトは現在未申請で、参加・承認されていません。</p>
+    <p>現時点では広告タグ・商品紹介リンク・トラッキングは未設置です。</p>
+    <p>運営：supportapp3-lab ／ 暮らしの計算室</p>
+    <span class="placeholder">運営を応援するリンク（Ko-fiなど）は準備中です。</span>
+  </div></footer>
+</body>
+</html>
