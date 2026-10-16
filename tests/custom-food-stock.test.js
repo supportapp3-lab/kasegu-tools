@@ -86,3 +86,48 @@ test('results expose no share URL, query writer, or combined quantity', () => {
   assert.ok(!/https?:\/\/|\?/.test(output));
   assert.ok(!/合計/.test(output));
 });
+
+test('pack size rounds shortage up per row using hundredths arithmetic', () => {
+  assert.equal(calculateRows([row({ packSize: 3 })])[0].packs, 2);
+  assert.equal(calculateRows([row({ packSize: 4 })])[0].packs, 2);
+  assert.equal(calculateRows([row({ target: 0.2, stock: 0, packSize: 0.1 })])[0].packs, 2);
+});
+
+test('zero shortage keeps the no-purchase message and has zero packs', () => {
+  for (const stock of [10, 12]) {
+    const input = row({ stock, packSize: 3 });
+    const result = calculateRows([input])[0];
+    const output = formatResult([input]);
+    assert.equal(result.packs, 0);
+    assert.match(output, /不足なし（買い足しは不要です）/);
+    assert.match(output, /算術上の目安 0 パック/);
+    assert.doesNotMatch(output, /買い足し.*パック/);
+  }
+});
+
+test('blank optional pack sizes preserve the existing result exactly', () => {
+  const expected = '行1：保存食：目標 10 食分 ／ 現在使える在庫 4 食分 ／ 不足あり（不足 6 食分）';
+  for (const packSize of [undefined, '', NaN]) {
+    const input = row({ packSize });
+    assert.equal(formatResult([input]), expected);
+    assert.equal(calculateRows([input])[0].packs, null);
+  }
+});
+
+test('invalid pack sizes invalidate the row with a reason', () => {
+  for (const packSize of [0, -1, 'abc', 1.234, 1000001]) {
+    const result = normalizeRow(row({ packSize }));
+    assert.equal(result.valid, false, String(packSize));
+    assert.ok(result.reason);
+  }
+});
+
+test('pack estimates are not combined across rows and include a purchase disclaimer', () => {
+  const inputs = [row({ packSize: 3 }), row({ unit: '本', target: 8, stock: 2, packSize: 4 })];
+  const results = calculateRows(inputs);
+  assert.deepEqual(results.map(result => result.packs), [2, 2]);
+  assert.equal(Object.prototype.hasOwnProperty.call(results, 'total'), false);
+  const output = formatResult(inputs);
+  assert.equal((output.match(/算術上の目安/g) || []).length, 2);
+  assert.equal((output.match(/購入数量の確定ではありません/g) || []).length, 2);
+});
