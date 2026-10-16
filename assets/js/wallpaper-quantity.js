@@ -37,7 +37,7 @@
     if (!Number.isFinite(number) || !Number.isSafeInteger(units)
         || Math.abs(scaled - units) > 1e-7
         || (allowZero ? number < min : number <= min) || number > max) {
-      const lower = allowZero ? min : min + 'より大きく';
+      const lower = allowZero ? min + '以上' : min + 'より大きく';
       throw new RangeError(label + 'は' + lower + '、' + max + '以下で0.1cm単位で入力してください。');
     }
     return units;
@@ -52,7 +52,7 @@
         || usableWidthCm > MAX_USABLE_WIDTH_CM) {
       throw new RangeError('製品の有効幅は' + MIN_USABLE_WIDTH_CM + '〜' + MAX_USABLE_WIDTH_CM + 'cmで入力してください。');
     }
-    const usableWidthUnits = toTenths(usableWidthCm, '製品の有効幅', MIN_USABLE_WIDTH_CM, MAX_USABLE_WIDTH_CM, false);
+    const usableWidthUnits = toTenths(usableWidthCm, '製品の有効幅', MIN_USABLE_WIDTH_CM, MAX_USABLE_WIDTH_CM, true);
     const repeatUnits = toTenths(input.repeatCm == null || input.repeatCm === '' ? 0 : input.repeatCm,
       '柄リピート', 0, MAX_REPEAT_CM, true);
     const allowanceUnits = toTenths(input.allowanceCm == null || input.allowanceCm === '' ? 0 : input.allowanceCm,
