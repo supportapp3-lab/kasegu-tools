@@ -78,6 +78,8 @@ test('width, height, and usable width reject empty, zero, negative, nonnumeric, 
   assert.throws(() => calculate(input({ wallHeightCm: MAX_WALL_HEIGHT_CM + 0.1 })));
   assert.throws(() => calculate(input({ usableWidthCm: 29.9 })));
   assert.throws(() => calculate(input({ usableWidthCm: 200.1 })));
+  assert.equal(calculate(input({ usableWidthCm: 30 })).stripCount, 12);
+  assert.equal(calculate(input({ usableWidthCm: 200 })).stripCount, 2);
 });
 
 test('repeat, allowance, and roll length reject negative, over-limit, or invalid precision values', () => {
