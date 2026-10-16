@@ -17,6 +17,7 @@ jobs:
       - name: Test calculation and validate source
         run: |
           node tests/bichiku.test.js
+          node tests/custom-food-stock.test.js
           node tests/pet-bichiku.test.js
           node tests/baby-bichiku.test.js
           node tests/toilet-bichiku.test.js
@@ -24,6 +25,7 @@ jobs:
           node tests/rolling-stock.test.js
           node tests/ensei-hi.test.js
           node --check assets/js/bichiku.js
+          node --check assets/js/custom-food-stock.js
           node --check assets/js/pet-bichiku.js
           node --check assets/js/baby-bichiku.js
           node --check assets/js/toilet-bichiku.js
