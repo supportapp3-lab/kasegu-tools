@@ -108,6 +108,7 @@ test('query state roundtrips optional values but never includes or restores sour
 
 test('formatted results avoid suitability or purchase recommendations', () => {
   const text = formatResult(input({ wallWidthCm: 369, rollLengthM: 10, memo: 'private note' }));
+  assert.match(text, /入力条件：壁幅 369cm × 高さ 240cm/);
   assert.match(text, /切り出し枚数：5枚/);
   assert.match(text, /ロール本数：2本/);
   assert.match(text, /手持ちの壁紙で足りるなら購入は不要/);
@@ -119,6 +120,7 @@ test('HTML keeps caution before results, affiliate placeholder empty, and requir
   const warning = html.indexOf('id="calculation-warning"');
   const results = html.indexOf('id="result-summary"');
   assert.ok(warning >= 0 && warning < results);
+  assert.match(html, /id="result-inputs"/);
   const affiliate = html.match(/<section class="affiliate" data-category="wallpaper"[^>]*>([\s\S]*?)<\/section>/);
   assert.ok(affiliate);
   assert.doesNotMatch(affiliate[1], /<a\b|<img\b|価格/);
