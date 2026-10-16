@@ -57,15 +57,15 @@
         <form id="wallpaper-quantity-form" novalidate>
           <div class="wallpaper-fields">
             <div class="field-grid">
-              <div><label for="width">壁の幅（cm、1〜2000）</label><input id="width" name="width" type="number" inputmode="decimal" min="0.1" max="2000" step="0.1" required></div>
-              <div><label for="height">壁の高さ（cm、1〜500）</label><input id="height" name="height" type="number" inputmode="decimal" min="0.1" max="500" step="0.1" required></div>
+              <div><label for="width">壁の幅（cm、0より大きく2000以下）</label><input id="width" name="width" type="number" inputmode="decimal" min="0.1" max="2000" step="0.1" required></div>
+              <div><label for="height">壁の高さ（cm、0より大きく500以下）</label><input id="height" name="height" type="number" inputmode="decimal" min="0.1" max="500" step="0.1" required></div>
               <div><label for="usable">製品の有効幅（cm、30〜200）</label><input id="usable" name="usable" type="number" inputmode="decimal" min="30" max="200" step="0.1" required></div>
             </div>
             <p class="help">窓・ドアなど開口部の控除や複数の壁は扱いません。幅と高さは1面の実測値を入力してください。</p>
             <div class="field-grid">
               <div><label for="repeat">柄リピート（cm、0〜200）</label><input id="repeat" name="repeat" type="number" inputmode="decimal" min="0" max="200" step="0.1" value="0" required></div>
               <div><label for="allowance">上下の切りしろ（cm、0〜50）</label><input id="allowance" name="allowance" type="number" inputmode="decimal" min="0" max="50" step="0.1" value="0" required></div>
-              <div><label for="roll">ロール長（m、任意・0〜100）</label><input id="roll" name="roll" type="number" inputmode="decimal" min="0.001" max="100" step="0.001"></div>
+              <div><label for="roll">ロール長（m、任意・0より大きく100以下）</label><input id="roll" name="roll" type="number" inputmode="decimal" min="0.001" max="100" step="0.001"></div>
             </div>
             <p class="help">柄リピートがある場合、切り出し長さをリピート単位で切り上げます。切りしろは初期値0です。製品説明や施工者の説明を確認して、必要な場合だけ入力してください。1枚の長さがロール長を超える場合、本数は算出しません。</p>
             <div class="days">
