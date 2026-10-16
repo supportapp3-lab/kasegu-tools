@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>水槽 水量・底砂量 計算｜内寸から理論Lを整理</title>
+  <meta name="description" content="水槽の内側の幅・奥行・水面までの高さから理論上の水容量を計算。底砂の厚みと袋容量を入力すると理論容量と最小袋数を整理します。">
+  <meta name="color-scheme" content="light dark">
+  <link rel="canonical" href="https://supportapp3-lab.github.io/kasegu-tools/tools/aquarium-volume/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="水槽 水量・底砂量 計算｜内寸から理論Lを整理">
+  <meta property="og:description" content="水槽の内寸と指定した底砂の厚みから、理論上の容量を整理します。">
+  <meta property="og:url" content="https://supportapp3-lab.github.io/kasegu-tools/tools/aquarium-volume/">
+  <meta property="og:locale" content="ja_JP">
+  <meta property="og:site_name" content="暮らしの計算室">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="水槽 水量・底砂量 計算｜内寸から理論Lを整理">
+  <meta name="twitter:description" content="水槽の内寸と指定した底砂の厚みから、理論上の容量を整理します。">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","name":"水槽 水量・底砂量 計算","url":"https://supportapp3-lab.github.io/kasegu-tools/tools/aquarium-volume/","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","inLanguage":"ja","isAccessibleForFree":true,"description":"水槽の内寸と指定した底砂の厚みから、理論上の容量を整理します。"},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"このページの水容量は実際に入る水の量ですか？","acceptedAnswer":{"@type":"Answer","text":"いいえ。内寸を直方体として計算した理論値です。ガラス厚、機材、底砂などで実際の水量は小さくなり、実水量や設置可否を保証しません。"}},{"@type":"Question","name":"水面までの高さはどこを測りますか？","acceptedAnswer":{"@type":"Answer","text":"水槽の内側で、底から想定する水面までの高さを使います。満水を想定した理論値なので、実際の水位に合わせてください。"}},{"@type":"Question","name":"底砂の容量と袋数はどう計算しますか？","acceptedAnswer":{"@type":"Answer","text":"内側の幅×奥行×入力した厚み÷1,000で底砂の理論容量を計算します。袋容量を入力した場合だけ、その容量から計算した最小袋数を切り上げて表示します。"}},{"@type":"Question","name":"底砂の厚みは何cmにすればよいですか？","acceptedAnswer":{"@type":"Answer","text":"このページは厚みを推奨しません。日本ペット用品工業会のFAQには水草の有無による例が案内されていますが、レイアウトや使い方に合わせて資料・製品説明をご確認ください。"}},{"@type":"Question","name":"水槽や台の耐荷重、生体への適性も分かりますか？","acceptedAnswer":{"@type":"Answer","text":"いいえ。水と底砂は重く、このページは重さや台の耐荷重、水質、濾過、生体への適性を判定しません。水槽・台のメーカー説明や飼育資料を優先してください。"}},{"@type":"Question","name":"入力内容や出典メモは送信されますか？","acceptedAnswer":{"@type":"Answer","text":"計算はブラウザ内で行い、独自サーバーへ入力内容を送信しません。寸法や袋容量は共有URLのクエリに含まれますが、出典メモは含まれません。共有先に注意してください。"}}]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"トップ","item":"https://supportapp3-lab.github.io/kasegu-tools/"},{"@type":"ListItem","position":2,"name":"水槽 水量・底砂量 計算","item":"https://supportapp3-lab.github.io/kasegu-tools/tools/aquarium-volume/"}]}]}</script>
+  <script src="../../assets/js/aquarium-volume.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">本文へ移動</a>
+  <header class="site-header"><div class="container header-inner">
+    <a class="brand" href="../../index.html"><span class="brand-mark" aria-hidden="true">暮</span>暮らしの計算室</a>
+    <nav aria-label="メインナビゲーション"><a href="../../tools/bichiku/index.html">防災備蓄 計算</a><a href="../../about/index.html">運営者情報</a><a href="../../contact/index.html">お問い合わせ</a></nav>
+  </div></header>
+  <main id="main" class="container">
+    <div class="breadcrumbs"><a href="../../index.html">トップ</a> / 水槽 水量・底砂量 計算</div>
+    <section class="hero" aria-labelledby="page-title">
+      <p class="eyebrow">水槽の容量を、内寸から整理。</p>
+      <h1 id="page-title">水槽の水量と底砂量を<br>理論上の容量で整理</h1>
+      <p class="lead">水槽の内側の幅・奥行・水面までの高さから、水容量を計算します。底砂の厚みと袋の表示容量を入力すると、理論上の底砂容量と最小袋数も確認できます。耐荷重や生体・水質の適性を判定する計算ではありません。</p>
+      <span class="tag">無料・登録不要</span><span class="tag">入力はブラウザ内で計算</span>
+    </section>
+    <div class="ad-slot" data-slot="top" aria-label="広告掲載枠・準備中"></div>
+    <section id="usage" class="article-section">
+      <h2>使い方</h2>
+      <ol>
+        <li>水槽の内側の幅・奥行・水面までの高さを、実測値やメーカー表示から入力します。高さは満水を想定した理論値として扱います。</li>
+        <li>底砂も整理する場合は、敷きたい厚みを入力します。空欄または0なら底砂の結果は表示しません。</li>
+        <li>底砂の袋容量を入力すると、容量だけから計算した最小袋数が表示されます。</li>
+        <li>出典メモは自分用です。共有URLには寸法などの数値が含まれますが、出典メモは含まれません。</li>
+      </ol>
+    </section>
+    <section class="calculator" aria-label="水槽容量計算">
+      <section class="inputs" aria-labelledby="input-title">
+        <h2 id="input-title" class="step"><b aria-hidden="true">1</b>内寸と底砂の条件を入力</h2>
+        <form id="aquarium-volume-form" novalidate>
+          <fieldset>
+            <legend>水槽の内寸（cm）</legend>
+            <div class="field-grid">
+              <div><label for="width">内側の幅（cm）</label><input id="width" name="width" type="number" inputmode="decimal" min="0.1" max="300" step="0.1" required></div>
+              <div><label for="depth">内側の奥行（cm）</label><input id="depth" name="depth" type="number" inputmode="decimal" min="0.1" max="150" step="0.1" required></div>
+              <div><label for="height">内側の高さ・水面まで（cm）</label><input id="height" name="height" type="number" inputmode="decimal" min="0.1" max="150" step="0.1" required></div>
+            </div>
+            <p class="help">水面までの高さを入力します。満水を想定した理論値です。幅は300cm以下、奥行・高さは各150cm以下で入力してください。</p>
+          </fieldset>
+          <fieldset>
+            <legend>底砂（任意）</legend>
+            <div class="field-grid">
+              <div><label for="substrate">底砂の厚み（cm）</label><input id="substrate" name="substrate" type="number" inputmode="decimal" min="0" max="30" step="0.1"></div>
+              <div><label for="bag">底砂の袋に表示された容量（L）</label><input id="bag" name="bag" type="number" inputmode="decimal" min="0.1" max="100" step="0.1"></div>
+            </div>
+            <p class="help">厚みは空欄または0なら計算しません。袋容量を入力した場合も、厚みを入力したときだけ袋数を表示します。固定の厚みは設定していません。</p>
+          </fieldset>
+          <div class="days">
+            <label for="memo">出典メモ（任意・200文字以内）</label>
+            <input id="memo" name="memo" type="text" maxlength="200" autocomplete="off">
+            <p class="help">測定した場所などを自分用に記録します。共有URLには含めません。</p>
+          </div>
+          <p id="input-error" class="error" role="status" aria-live="polite"></p>
+        </form>
+        <noscript><p class="note">自動計算にはJavaScriptが必要です。計算式と注意点はこのページ内で確認できます。</p></noscript>
+      </section>
+      <section class="results" aria-label="計算結果">
+        <section id="calculation-warning" class="note" role="note" aria-label="計算結果を読む前の注意">
+          <strong>結果を読む前にご確認ください</strong>
+          <p>内寸の直方体近似による理論値です。ガラス厚、枠、機材、底砂などで実際の水量は小さくなります。実水量、設置可否、生体の適正を保証しません。</p>
+          <p>水と底砂は重く、30Lを超える水槽は安定した台（専用台が理想）に置く案内が日本ペット用品工業会のFAQにあります。この計算は重さや台の耐荷重を判定しません。水槽・台のメーカー説明を優先してください。</p>
+          <p>底砂の厚みは水草やレイアウトで変わります。協会FAQは水草ありで5cm以上、なしで3cm程度といった例に触れていますが、このページは固定の推奨厚みを決めません。水質・濾過・生体への適性も判定しないため、製品説明や飼育資料を確認してください。</p>
+          <p>手持ちの底砂で足りるなら購入は不要です。</p>
+        </section>
+        <div id="result-summary" hidden>
+          <h2 class="step"><b aria-hidden="true">2</b>理論上の容量</h2>
+          <p id="result-inputs" class="help"></p>
+          <dl class="result-list">
+            <div class="result-item"><dt>理論上の水容量</dt><dd><span id="result-water-volume" class="value">—</span> L</dd></div>
+            <div id="substrate-result" class="result-item" hidden><dt>理論上の底砂容量</dt><dd><span id="result-substrate-volume" class="value">—</span> L</dd></div>
+            <div id="bag-result" class="result-item" hidden><dt>容量だけから計算した最小袋数</dt><dd><span id="result-bag-count" class="value">—</span> 袋</dd></div>
+          </dl>
+          <p class="help">水容量は「幅 × 奥行 × 高さ ÷ 1,000」、底砂容量は「幅 × 奥行 × 厚み ÷ 1,000」です。実際の量や購入量を保証するものではありません。</p>
+        </div>
+      </section>
+    </section>
+    <section class="affiliate" data-category="aquarium" aria-label="水槽関連の紹介枠・準備中"></section>
+    <div class="ad-slot" data-slot="middle" aria-label="広告掲載枠・準備中"></div>
+    <nav class="section-nav" aria-label="このページの内容"><a href="#formula">計算式</a><a href="#limits">分からないこと</a><a href="#pre-buy-check">確認リスト</a><a href="#sources">出典</a><a href="#faq">よくある質問</a></nav>
+    <div class="content">
+      <section id="formula" class="article-section">
+        <h2>計算式と結果の意味</h2>
+        <p>日本ペット用品工業会のFAQにある式に合わせ、水容量（L）を「内側の幅 × 奥行 × 高さ ÷ 1,000」で計算します。高さは水面までの高さとして扱います。底砂容量（L）は「幅 × 奥行 × 入力した厚み ÷ 1,000」です。袋容量が入力されているときは、底砂容量を袋の表示容量で割って切り上げます。</p>
+        <p>計算例（架空の寸法）：幅60cm・奥行30cm・水面までの高さ36cmなら水容量は64.8Lです。同じ底面に厚さ5cmの底砂を敷く条件なら底砂容量は9L、袋容量4Lの場合は容量だけから計算した最小袋数は3袋です。特定製品の数値ではありません。</p>
+      </section>
+      <section id="limits" class="article-section">
+        <h2>この計算で分からないこと</h2>
+        <ul>
+          <li>ガラス厚、枠、機材、底砂などを差し引いた実際の水量。</li>
+          <li>水や底砂の重量、床や水槽台の耐荷重、設置できるかどうか。</li>
+          <li>水質、濾過、生体の飼育に適するかどうか。</li>
+          <li>底砂の種類やレイアウトに合う厚み、実際に必要な購入量。</li>
+        </ul>
+        <p>水と底砂の重さ、設置場所、製品の使い方は、水槽・台のメーカー説明や飼育資料をご確認ください。協会FAQには30Lを超える水槽は安定した台（専用台が理想）への言及がありますが、設置可否や耐荷重をこのページで判断しません。</p>
+      </section>
+      <section id="pre-buy-check" class="article-section">
+        <h2>購入を考える前に</h2>
+        <ul class="checklist">
+          <li>内側の幅・奥行と、実際に想定する水面までの高さを使った</li>
+          <li>実水量はガラス厚・機材・底砂などで理論値より少なくなると確認した</li>
+          <li>底砂の厚みはレイアウトや用途に合わせて自分で決めた</li>
+          <li>袋数は表示容量だけから計算した最小数で、手持ちの底砂で足りるなら購入は不要と確認した</li>
+          <li>水槽や台の耐荷重はメーカー説明で確認した</li>
+        </ul>
+        <p>協会FAQには、砂利の厚みについて水草を植える場合は5cm以上、植えない場合は3cm程度といった案内があります。これは同FAQの案内例であり、このサイトの固定値や推奨ではありません。利用者のレイアウトや製品説明に応じて確認してください。</p>
+      </section>
+      <section id="sources" class="article-section">
+        <h2>出典</h2>
+        <ul>
+          <li><a href="https://www.jppma.or.jp/faq4/8_index_detail.php" target="_blank" rel="noopener">一般社団法人日本ペット用品工業会「水槽の大きさ・水量・重さはどの位になりますか？」</a>（水容量式・砂利量式、台の安定性、砂利厚みの案内。）</li>
+        </ul>
+      </section>
+      <section id="faq" class="article-section">
+        <h2>よくある質問</h2>
+        <details><summary>このページの水容量は実際に入る水の量ですか？</summary><p>いいえ。内寸を直方体として計算した理論値です。ガラス厚、機材、底砂などで実際の水量は小さくなり、実水量や設置可否を保証しません。</p></details>\n        <details><summary>水面までの高さはどこを測りますか？</summary><p>水槽の内側で、底から想定する水面までの高さを使います。満水を想定した理論値なので、実際の水位に合わせてください。</p></details>\n        <details><summary>底砂の容量と袋数はどう計算しますか？</summary><p>内側の幅×奥行×入力した厚み÷1,000で底砂の理論容量を計算します。袋容量を入力した場合だけ、その容量から計算した最小袋数を切り上げて表示します。</p></details>\n        <details><summary>底砂の厚みは何cmにすればよいですか？</summary><p>このページは厚みを推奨しません。日本ペット用品工業会のFAQには水草の有無による例が案内されていますが、レイアウトや使い方に合わせて資料・製品説明をご確認ください。</p></details>\n        <details><summary>水槽や台の耐荷重、生体への適性も分かりますか？</summary><p>いいえ。水と底砂は重く、このページは重さや台の耐荷重、水質、濾過、生体への適性を判定しません。水槽・台のメーカー説明や飼育資料を優先してください。</p></details>\n        <details><summary>入力内容や出典メモは送信されますか？</summary><p>計算はブラウザ内で行い、独自サーバーへ入力内容を送信しません。寸法や袋容量は共有URLのクエリに含まれますが、出典メモは含まれません。共有先に注意してください。</p></details>
+      </section>
+      <section class="article-section">
+        <h2>免責</h2>
+        <p>表示値は入力した内寸と厚みから求めた理論値です。実際の水量、設置の安全性、必要な底砂量、水質や生体への適性を保証しません。水槽・台・底砂の製品説明や飼育資料を優先してください。</p>
+      </section>
+    </div>
+    <div class="ad-slot" data-slot="bottom" aria-label="広告掲載枠・準備中"></div>
+  </main>
+  <footer class="site-footer"><div class="container">
+    <nav aria-label="フッターナビゲーション"><a href="../../tools/bichiku/index.html">防災備蓄 計算</a><a href="../../about/index.html">運営者情報</a><a href="../../contact/index.html">お問い合わせ</a><a href="../../privacy/index.html">プライバシーポリシー</a></nav>
+    <p>広告・アフィリエイトの導入を予定しています。Amazonアソシエイトは現在未申請で、参加・承認されていません。</p>
+    <p>現時点では広告タグ・商品紹介リンク・トラッキングは未設置です。</p>
+    <p>運営：supportapp3-lab ／ 暮らしの計算室</p>
+    <span class="placeholder">運営を応援するリンク（Ko-fiなど）は準備中です。</span>
+  </div></footer>
+</body>
+</html>
