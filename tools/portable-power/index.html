@@ -17,7 +17,7 @@
   <meta name="twitter:title" content="停電時の電力量 整理｜機器のW表示から理想上のWh合計を計算">
   <meta name="twitter:description" content="機器の銘板や説明書にあるW表示と、使いたい時間・日数から理想上の電力量を整理します。実際の使用量や必要な製品容量を診断する計算ではありません。">
   <link rel="stylesheet" href="../../assets/css/style.css">
-  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","name":"停電時の電力量 整理","url":"https://supportapp3-lab.github.io/kasegu-tools/tools/portable-power/","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","inLanguage":"ja","isAccessibleForFree":true,"description":"機器の表示電力と使用条件から理想上の電力量を整理します。"},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"この結果はポータブル電源の必要容量ですか？","acceptedAnswer":{"@type":"Answer","text":"いいえ。入力したWと時間による理想上の負荷の整理です。変換損失、起動電力、温度、製品の使用可能容量などは計算していません。購入前は製品の取扱説明書とメーカー表示を確認してください。"}},{"@type":"Question","name":"機器のW表示はどこで確認しますか？","acceptedAnswer":{"@type":"Answer","text":"機器本体の銘板や取扱説明書で確認してください。表示が見つからない場合に、当サイトが機器別の数値を推測することはありません。"}},{"@type":"Question","name":"使用時間に小数を入力できますか？","acceptedAnswer":{"@type":"Answer","text":"はい。1日あたりの時間は0より大きく24時間以下で入力できます。入力した時間をそのまま計算に使います。"}},{"@type":"Question","name":"医療機器や生命維持装置の電源を判断できますか？","acceptedAnswer":{"@type":"Answer","text":"いいえ。利用可否や必要な電源は判定しません。医療関係者、機器の提供元、自治体などへ事前に確認してください。"}},{"@type":"Question","name":"入力した内容は送信されますか？","acceptedAnswer":{"@type":"Answer","text":"計算はブラウザ内で行い、独自サーバーへ入力内容を送信しません。共有URLには入力した機器名や数値が含まれるので、個人情報や秘密は入力せず、URLの共有先に注意してください。"}},{"@type":"Question","name":"燃料式発電機の使用方法を案内しますか？","acceptedAnswer":{"@type":"Answer","text":"発電機の使用場所や操作方法は案内しません。製品説明と公的な安全情報を確認してください。"}}]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"トップ","item":"https://supportapp3-lab.github.io/kasegu-tools/"},{"@type":"ListItem","position":2,"name":"停電時の電力量 整理","item":"https://supportapp3-lab.github.io/kasegu-tools/tools/portable-power/"}]}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","name":"停電時の電力量 整理","url":"https://supportapp3-lab.github.io/kasegu-tools/tools/portable-power/","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","inLanguage":"ja","isAccessibleForFree":true,"description":"機器の表示電力と使用条件から理想上の電力量を整理します。","offers":{"@type":"Offer","price":0,"priceCurrency":"JPY"}},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"この結果はポータブル電源の必要容量ですか？","acceptedAnswer":{"@type":"Answer","text":"いいえ。入力したWと時間による理想上の負荷の整理です。変換損失、起動電力、温度、製品の使用可能容量などは計算していません。購入前は製品の取扱説明書とメーカー表示を確認してください。"}},{"@type":"Question","name":"機器のW表示はどこで確認しますか？","acceptedAnswer":{"@type":"Answer","text":"機器本体の銘板や取扱説明書で確認してください。表示が見つからない場合に、当サイトが機器別の数値を推測することはありません。"}},{"@type":"Question","name":"使用時間に小数を入力できますか？","acceptedAnswer":{"@type":"Answer","text":"はい。1日あたりの時間は0より大きく24時間以下で入力できます。入力した時間をそのまま計算に使います。"}},{"@type":"Question","name":"医療機器や生命維持装置の電源を判断できますか？","acceptedAnswer":{"@type":"Answer","text":"いいえ。利用可否や必要な電源は判定しません。医療関係者、機器の提供元、自治体などへ事前に確認してください。"}},{"@type":"Question","name":"入力した内容は送信されますか？","acceptedAnswer":{"@type":"Answer","text":"計算はブラウザ内で行い、独自サーバーへ入力内容を送信しません。共有URLには入力した機器名や数値が含まれるので、個人情報や秘密は入力せず、URLの共有先に注意してください。"}},{"@type":"Question","name":"燃料式発電機の使用方法を案内しますか？","acceptedAnswer":{"@type":"Answer","text":"発電機の使用場所や操作方法は案内しません。製品説明と公的な安全情報を確認してください。"}},{"@type":"Question","name":"画面の合計Whは、買うポータブル電源の容量と同じですか？","acceptedAnswer":{"@type":"Answer","text":"いいえ。入力したWと時間から出した理想上の負荷の整理です。変換損失や起動電力、製品の使用可能容量は含みません。定格・端子・取扱説明書を製品ごとに確認し、不足がなければ購入は不要です。このページは製品の適合や稼働時間を判定しません。"}}]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"トップ","item":"https://supportapp3-lab.github.io/kasegu-tools/"},{"@type":"ListItem","position":2,"name":"停電時の電力量 整理","item":"https://supportapp3-lab.github.io/kasegu-tools/tools/portable-power/"}]}]}</script>
   <script src="../../assets/js/portable-power.js" defer></script>
   <style>
     .appliance-row { margin: 1rem 0; }
@@ -81,11 +81,9 @@
         <textarea id="manual-copy" readonly hidden></textarea>
       </section>
     </section>
-    <section class="affiliate" data-category="portable-power" aria-label="ポータブル電源関連の紹介枠">
-      <span class="placeholder">商品リンク枠（未設定）</span>
-    </section>
+
     <div class="ad-slot" data-slot="middle" aria-label="広告掲載枠・準備中"></div>
-    <nav class="section-nav" aria-label="このページの内容"><a href="#formula">計算式</a><a href="#limits">使えない条件</a><a href="#safety">安全の確認</a><a href="#faq">よくある質問</a></nav>
+    <nav class="section-nav" aria-label="このページの内容"><a href="#formula">計算式</a><a href="#limits">使えない条件</a><a href="#safety">安全の確認</a><a href="#pre-buy-check">買う前の確認</a><a href="#faq">よくある質問</a></nav>
     <div class="content">
       <section id="formula" class="article-section"><h2>計算式と結果の意味</h2>
         <p>各機器の理想上の電力量（Wh）は「消費電力（W）× 使用時間（時間/日）× 日数」で計算し、機器ごとの値を足します。Wと時間の積で入力条件を整理する計算です。</p>
@@ -100,12 +98,27 @@
         <p>停電中の電源や復電時の火災には、<a href="https://www.nite.go.jp/jiko/chuikanki/press/2024fy/prs240827.html" target="_blank" rel="noopener">NITEの携帯発電機・ポータブル電源と通電火災に関する注意</a>を確認してください。燃料式発電機の室内・車内での使用方法は、このページでは案内しません。</p>
         <p>停電時の機器・端子・購入前の確認は、<a href="../../guides/teiden-sonae/index.html#match-check">停電への備え：機器と使える電源の組み合わせ</a>および<a href="../../guides/teiden-sonae/index.html#buy-check">購入・補充の前に確認すること</a>もご覧ください。復電後の火災対策は<a href="../../guides/tsuuden-kasai/index.html">通電火災の記事</a>を確認してください。</p>
       </section>
+      <section id="pre-buy-check" class="article-section">
+        <h2>理想上の電力量を見たあとに確認する</h2>
+        <p>画面の合計は理想上の負荷の整理であり、購入する電源の容量や稼働時間ではありません。機器の定格出力・瞬間出力・端子・取扱説明書を製品ごとに確認し、不足や不適合が分からないまま購入せず、手持ち機器で足りる場合は購入不要です。この確認は製品の適合、医療機器の利用可否、発電機の使用場所を判断せず、入力内容はどこにも送信・保存されません。</p>
+        <ul class="checklist">
+          <li>画面の合計は理想上の負荷の整理であり、購入容量や稼働時間ではないと理解した</li>
+          <li>使う機器の定格・端子・取扱説明書を、停電への備えガイドの組み合わせ確認で見直した</li>
+          <li>購入前確認の項目をガイド側で見直した</li>
+          <li>医療機器・生命維持装置の電源判断をしていない</li>
+          <li>燃料式発電機の室内・車内などの使用方法をこのページから決めていない</li>
+        </ul>
+        <p><a href="../../guides/teiden-sonae/index.html#match-check">停電への備え：機器と使える電源の組み合わせ</a>と<a href="../../guides/teiden-sonae/index.html#buy-check">購入・補充の前に確認すること</a>もご覧ください。</p>
+      </section>
       <section class="article-section"><h2>出典</h2>
         <ul>
           <li><a href="https://help.goalzero.com/hc/en-us/articles/38587553528987-How-long-will-the-Yeti-run-my-device" target="_blank" rel="noopener">Goal Zero公式サポート：機器の負荷と電源容量について</a>（特定製品の例を他の製品へ一般化しません。）</li>
           <li><a href="https://www.nite.go.jp/jiko/chuikanki/press/2024fy/prs240827.html" target="_blank" rel="noopener">NITE：停電時の電源と通電火災への注意</a></li>
         </ul>
       </section>
+    <section class="affiliate" data-category="portable-power" aria-label="ポータブル電源関連の紹介枠">
+      <span class="placeholder">商品リンク枠（未設定）</span>
+    </section>
       <section id="faq" class="article-section"><h2>よくある質問</h2>
         <details><summary>この結果はポータブル電源の必要容量ですか？</summary><p>いいえ。入力したWと時間による理想上の負荷の整理です。変換損失、起動電力、温度、製品の使用可能容量などは計算していません。購入前は製品の取扱説明書とメーカー表示を確認してください。</p></details>
         <details><summary>機器のW表示はどこで確認しますか？</summary><p>機器本体の銘板や取扱説明書で確認してください。表示が見つからない場合に、当サイトが機器別の数値を推測することはありません。</p></details>
@@ -113,6 +126,7 @@
         <details><summary>医療機器や生命維持装置の電源を判断できますか？</summary><p>いいえ。利用可否や必要な電源は判定しません。医療関係者、機器の提供元、自治体などへ事前に確認してください。</p></details>
         <details><summary>入力した内容は送信されますか？</summary><p>計算はブラウザ内で行い、独自サーバーへ入力内容を送信しません。共有URLには入力した機器名や数値が含まれるので、個人情報や秘密は入力せず、URLの共有先に注意してください。</p></details>
         <details><summary>燃料式発電機の使用方法を案内しますか？</summary><p>発電機の使用場所や操作方法は案内しません。製品説明と公的な安全情報を確認してください。</p></details>
+        <details><summary>画面の合計Whは、買うポータブル電源の容量と同じですか？</summary><p>いいえ。入力したWと時間から出した理想上の負荷の整理です。変換損失や起動電力、製品の使用可能容量は含みません。定格・端子・取扱説明書を製品ごとに確認し、不足がなければ購入は不要です。このページは製品の適合や稼働時間を判定しません。</p></details>
       </section>
       <section id="related" class="article-section"><h2>関連記事</h2>
         <p><a href="../../guides/teiden-sonae/index.html#match-check">停電への備え：機器と使える電源の組み合わせ</a></p>
