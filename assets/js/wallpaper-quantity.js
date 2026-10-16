@@ -163,9 +163,20 @@
     return value.toLocaleString('ja-JP', { maximumFractionDigits: maximumFractionDigits == null ? 1 : maximumFractionDigits });
   }
 
+  function formatConditions(result) {
+    const roll = result.rollLengthM == null
+      ? 'ロール長 未入力'
+      : 'ロール長 ' + formatNumber(result.rollLengthM, 3) + 'm';
+    return '入力条件：壁幅 ' + formatNumber(result.wallWidthCm) + 'cm × 高さ '
+      + formatNumber(result.wallHeightCm) + 'cm、有効幅 ' + formatNumber(result.usableWidthCm)
+      + 'cm、柄リピート ' + formatNumber(result.repeatCm) + 'cm、切りしろ '
+      + formatNumber(result.allowanceCm) + 'cm、' + roll;
+  }
+
   function formatResult(input) {
     const result = calculate(input);
     const lines = [
+      formatConditions(result),
       '切り出し枚数：' + result.stripCount + '枚',
       '1枚の切り出し長さ：' + formatNumber(result.cutLengthCm) + 'cm',
       '合計の長さ（0.1m単位で切り上げ）：' + formatNumber(result.totalLengthMDisplay) + 'm'
@@ -206,6 +217,7 @@
   if (!form) return;
   const error = document.getElementById('input-error');
   const result = document.getElementById('result-summary');
+  const resultInputs = document.getElementById('result-inputs');
   const resultStrips = document.getElementById('result-strips');
   const resultCutLength = document.getElementById('result-cut-length');
   const resultTotalLength = document.getElementById('result-total-length');
@@ -233,6 +245,7 @@
 
   function showBlankResult() {
     result.hidden = true;
+    resultInputs.textContent = '';
     resultStrips.textContent = '—';
     resultCutLength.textContent = '—';
     resultTotalLength.textContent = '—';
@@ -246,6 +259,7 @@
       const normalized = normalize(state);
       const calculated = calculate(normalized);
       error.textContent = '';
+      resultInputs.textContent = formatConditions(calculated);
       resultStrips.textContent = String(calculated.stripCount);
       resultCutLength.textContent = formatNumber(calculated.cutLengthCm);
       resultTotalLength.textContent = formatNumber(calculated.totalLengthMDisplay);
