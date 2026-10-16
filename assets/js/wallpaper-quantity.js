@@ -60,12 +60,12 @@
     let rollLengthM = null;
     if (input.rollLengthM != null && input.rollLengthM !== '') {
       const meters = numberValue(input.rollLengthM);
-      const units = Math.round(meters * 10000);
+      const units = Math.round(meters * 1000);
       if (!Number.isFinite(meters) || !Number.isSafeInteger(units)
-          || Math.abs(meters * 10000 - units) > 1e-7 || meters <= 0 || meters > MAX_ROLL_LENGTH_M) {
+          || Math.abs(meters * 1000 - units) > 1e-7 || meters <= 0 || meters > MAX_ROLL_LENGTH_M) {
         throw new RangeError('ロール長は0より大きく' + MAX_ROLL_LENGTH_M + 'm以下で入力してください。');
       }
-      rollLengthM = units / 10000;
+      rollLengthM = units / 1000;
     }
     const memo = input.memo == null ? '' : input.memo;
     if (typeof memo !== 'string' || memo.length > MAX_MEMO_LENGTH) {
@@ -106,7 +106,7 @@
     let rollCount = null;
     let rollTooShort = false;
     if (state.rollLengthM != null) {
-      const rollLengthUnits = Math.round(state.rollLengthM * 10000);
+      const rollLengthUnits = Math.round(state.rollLengthM * 1000);
       stripsPerRoll = Math.floor(rollLengthUnits / cutLengthUnits);
       if (stripsPerRoll < 1) {
         stripsPerRoll = 0;
