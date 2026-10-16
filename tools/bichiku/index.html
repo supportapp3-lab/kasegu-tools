@@ -142,7 +142,8 @@
 <thead><tr><th scope="col">品目</th><th scope="col">画面の計算結果</th><th scope="col">家で確認した在庫</th><th scope="col">製品表示・単位</th><th scope="col">不足の確認</th><th scope="col">確認メモ</th></tr></thead>
 <tbody><tr><th scope="row">飲料・調理用水</th><td></td><td></td><td></td><td></td><td></td></tr><tr><th scope="row">携帯トイレ</th><td></td><td></td><td></td><td></td><td></td></tr><tr><th scope="row">主食</th><td></td><td></td><td></td><td></td><td></td></tr></tbody></table></div>
 </section><section id="custom-food-stock" class="article-section"><h2>自分で決めた食品の目標在庫との差を整理する</h2>
-<p>目標数量と、いま使える在庫を同じ単位で入力すると、品目ごとの不足数を確認できます。品目や目標は利用者が決めます。この欄は食品の種類、必要量、健康状態に合うかを判定せず、異なる単位の数を合算しません。</p>\n<p>包装（パック・袋・缶など）の表示から、記録の単位と同じ量表現の内容数を入力した場合だけ、パック数の算術上の目安を表示します。量表現が違う場合は入力しないでください。</p>
+<p>目標数量と、いま使える在庫を同じ単位で入力すると、品目ごとの不足数を確認できます。品目や目標は利用者が決めます。この欄は食品の種類、必要量、健康状態に合うかを判定せず、異なる単位の数を合算しません。</p>
+<p>包装（パック・袋・缶など）の表示から、記録の単位と同じ量表現の内容数を入力した場合だけ、パック数の算術上の目安を表示します。量表現が違う場合は入力しないでください。</p>
 <p>例：目標10食分・在庫4食分なら不足は6食分です。1パック3食分なら2パック、4食分なら6÷4＝1.5を切り上げて2パックとなり、余りが出る場合があります。</p>
 <div class="note" role="note"><strong>入力前にご確認ください</strong>
 <p>食品表示、アレルギー対応、医療・栄養に関する判断を代替しません。農林水産省の案内、医師・管理栄養士などの専門家、製品表示を優先してください。共有端末や手元のメモに、病歴・食物アレルギーなどの個人情報を書かないでください。</p>
@@ -154,7 +155,8 @@
 <div><label for="food-stock-name-0">品目名</label><input id="food-stock-name-0" data-field="name" type="text" maxlength="40" autocomplete="off" required></div>
 <div><label for="food-stock-unit-0">記録の単位</label><input id="food-stock-unit-0" data-field="unit" type="text" maxlength="12" autocomplete="off" required></div>
 <div><label for="food-stock-target-0">目標数量（0以上・小数点以下2桁まで）</label><input id="food-stock-target-0" data-field="target" type="number" inputmode="decimal" min="0" max="1000000" step="0.01" required></div>
-<div><label for="food-stock-stock-0">現在使える在庫（同じ単位）</label><input id="food-stock-stock-0" data-field="stock" type="number" inputmode="decimal" min="0" max="1000000" step="0.01" required></div>\n<div><label for="food-stock-packSize-0">1パックあたりの内容数（任意・記録と同じ単位）</label><input id="food-stock-packSize-0" data-field="packSize" type="number" inputmode="decimal" min="0.01" max="1000000" step="0.01"></div>
+<div><label for="food-stock-stock-0">現在使える在庫（同じ単位）</label><input id="food-stock-stock-0" data-field="stock" type="number" inputmode="decimal" min="0" max="1000000" step="0.01" required></div>
+<div><label for="food-stock-packSize-0">1パックあたりの内容数（任意・記録と同じ単位）</label><input id="food-stock-packSize-0" data-field="packSize" type="number" inputmode="decimal" min="0.01" max="1000000" step="0.01"></div>
 </div><button type="button" class="button" disabled>この行を削除</button></fieldset>
 </div>
 <button type="button" id="custom-food-stock-add" class="button">品目を追加</button>
