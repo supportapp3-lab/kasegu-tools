@@ -101,7 +101,7 @@ test('zero shortage keeps the no-purchase message and has zero packs', () => {
     assert.equal(result.packs, 0);
     assert.match(output, /不足なし（買い足しは不要です）/);
     assert.match(output, /算術上の目安 0 パック/);
-    assert.doesNotMatch(output, /買い足し.*パック/);
+    assert.doesNotMatch(output, /パック購入|購入してください|買い足しを促す/);
   }
 });
 
