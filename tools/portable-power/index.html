@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>停電時の電力量 整理｜機器のW表示から理想上のWh合計を計算</title>
+  <meta name="description" content="機器の銘板や説明書にあるW表示と、使いたい時間・日数から理想上の電力量を整理します。実際の使用量や必要な製品容量を診断する計算ではありません。">
+  <meta name="color-scheme" content="light dark">
+  <link rel="canonical" href="https://supportapp3-lab.github.io/kasegu-tools/tools/portable-power/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="停電時の電力量 整理｜機器のW表示から理想上のWh合計を計算">
+  <meta property="og:description" content="機器の銘板や説明書にあるW表示と、使いたい時間・日数から理想上の電力量を整理します。実際の使用量や必要な製品容量を診断する計算ではありません。">
+  <meta property="og:url" content="https://supportapp3-lab.github.io/kasegu-tools/tools/portable-power/">
+  <meta property="og:locale" content="ja_JP">
+  <meta property="og:site_name" content="暮らしの計算室">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="停電時の電力量 整理｜機器のW表示から理想上のWh合計を計算">
+  <meta name="twitter:description" content="機器の銘板や説明書にあるW表示と、使いたい時間・日数から理想上の電力量を整理します。実際の使用量や必要な製品容量を診断する計算ではありません。">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","name":"停電時の電力量 整理","url":"https://supportapp3-lab.github.io/kasegu-tools/tools/portable-power/","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","inLanguage":"ja","isAccessibleForFree":true,"description":"機器の表示電力と使用条件から理想上の電力量を整理します。"},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"この結果はポータブル電源の必要容量ですか？","acceptedAnswer":{"@type":"Answer","text":"いいえ。入力したWと時間による理想上の負荷の整理です。変換損失、起動電力、温度、製品の使用可能容量などは計算していません。購入前は製品の取扱説明書とメーカー表示を確認してください。"}},{"@type":"Question","name":"機器のW表示はどこで確認しますか？","acceptedAnswer":{"@type":"Answer","text":"機器本体の銘板や取扱説明書で確認してください。表示が見つからない場合に、当サイトが機器別の数値を推測することはありません。"}},{"@type":"Question","name":"使用時間に小数を入力できますか？","acceptedAnswer":{"@type":"Answer","text":"はい。1日あたりの時間は0より大きく24時間以下で入力できます。入力した時間をそのまま計算に使います。"}},{"@type":"Question","name":"医療機器や生命維持装置の電源を判断できますか？","acceptedAnswer":{"@type":"Answer","text":"いいえ。利用可否や必要な電源は判定しません。医療関係者、機器の提供元、自治体などへ事前に確認してください。"}},{"@type":"Question","name":"入力した内容は送信されますか？","acceptedAnswer":{"@type":"Answer","text":"計算はブラウザ内で行い、独自サーバーへ入力内容を送信しません。共有URLには入力した機器名や数値が含まれるので、個人情報や秘密は入力せず、URLの共有先に注意してください。"}},{"@type":"Question","name":"燃料式発電機の使用方法を案内しますか？","acceptedAnswer":{"@type":"Answer","text":"発電機の使用場所や操作方法は案内しません。製品説明と公的な安全情報を確認してください。"}}]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"トップ","item":"https://supportapp3-lab.github.io/kasegu-tools/"},{"@type":"ListItem","position":2,"name":"停電時の電力量 整理","item":"https://supportapp3-lab.github.io/kasegu-tools/tools/portable-power/"}]}]}</script>
+  <script src="../../assets/js/portable-power.js" defer></script>
+  <style>
+    .appliance-row { margin: 1rem 0; }
+    .appliance-row .field-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .result-list { overflow-wrap: anywhere; }
+    @media (max-width: 600px) { .appliance-row .field-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">本文へ移動</a>
+  <header class="site-header"><div class="container header-inner">
+    <a class="brand" href="../../index.html"><span class="brand-mark" aria-hidden="true">備</span>暮らしの計算室</a>
+    <nav aria-label="メインナビゲーション"><a href="../../tools/bichiku/index.html">防災備蓄 計算</a><a href="../../about/index.html">運営者情報</a><a href="../../contact/index.html">お問い合わせ</a></nav>
+  </div></header>
+  <main id="main" class="container">
+    <div class="breadcrumbs"><a href="../../index.html">トップ</a> / 停電時の電力量 整理</div>
+    <section class="hero" aria-labelledby="page-title"><p class="eyebrow">停電時の備えを、表示から整理。</p>
+      <h1 id="page-title">機器の電力量を<br>理想上のWhで整理</h1>
+      <p class="lead">機器の銘板・説明書にある消費電力と、使いたい時間・日数を入力して、理想上の電力量合計を確認します。</p>
+      <span class="tag">無料・登録不要</span><span class="tag">入力はブラウザ内で計算</span>
+    </section>
+    <div class="ad-slot" data-slot="top" aria-label="広告掲載枠・準備中"></div>
+    <section id="usage" class="article-section">
+      <h2>使い方</h2>
+      <p>実際に使う機器の本体表示や説明書でWを確認し、予定している1日あたりの時間と日数を入力してください。初期値の機器例はありません。機器行は追加・削除できます。</p>
+      <p>計算式は「W × 時間/日 × 日数」です。結果は入力条件による理想上の負荷の合計で、実測の消費量や特定の電源製品の容量を示しません。</p>
+    </section>
+    <section class="calculator">
+      <section class="inputs" aria-labelledby="input-title">
+        <h2 id="input-title" class="step"><b aria-hidden="true">1</b>機器ごとの表示と条件を入力</h2>
+        <form id="portable-power-form" novalidate>
+          <div id="appliance-list">
+            <fieldset class="appliance-row">
+              <legend>機器 1</legend>
+              <div class="field-grid">
+                <div><label for="name-0">機器名（任意）</label><input id="name-0" data-field="name" type="text" maxlength="40" autocomplete="off"></div>
+                <div><label for="watts-0">消費電力（W）</label><input id="watts-0" data-field="watts" type="number" inputmode="decimal" min="0.01" max="100000" step="any" required></div>
+                <div><label for="hours-0">使用時間（時間/日）</label><input id="hours-0" data-field="hoursPerDay" type="number" inputmode="decimal" min="0.01" max="24" step="any" required></div>
+                <div><label for="days-0">日数</label><input id="days-0" data-field="days" type="number" inputmode="numeric" min="1" max="365" step="1" required></div>
+              </div>
+              <button type="button" class="button" disabled>この行を削除</button>
+            </fieldset>
+          </div>
+          <button type="button" id="add-appliance" class="button">機器を追加</button>
+          <p id="input-error" class="error" role="status" aria-live="polite"></p>
+        </form>
+        <noscript><p class="note">自動計算にはJavaScriptが必要です。計算式と注意点はこのページ内で確認できます。</p></noscript>
+      </section>
+      <section class="results" aria-labelledby="result-title">
+        <div class="note" role="note">
+          <strong>結果を読む前にご確認ください</strong>
+          <p>ここに表示する値は、入力したWと時間の積による理想上の負荷整理です。変換効率、温度、起動時の電力、劣化、製品の使用可能容量は推定しません。</p>
+          <p>実際の使用量や使える電力量は製品・条件で異なります。定格出力、瞬間出力、波形、端子、充電方法、環境条件は製品の説明書・メーカー表示で確認してください。医療機器・生命維持装置の利用可否や、燃料式発電機の室内・車内での使用方法は扱いません。</p>
+        </div>
+        <h2 id="result-title" class="step"><b aria-hidden="true">2</b>理想上の電力量</h2>
+        <ul id="result-items" class="result-list" aria-live="polite"></ul>
+        <p class="result-item"><strong>理想上の負荷合計</strong>：<span id="total-wh" class="value">—</span> Wh</p>
+        <button id="copy-result" type="button" class="primary" disabled>結果と共有URLをコピー</button>
+        <p id="copy-status" class="help" role="status"></p>
+        <label id="manual-copy-label" for="manual-copy" hidden>手動コピー用の結果</label>
+        <textarea id="manual-copy" readonly hidden></textarea>
+      </section>
+    </section>
+    <section class="affiliate" data-category="portable-power" aria-label="ポータブル電源関連の紹介枠">
+      <span class="placeholder">商品リンク枠（未設定）</span>
+    </section>
+    <div class="ad-slot" data-slot="middle" aria-label="広告掲載枠・準備中"></div>
+    <nav class="section-nav" aria-label="このページの内容"><a href="#formula">計算式</a><a href="#limits">使えない条件</a><a href="#safety">安全の確認</a><a href="#faq">よくある質問</a></nav>
+    <div class="content">
+      <section id="formula" class="article-section"><h2>計算式と結果の意味</h2>
+        <p>各機器の理想上の電力量（Wh）は「消費電力（W）× 使用時間（時間/日）× 日数」で計算し、機器ごとの値を足します。Wと時間の積で入力条件を整理する計算です。</p>
+        <p>変換損失、機器の起動時の電力、温度、使用状況、経年変化、電源製品が実際に取り出せる電力量などは計算に含めません。結果を、特定製品の選定や実際の使用可能量と読み替えないでください。</p>
+      </section>
+      <section id="limits" class="article-section"><h2>この計算で分からないこと</h2>
+        <ul><li>電源製品が機器を動かせるか、実際にどのくらい使えるか。</li><li>起動時の電力、変換効率、温度、劣化、充電に必要な条件。</li><li>医療機器・生命維持装置で使える電源や、治療を継続できるか。</li><li>燃料式発電機をどこでどう使うか。</li></ul>
+        <p>必要な条件は機器・電源製品ごとに異なります。製品の説明書、メーカーの案内、公的な安全情報を確認してください。</p>
+      </section>
+      <section id="safety" class="article-section"><h2>購入前・停電時の安全確認</h2>
+        <p>機器のW表示だけで電源製品との適合は分かりません。定格出力・瞬間出力・波形・端子・充電方法・環境条件を、両方のメーカー表示・説明書で確認してください。医療機器や生命維持装置の利用可否は医療関係者・機器の提供元に相談します。</p>
+        <p>停電中の電源や復電時の火災には、<a href="https://www.nite.go.jp/jiko/chuikanki/press/2024fy/prs240827.html" target="_blank" rel="noopener">NITEの携帯発電機・ポータブル電源と通電火災に関する注意</a>を確認してください。燃料式発電機の室内・車内での使用方法は、このページでは案内しません。</p>
+        <p>停電時の機器・端子・購入前の確認は、<a href="../../guides/teiden-sonae/index.html#match-check">停電への備え：機器と使える電源の組み合わせ</a>および<a href="../../guides/teiden-sonae/index.html#buy-check">購入・補充の前に確認すること</a>もご覧ください。復電後の火災対策は<a href="../../guides/tsuuden-kasai/index.html">通電火災の記事</a>を確認してください。</p>
+      </section>
+      <section class="article-section"><h2>出典</h2>
+        <ul>
+          <li><a href="https://help.goalzero.com/hc/en-us/articles/38587553528987-How-long-will-the-Yeti-run-my-device" target="_blank" rel="noopener">Goal Zero公式サポート：機器の負荷と電源容量について</a>（特定製品の例を他の製品へ一般化しません。）</li>
+          <li><a href="https://www.nite.go.jp/jiko/chuikanki/press/2024fy/prs240827.html" target="_blank" rel="noopener">NITE：停電時の電源と通電火災への注意</a></li>
+        </ul>
+      </section>
+      <section id="faq" class="article-section"><h2>よくある質問</h2>
+        <details><summary>この結果はポータブル電源の必要容量ですか？</summary><p>いいえ。入力したWと時間による理想上の負荷の整理です。変換損失、起動電力、温度、製品の使用可能容量などは計算していません。購入前は製品の取扱説明書とメーカー表示を確認してください。</p></details>
+        <details><summary>機器のW表示はどこで確認しますか？</summary><p>機器本体の銘板や取扱説明書で確認してください。表示が見つからない場合に、当サイトが機器別の数値を推測することはありません。</p></details>
+        <details><summary>使用時間に小数を入力できますか？</summary><p>はい。1日あたりの時間は0より大きく24時間以下で入力できます。入力した時間をそのまま計算に使います。</p></details>
+        <details><summary>医療機器や生命維持装置の電源を判断できますか？</summary><p>いいえ。利用可否や必要な電源は判定しません。医療関係者、機器の提供元、自治体などへ事前に確認してください。</p></details>
+        <details><summary>入力した内容は送信されますか？</summary><p>計算はブラウザ内で行い、独自サーバーへ入力内容を送信しません。共有URLには入力した機器名や数値が含まれるので、個人情報や秘密は入力せず、URLの共有先に注意してください。</p></details>
+        <details><summary>燃料式発電機の使用方法を案内しますか？</summary><p>発電機の使用場所や操作方法は案内しません。製品説明と公的な安全情報を確認してください。</p></details>
+      </section>
+      <section id="related" class="article-section"><h2>関連記事</h2>
+        <p><a href="../../guides/teiden-sonae/index.html#match-check">停電への備え：機器と使える電源の組み合わせ</a></p>
+        <p><a href="../../guides/teiden-sonae/index.html#buy-check">停電への備え：購入前の確認</a></p>
+        <p><a href="../../guides/tsuuden-kasai/index.html">通電火災の記事</a></p>
+      </section>
+    </div>
+    <div class="ad-slot" data-slot="bottom" aria-label="広告掲載枠・準備中"></div>
+  </main>
+  <footer class="site-footer"><div class="container">
+    <nav aria-label="フッターナビゲーション"><a href="../../tools/bichiku/index.html">防災備蓄 計算</a><a href="../../about/index.html">運営者情報</a><a href="../../contact/index.html">お問い合わせ</a><a href="../../privacy/index.html">プライバシーポリシー</a></nav>
+    <p>広告・アフィリエイトの導入を予定しています。Amazonアソシエイトは現在未申請で、参加・承認されていません。</p>
+    <p>現時点では広告タグ・商品紹介リンク・トラッキングは未設置です。</p>
+    <p>運営：supportapp3-lab ／ 暮らしの計算室</p>
+    <span class="placeholder">運営を応援するリンク（Ko-fiなど）は準備中です。</span>
+  </div></footer>
+</body>
+</html>
