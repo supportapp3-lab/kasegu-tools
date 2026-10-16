@@ -25,6 +25,7 @@ jobs:
           node tests/planter-soil.test.js
           node tests/paint-quantity.test.js
           node tests/wallpaper-quantity.test.js
+          node tests/aquarium-volume.test.js
           node tests/rolling-stock.test.js
           node tests/ensei-hi.test.js
           node --check assets/js/bichiku.js
@@ -36,6 +37,7 @@ jobs:
           node --check assets/js/planter-soil.js
           node --check assets/js/paint-quantity.js
           node --check assets/js/wallpaper-quantity.js
+          node --check assets/js/aquarium-volume.js
           node --check assets/js/rolling-stock.js
           node --check assets/js/ensei-hi.js
           python3 -m unittest discover -s tests -p 'test_build_sitemap.py' -v
