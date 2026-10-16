@@ -18,13 +18,13 @@
   }
 
   function numberValue(value) {
-    if (value == null || value === '') return NaN;
+    if (value == null || value === '' || (typeof value !== 'number' && typeof value !== 'string')) return NaN;
     const number = typeof value === 'number' ? value : Number(value);
     return Number.isFinite(number) ? number : NaN;
   }
 
   function requireRange(value, min, max, label) {
-    if (!Number.isFinite(value) || value < min || value > max) {
+    if (!Number.isFinite(value) || value <= min || value > max) {
       throw new RangeError(label + 'は' + min + 'より大きく' + max + '以下で入力してください。');
     }
     return value;
