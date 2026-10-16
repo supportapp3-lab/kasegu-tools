@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>壁紙 必要量 計算｜壁の幅・高さと柄リピートから切り出し枚数を整理</title>
+  <meta name="description" content="壁1面の幅・高さ、壁紙の有効幅、柄リピートから、理論上の切り出し枚数と必要な長さを整理します。施工方法や購入量は判定しません。">
+  <meta name="color-scheme" content="light dark">
+  <link rel="canonical" href="https://supportapp3-lab.github.io/kasegu-tools/tools/wallpaper-quantity/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="壁紙 必要量 計算｜切り出し枚数と必要な長さ">
+  <meta property="og:description" content="壁1面の幅・高さ、壁紙の有効幅、柄リピートから理論値を整理します。">
+  <meta property="og:url" content="https://supportapp3-lab.github.io/kasegu-tools/tools/wallpaper-quantity/">
+  <meta property="og:locale" content="ja_JP">
+  <meta property="og:site_name" content="暮らしの計算室">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="壁紙 必要量 計算｜切り出し枚数と必要な長さ">
+  <meta name="twitter:description" content="壁1面の幅・高さ、壁紙の有効幅、柄リピートから理論値を整理します。">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","name":"壁紙 必要量 計算","url":"https://supportapp3-lab.github.io/kasegu-tools/tools/wallpaper-quantity/","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","inLanguage":"ja","isAccessibleForFree":true,"description":"壁1面の幅・高さと製品表示の有効幅・柄リピートから、理論上の切り出し枚数と長さを整理します。"},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"何面の壁を計算できますか？","acceptedAnswer":{"@type":"Answer","text":"初期版では、窓やドアのない長方形の壁1面を計算します。複数の壁や天井は対象外です。"}},{"@type":"Question","name":"柄リピートが0の場合はどうなりますか？","acceptedAnswer":{"@type":"Answer","text":"無地など柄合わせ不要の場合は0を入力します。正の値の場合は、壁の高さと切りしろを合計し、リピート単位で切り上げます。"}},{"@type":"Question","name":"ロール本数はどのように計算しますか？","acceptedAnswer":{"@type":"Answer","text":"ロール長を入力した場合に限り、1ロールから取れる枚数を切り捨てで求め、必要な枚数から本数を切り上げます。1枚がロール長を超えると本数は表示しません。"}},{"@type":"Question","name":"切りしろは自動で加算されますか？","acceptedAnswer":{"@type":"Answer","text":"いいえ。初期値は0cmです。製品や施工者の説明を確認し、必要な値を利用者が入力します。固定のロス率や切りしろは加算しません。"}},{"@type":"Question","name":"窓やドア、施工ロスは含まれますか？","acceptedAnswer":{"@type":"Answer","text":"含みません。1面の長方形の壁の理論上の整理で、開口部・端部・施工ロスや実際の購入量は判定しません。"}},{"@type":"Question","name":"出典メモは共有URLに含まれますか？","acceptedAnswer":{"@type":"Answer","text":"いいえ。共有URLには数値条件だけを含め、出典メモは含めません。入力内容を独自サーバーへ送信しません。"}},{"@type":"Question","name":"計算した長さの壁紙を購入する必要がありますか？","acceptedAnswer":{"@type":"Answer","text":"いいえ。手持ちの壁紙で足りるなら購入は不要です。計算結果は施工や実際の購入量を保証しません。"}}]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"トップ","item":"https://supportapp3-lab.github.io/kasegu-tools/"},{"@type":"ListItem","position":2,"name":"壁紙 必要量 計算","item":"https://supportapp3-lab.github.io/kasegu-tools/tools/wallpaper-quantity/"}]}]}</script>
+  <script src="../../assets/js/wallpaper-quantity.js" defer></script>
+  <style>
+    .wallpaper-fields { display: grid; gap: 16px; }
+    .wallpaper-fields .field-grid { grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); }
+    #roll-results dl, #result-summary dl { margin: 0; }
+    .example { border-left: 4px solid var(--accent, #28635d); padding-left: 16px; }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">本文へ移動</a>
+  <header class="site-header"><div class="container header-inner">
+    <a class="brand" href="../../index.html"><span class="brand-mark" aria-hidden="true">暮</span>暮らしの計算室</a>
+    <nav aria-label="メインナビゲーション"><a href="../../tools/bichiku/index.html">防災備蓄 計算</a><a href="../../about/index.html">運営者情報</a><a href="../../contact/index.html">お問い合わせ</a></nav>
+  </div></header>
+  <main id="main" class="container">
+    <div class="breadcrumbs"><a href="../../index.html">トップ</a> / 壁紙 必要量 計算</div>
+    <section class="hero" aria-labelledby="page-title">
+      <p class="eyebrow">壁1面から、必要な長さを整理。</p>
+      <h1 id="page-title">壁紙の切り出し枚数と<br>必要な長さを計算</h1>
+      <p class="lead">1面の長方形の壁について、幅・高さと製品表示の有効幅・柄リピートから、理論上の切り出し枚数と長さを整理します。施工方法や製品の適合は判定しません。</p>
+      <span class="tag">無料・登録不要</span><span class="tag">入力はブラウザ内で計算</span>
+    </section>
+    <div class="ad-slot" data-slot="top" aria-label="広告掲載枠・準備中"></div>
+    <section id="usage" class="article-section">
+      <h2>使い方</h2>
+      <ol>
+        <li>長方形の壁1面の幅・高さを測り、cmで入力します。</li>
+        <li>製品表示や見本帳で確認した有効幅、柄リピートを入力します。</li>
+        <li>必要なら、製品や施工者の説明に沿った上下の切りしろとロール長を入力します。</li>
+      </ol>
+      <p>すべてcm単位の寸法は0.1cm刻みで入力できます。有効幅は製品表示の値を確認してください。無地など柄合わせが不要な場合は柄リピートを0にします。切りしろは初期値0で、自動の余分率は加えません。</p>
+      <p>任意の出典メモは共有URLに含まれません。数値条件だけをURLに保存して共有できます。</p>
+    </section>
+    <section class="calculator" aria-label="壁紙の必要量計算">
+      <section class="inputs" aria-labelledby="input-title">
+        <h2 id="input-title" class="step"><b aria-hidden="true">1</b>壁と製品表示を入力</h2>
+        <form id="wallpaper-quantity-form" novalidate>
+          <div class="wallpaper-fields">
+            <div class="field-grid">
+              <div><label for="width">壁の幅（cm、0より大きく2000以下）</label><input id="width" name="width" type="number" inputmode="decimal" min="0.1" max="2000" step="0.1" required></div>
+              <div><label for="height">壁の高さ（cm、0より大きく500以下）</label><input id="height" name="height" type="number" inputmode="decimal" min="0.1" max="500" step="0.1" required></div>
+              <div><label for="usable">製品の有効幅（cm、30〜200）</label><input id="usable" name="usable" type="number" inputmode="decimal" min="30" max="200" step="0.1" required></div>
+            </div>
+            <p class="help">窓・ドアなど開口部の控除や複数の壁は扱いません。幅と高さは1面の実測値を入力してください。</p>
+            <div class="field-grid">
+              <div><label for="repeat">柄リピート（cm、0〜200）</label><input id="repeat" name="repeat" type="number" inputmode="decimal" min="0" max="200" step="0.1" value="0" required></div>
+              <div><label for="allowance">上下の切りしろ（cm、0〜50）</label><input id="allowance" name="allowance" type="number" inputmode="decimal" min="0" max="50" step="0.1" value="0" required></div>
+              <div><label for="roll">ロール長（m、任意・0より大きく100以下）</label><input id="roll" name="roll" type="number" inputmode="decimal" min="0.001" max="100" step="0.001"></div>
+            </div>
+            <p class="help">柄リピートがある場合、切り出し長さをリピート単位で切り上げます。切りしろは初期値0です。製品説明や施工者の説明を確認して、必要な場合だけ入力してください。1枚の長さがロール長を超える場合、本数は算出しません。</p>
+            <div class="days">
+              <label for="memo">出典メモ（任意・共有URLには含みません）</label>
+              <textarea id="memo" name="memo" maxlength="200" rows="3" autocomplete="off"></textarea>
+              <p class="help">製品表示を確認した場所などを200文字以内で控えられます。個人情報は入力しないでください。</p>
+            </div>
+          </div>
+          <p id="input-error" class="error" role="status" aria-live="polite"></p>
+        </form>
+        <noscript><p class="note">自動計算にはJavaScriptが必要です。計算式と注意点はこのページ内で確認できます。</p></noscript>
+      </section>
+      <section class="results" aria-labelledby="result-title">
+        <section id="calculation-warning" class="note" role="note" aria-label="計算結果を読む前の注意">
+          <strong>結果を読む前にご確認ください</strong>
+          <p>この結果は、窓・ドア・コンセント・端部・施工ロスを含まない、壁1面の長方形についての理論値です。実際の購入量や施工可否を保証しません。</p>
+          <p>柄リピートは理論値で誤差があり、柄合わせが必要な製品では無地系より必要な長さが増える場合があります。同じ製品でも印刷ロットにより色味が異なる場合があるため、まとめて購入するかは販売店にご確認ください。</p>
+          <p>この計算は長さの整理であり、壁紙の種類・適合・下地処理・施工方法は判定しません。製品カタログ・施工説明・販売店・施工業者の説明を優先してください。手持ちの壁紙で足りるなら購入は不要です。</p>
+        </section>
+        <h2 id="result-title" class="step"><b aria-hidden="true">2</b>計算結果</h2>
+        <div id="result-summary" class="result-summary" aria-live="polite" hidden>
+          <p id="result-inputs"></p>
+          <dl>
+            <div><dt>切り出し枚数</dt><dd><span id="result-strips">—</span>枚</dd></div>
+            <div><dt>1枚の切り出し長さ</dt><dd><span id="result-cut-length">—</span>cm</dd></div>
+            <div><dt>合計の長さ（0.1m単位で切り上げ）</dt><dd><span id="result-total-length">—</span>m</dd></div>
+          </dl>
+          <div id="roll-results" hidden>
+            <h3>入力したロール長からの計算</h3>
+            <dl>
+              <div><dt>1ロールから取れる枚数</dt><dd><span id="result-strips-per-roll">—</span>枚</dd></div>
+              <div><dt>ロール本数</dt><dd><span id="result-roll-count">—</span>本</dd></div>
+            </dl>
+          </div>
+          <p id="roll-too-short" class="note" hidden>入力したロール長では1枚を取れないため、ロール本数は表示していません。</p>
+          <p>手持ちの壁紙で足りるなら購入は不要です。</p>
+        </div>
+      </section>
+    </section>
+    <section class="article-section">
+      <h2>計算式と結果の見方</h2>
+      <ul>
+        <li>切り出し枚数 ＝ 切り上げ（壁の幅 ÷ 製品の有効幅）</li>
+        <li>基本長さ ＝ 壁の高さ ＋ 入力した上下の切りしろ</li>
+        <li>1枚の切り出し長さ ＝ 基本長さを柄リピート単位で切り上げ（リピート0なら基本長さ）</li>
+        <li>合計の長さ ＝ 切り出し枚数 × 1枚の切り出し長さ。表示は0.1m単位で切り上げます。</li>
+        <li>ロール長を入力した場合は、1ロールから取れる枚数を切り捨てで求め、ロール本数を切り上げます。</li>
+      </ul>
+      <p class="example"><strong>計算例（架空の寸法・製品表示です）</strong><br>幅360cm、高さ240cm、有効幅92cm、柄リピート0cm、切りしろ0cmの場合、切り出し枚数は4枚、1枚の長さは240cm、合計は9.6mです。製品や実際の壁についての数値ではありません。</p>
+    </section>
+    <div class="ad-slot" data-slot="middle" aria-label="広告掲載枠・準備中"></div>
+    <section class="article-section">
+      <h2>この計算で分からないこと</h2>
+      <p>このツールは、長方形の壁1面の寸法と入力値から長さを整理します。窓・ドア・コンセントの控除、複数面や天井、柄合わせの開始位置、施工ロス、壁紙の種類・適合・下地処理・施工方法、実際の購入量は扱いません。</p>
+      <p>見本帳に表示されるリピートは理論値で誤差が生じる場合があります。柄合わせの要否や製品ごとの扱いは、製品のカタログ・施工説明や販売店・施工業者にご確認ください。</p>
+    </section>
+    <section class="article-section">
+      <h2>購入を考える前に</h2>
+      <ul>
+        <li>壁の幅・高さと製品表示の有効幅・リピートを確認しましたか。</li>
+        <li>開口部や端部、切りしろの扱いを製品説明や施工者に確認しましたか。</li>
+        <li>必要量や施工方法について販売店・施工業者へ確認しましたか。</li>
+        <li>手持ちの壁紙で足りるなら購入は不要です。</li>
+      </ul>
+    </section>
+    <section class="article-section" aria-labelledby="faq-title">
+      <h2 id="faq-title">よくある質問</h2>
+      <details><summary>何面の壁を計算できますか？</summary><p>初期版では、窓やドアのない長方形の壁1面を計算します。複数の壁や天井は対象外です。</p></details>
+      <details><summary>柄リピートが0の場合はどうなりますか？</summary><p>無地など柄合わせ不要の場合は0を入力します。正の値の場合は、壁の高さと切りしろを合計し、リピート単位で切り上げます。</p></details>
+      <details><summary>ロール本数はどのように計算しますか？</summary><p>ロール長を入力した場合に限り、1ロールから取れる枚数を切り捨てで求め、必要な枚数から本数を切り上げます。1枚がロール長を超えると本数は表示しません。</p></details>
+      <details><summary>切りしろは自動で加算されますか？</summary><p>いいえ。初期値は0cmです。製品や施工者の説明を確認し、必要な値を利用者が入力します。固定のロス率や切りしろは加算しません。</p></details>
+      <details><summary>窓やドア、施工ロスは含まれますか？</summary><p>含みません。1面の長方形の壁の理論上の整理で、開口部・端部・施工ロスや実際の購入量は判定しません。</p></details>
+      <details><summary>出典メモは共有URLに含まれますか？</summary><p>いいえ。共有URLには数値条件だけを含め、出典メモは含めません。入力内容を独自サーバーへ送信しません。</p></details>
+      <details><summary>計算した長さの壁紙を購入する必要がありますか？</summary><p>いいえ。手持ちの壁紙で足りるなら購入は不要です。計算結果は施工や実際の購入量を保証しません。</p></details>
+    </section>
+    <section class="article-section" aria-labelledby="sources-title">
+      <h2 id="sources-title">出典・確認先</h2>
+      <ul>
+        <li><a href="https://contents.sangetsu.co.jp/doc/catalog-index/reserve22_07.pdf" rel="noopener">サンゲツ 壁紙の選定・施工上の注意</a>（柄リピートの扱い、施工時の注意）</li>
+        <li><a href="https://contents.sangetsu.co.jp/doc/catalog-index/reserve24_05.pdf" rel="noopener">サンゲツ 見本帳</a>（有効幅やリピートの確認先）</li>
+      </ul>
+    </section>
+    <section class="affiliate" data-category="wallpaper" aria-label="壁紙関連の広告・準備中"><p class="placeholder">壁紙関連の情報枠（準備中）</p></section>
+    <div class="ad-slot" data-slot="bottom" aria-label="広告掲載枠・準備中"></div>
+  </main>
+  <footer class="site-footer"><div class="container">
+    <nav aria-label="フッターナビゲーション"><a href="../../tools/bichiku/index.html">防災備蓄 計算</a><a href="../../about/index.html">運営者情報</a><a href="../../contact/index.html">お問い合わせ</a><a href="../../privacy/index.html">プライバシーポリシー</a></nav>
+    <p>広告・アフィリエイトの導入を予定しています。Amazonアソシエイトは現在未申請で、参加・承認されていません。</p>
+    <p>現時点では広告タグ・商品紹介リンク・トラッキングは未設置です。</p>
+    <p>運営：supportapp3-lab ／ 暮らしの計算室</p>
+    <span class="placeholder">運営を応援するリンク（Ko-fiなど）は準備中です。</span>
+  </div></footer>
+</body>
+</html>
