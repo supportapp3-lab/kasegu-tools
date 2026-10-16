@@ -24,6 +24,13 @@
     return hundredths / 100;
   }
 
+  function normalizePackSize(value) {
+    if (value === undefined || value === '' || (typeof value === 'number' && Number.isNaN(value))) return null;
+    const packSize = normalizeQuantity(value, '1パックあたりの内容数');
+    if (packSize <= 0) throw new RangeError('1パックあたりの内容数は0より大きい数値で入力してください。');
+    return packSize;
+  }
+
   function normalizeRow(input) {
     if (!input || typeof input !== 'object') return invalid('入力内容を確認してください。');
     const name = typeof input.name === 'string' ? input.name.trim() : '';
@@ -36,7 +43,12 @@
     try {
       const target = normalizeQuantity(input.target, '目標数量');
       const stock = normalizeQuantity(input.stock, '現在使える在庫');
-      const shortage = Math.max(Math.round((target - stock) * 100) / 100, 0);
+      const packSize = normalizePackSize(input.packSize);
+      const shortageHundredths = Math.max(Math.round(target * 100) - Math.round(stock * 100), 0);
+      const shortage = shortageHundredths / 100;
+      const hasShortage = shortageHundredths > 0;
+      const packs = packSize === null ? null
+        : hasShortage ? Math.ceil(shortageHundredths / Math.round(packSize * 100)) : 0;
       return {
         valid: true,
         name,
@@ -44,7 +56,9 @@
         target,
         stock,
         shortage,
-        hasShortage: shortage > 0
+        hasShortage,
+        packSize,
+        packs
       };
     } catch (error) {
       return invalid(error.message);
@@ -67,9 +81,16 @@
     const detail = row.name + '：目標 ' + formatQuantity(row.target) + ' ' + row.unit
       + ' ／ 現在使える在庫 ' + formatQuantity(row.stock) + ' ' + row.unit;
     if (row.hasShortage) {
-      return detail + ' ／ 不足あり（不足 ' + formatQuantity(row.shortage) + ' ' + row.unit + '）';
+      const shortageDetail = detail + ' ／ 不足あり（不足 ' + formatQuantity(row.shortage) + ' ' + row.unit + '）';
+      if (row.packSize === null) return shortageDetail;
+      return shortageDetail + ' ／ 1パックの内容数 ' + formatQuantity(row.packSize) + ' ' + row.unit
+        + ' ／ パック数の算術上の目安 ' + formatQuantity(row.packs)
+        + ' パック（購入数量の確定ではありません）';
     }
-    return detail + ' ／ 不足なし（買い足しは不要です）';
+    const noShortage = detail + ' ／ 不足なし（買い足しは不要です）';
+    if (row.packSize === null) return noShortage;
+    return noShortage + ' ／ 1パックの内容数 ' + formatQuantity(row.packSize) + ' ' + row.unit
+      + ' ／ パック数の算術上の目安 0 パック（購入数量の確定ではありません）';
   }
 
   function formatResult(rows) {
@@ -106,7 +127,8 @@
       ['品目名', 'name', 'text', 40],
       ['記録の単位', 'unit', 'text', 12],
       ['目標数量（0以上・小数点以下2桁まで）', 'target', 'number', 1000000],
-      ['現在使える在庫（同じ単位）', 'stock', 'number', 1000000]
+      ['現在使える在庫（同じ単位）', 'stock', 'number', 1000000],
+      ['1パックあたりの内容数（任意・記録と同じ単位）', 'packSize', 'number', 1000000]
     ].forEach(([labelText, field, type, maxLengthOrValue]) => {
       const wrapper = document.createElement('div');
       const label = document.createElement('label');
@@ -117,9 +139,9 @@
       input.id = id;
       input.dataset.field = field;
       input.type = type;
-      input.required = true;
+      input.required = field !== 'packSize';
       if (type === 'number') {
-        input.min = '0';
+        input.min = field === 'packSize' ? '0.01' : '0';
         input.max = String(maxLengthOrValue);
         input.step = '0.01';
         input.inputMode = 'decimal';
@@ -151,7 +173,8 @@
       name: row.querySelector('[data-field="name"]').value,
       unit: row.querySelector('[data-field="unit"]').value,
       target: numericValue(row, 'target'),
-      stock: numericValue(row, 'stock')
+      stock: numericValue(row, 'stock'),
+      packSize: numericValue(row, 'packSize')
     }));
     const calculated = calculateRows(rows);
     results.replaceChildren();
