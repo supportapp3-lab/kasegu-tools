@@ -89,10 +89,11 @@ test('repeat, allowance, and roll length reject negative, over-limit, or invalid
   for (const value of [-0.1, MAX_ALLOWANCE_CM + 0.1, 'abc', Infinity, 1.01]) {
     assert.throws(() => calculate(input({ allowanceCm: value })));
   }
-  for (const value of ['', 0, -1, NaN, Infinity, 'abc', MAX_ROLL_LENGTH_M + 0.1, 1.0001]) {
+  for (const value of [0, -1, NaN, Infinity, 'abc', MAX_ROLL_LENGTH_M + 0.1, 1.0001]) {
     assert.throws(() => calculate(input({ rollLengthM: value })));
   }
   assert.equal(calculate(input({ rollLengthM: null })).rollCount, null);
+  assert.equal(calculate(input({ rollLengthM: '' })).rollCount, null);
 });
 
 test('query state roundtrips optional values but never includes or restores source memo', () => {
