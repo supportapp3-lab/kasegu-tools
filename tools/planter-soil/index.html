@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>プランター用土量 計算｜容器の寸法から必要Lと袋数を整理</title>
+  <meta name="description" content="容器の内側の寸法または表示容量と、用土の袋容量から幾何上の容量と最小袋数を整理します。作物や用土の適性は判定しません。">
+  <meta name="color-scheme" content="light dark">
+  <link rel="canonical" href="https://supportapp3-lab.github.io/kasegu-tools/tools/planter-soil/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="プランター用土量 計算｜必要Lと袋数を整理">
+  <meta property="og:description" content="容器の寸法または表示容量と、用土の袋容量から幾何上の容量と最小袋数を整理します。">
+  <meta property="og:url" content="https://supportapp3-lab.github.io/kasegu-tools/tools/planter-soil/">
+  <meta property="og:locale" content="ja_JP">
+  <meta property="og:site_name" content="暮らしの計算室">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="プランター用土量 計算｜必要Lと袋数を整理">
+  <meta name="twitter:description" content="容器の寸法または表示容量と、用土の袋容量から幾何上の容量と最小袋数を整理します。">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","name":"プランター用土量 計算","url":"https://supportapp3-lab.github.io/kasegu-tools/tools/planter-soil/","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","inLanguage":"ja","isAccessibleForFree":true,"description":"容器の寸法または表示容量と、用土の袋容量から容量と最小袋数を整理します。"},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"この結果は栽培に必要な用土量ですか？","acceptedAnswer":{"@type":"Answer","text":"いいえ。容器の幾何上の容量と入力した袋容量から最小袋数を整理します。作物や栽培方法に適した用土量を判定しません。"}},{"@type":"Question","name":"容器の内寸はどこを測ればよいですか？","acceptedAnswer":{"@type":"Answer","text":"容器の内側の長さ・幅と、土を入れる深さを測ります。形が一定でない容器はメーカーの表示容量を使ってください。"}},{"@type":"Question","name":"容器の表示容量と寸法を両方入力しますか？","acceptedAnswer":{"@type":"Answer","text":"いいえ。寸法または容器の表示容量のどちらかを選びます。表示容量方式では寸法を計算に使わず、二重に足しません。"}},{"@type":"Question","name":"排水層や植え付け後の沈み込みも計算しますか？","acceptedAnswer":{"@type":"Answer","text":"いいえ。排水層、土を入れる高さ、沈み込み、作物ごとの条件は推定しません。製品表示や園芸資料を確認してください。"}},{"@type":"Question","name":"入力した寸法や容量は送信されますか？","acceptedAnswer":{"@type":"Answer","text":"計算はブラウザ内で行い、独自サーバーへ入力内容を送信しません。共有URLには入力値が含まれるため、共有先に注意してください。"}},{"@type":"Question","name":"袋数が表示されたら購入が必要ですか？","acceptedAnswer":{"@type":"Answer","text":"いいえ。表示するのは入力した容量だけから計算した最小袋数です。不足がなければ購入は不要です。"}}]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"トップ","item":"https://supportapp3-lab.github.io/kasegu-tools/"},{"@type":"ListItem","position":2,"name":"プランター用土量 計算","item":"https://supportapp3-lab.github.io/kasegu-tools/tools/planter-soil/"}]}]}</script>
+  <script src="../../assets/js/planter-soil.js" defer></script>
+  <style>
+    .calculator .field-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    @media (max-width: 600px) { .calculator .field-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">本文へ移動</a>
+  <header class="site-header"><div class="container header-inner">
+    <a class="brand" href="../../index.html"><span class="brand-mark" aria-hidden="true">暮</span>暮らしの計算室</a>
+    <nav aria-label="メインナビゲーション"><a href="../../tools/bichiku/index.html">防災備蓄 計算</a><a href="../../about/index.html">運営者情報</a><a href="../../contact/index.html">お問い合わせ</a></nav>
+  </div></header>
+  <main id="main" class="container">
+    <div class="breadcrumbs"><a href="../../index.html">トップ</a> / プランター用土量 計算</div>
+    <section class="hero" aria-labelledby="page-title">
+      <p class="eyebrow">園芸の量を、手元の寸法から整理。</p>
+      <h1 id="page-title">プランターの用土量を<br>容量と袋数で整理</h1>
+      <p class="lead">容器の内側の寸法または製品の表示容量と、用土の袋に表示された容量を入力します。作物や用土の種類を診断・推奨する計算ではありません。</p>
+      <span class="tag">無料・登録不要</span><span class="tag">入力はブラウザ内で計算</span>
+    </section>
+    <div class="ad-slot" data-slot="top" aria-label="広告掲載枠・準備中"></div>
+    <section id="usage" class="article-section">
+      <h2>使い方</h2>
+      <ol>
+        <li>容器の寸法を測る方法か、容器に表示された容量を使う方法のどちらかを選びます。</li>
+        <li>寸法を使う場合は、容器の内側の長さ・幅・土を入れる深さを入力します。不定形の容器はメーカー表示容量を使ってください。</li>
+        <li>用土の袋に表示された容量を入力すると、容量だけから計算した最小袋数が表示されます。</li>
+      </ol>
+      <p>寸法方式は直方体として近似します。排水層や土の沈み込み、作物ごとの条件は推定しません。</p>
+    </section>
+    <section class="calculator" aria-label="用土量計算">
+      <section class="inputs" aria-labelledby="input-title">
+        <h2 id="input-title" class="step"><b aria-hidden="true">1</b>容器と袋の表示を入力</h2>
+        <form id="planter-soil-form" novalidate>
+          <fieldset>
+            <legend>容器の容量を確認する方法</legend>
+            <label for="mode-dimensions"><input id="mode-dimensions" type="radio" name="mode" value="dimensions" checked> 内側の寸法から計算</label>
+            <label for="mode-labeled"><input id="mode-labeled" type="radio" name="mode" value="labeled"> 容器の表示容量を使う</label>
+          </fieldset>
+          <fieldset id="dimension-fields">
+            <legend>容器の内側の寸法（cm）</legend>
+            <div class="field-grid">
+              <div><label for="length">内側の長さ（cm）</label><input id="length" name="length" type="number" inputmode="decimal" min="0.01" max="10000" step="any"></div>
+              <div><label for="width">内側の幅（cm）</label><input id="width" name="width" type="number" inputmode="decimal" min="0.01" max="10000" step="any"></div>
+              <div><label for="depth">土を入れる深さ（cm）</label><input id="depth" name="depth" type="number" inputmode="decimal" min="0.01" max="10000" step="any"></div>
+            </div>
+            <p class="help">容器の形が一定でない場合は、メーカーの表示容量を選んでください。</p>
+          </fieldset>
+          <fieldset id="labeled-fields" hidden>
+            <legend>容器の表示容量</legend>
+            <label for="container">容量（L）</label>
+            <input id="container" name="container" type="number" inputmode="decimal" min="0.01" max="1000000" step="any">
+          </fieldset>
+          <div class="days">
+            <label for="bag">用土の袋に表示された容量（L）</label>
+            <input id="bag" name="bag" type="number" inputmode="decimal" min="0.01" max="1000000" step="any">
+            <p class="help">商品ごとの袋容量を表示から入力してください。特定の商品や土の種類は案内しません。</p>
+          </div>
+          <p id="input-error" class="error" role="status" aria-live="polite"></p>
+        </form>
+        <noscript><p class="note">自動計算にはJavaScriptが必要です。計算式と注意点はこのページ内で確認できます。</p></noscript>
+      </section>
+      <section class="results" aria-labelledby="result-title">
+        <section id="calculation-warning" class="note" role="note" aria-label="計算結果を読む前の注意">
+          <strong>結果を読む前にご確認ください</strong>
+          <p>容器の形状、排水、土を入れる高さ、作物によって実際に必要な土は異なります。この計算は幾何学的な容量の整理であり、作物や土の種類を推奨しません。容器や用土の製品表示、園芸資料を優先してください。</p>
+          <p>容器の表示容量を選んだ場合は、実測した寸法による体積と重ねて足しません。不足がなければ購入は不要です。</p>
+        </section>
+        <div id="result-summary" hidden>
+          <h2 id="result-title" class="step"><b aria-hidden="true">2</b>容量と袋数</h2>
+          <dl class="result-list">
+            <div class="result-item"><dt>採用した方法</dt><dd id="result-method">—</dd></div>
+            <div class="result-item"><dt>幾何上の容量</dt><dd><span id="result-volume" class="value">—</span> L</dd></div>
+            <div class="result-item"><dt>入力した袋の表示容量</dt><dd><span id="result-bag" class="value">—</span> L</dd></div>
+            <div class="result-item"><dt>容量だけから計算した最小袋数</dt><dd><span id="result-count" class="value">—</span> 袋</dd></div>
+          </dl>
+          <p class="help">最小袋数は容量を袋の表示容量で割って切り上げた値です。実際の必要量を保証しません。不足がなければ購入は不要です。</p>
+        </div>
+      </section>
+    </section>
+
+    <div class="ad-slot" data-slot="middle" aria-label="広告掲載枠・準備中"></div>
+    <nav class="section-nav" aria-label="このページの内容"><a href="#formula">計算式</a><a href="#limits">使えない条件</a><a href="#sources">出典</a><a href="#faq">よくある質問</a></nav>
+    <div class="content">
+      <section id="formula" class="article-section">
+        <h2>計算式と結果の意味</h2>
+        <p>寸法方式は「内側の長さ × 内側の幅 × 土を入れる深さ ÷ 1,000」で、直方体とみなした容量をLに換算します。表示容量方式は入力した容器の容量を使います。袋数は「容量 ÷ 袋の表示容量」を切り上げます。</p>
+        <p>容器表示容量と寸法方式は同時に計算しません。形状が一定でない容器や、メーカーが容量を表示している容器では表示容量を選んでください。</p>
+      </section>
+      <section id="limits" class="article-section">
+        <h2>この計算で分からないこと</h2>
+        <ul>
+          <li>作物や栽培方法に適した土の種類、肥料、必要量。</li>
+          <li>容器の形状、排水層、土を入れる高さ、植え付け後の沈み込み。</li>
+          <li>袋に表示された容量と実際に容器へ入る量の差。</li>
+        </ul>
+        <p>タキイ種苗はプランター菜園で使う容器や土の量について案内していますが、栽培条件によって異なります。<a href="https://www.takii.co.jp/info/news_190404.html" target="_blank" rel="noopener">プランター菜園の案内</a>と<a href="https://www.takii.co.jp/info/news_230301.html" target="_blank" rel="noopener">土の質・量・水の案内</a>を確認し、容器・用土の製品表示を優先してください。</p>
+      </section>
+      <section id="pre-buy-check" class="article-section">
+        <h2>購入を考える前に</h2>
+        <p>画面の袋数は入力した容量だけから計算した最小値です。容器の容量が足りており、手持ちの用土で不足がなければ購入は不要です。このページは商品・土の種類の適合、栽培方法、作物への適性を判断しません。</p>
+        <ul class="checklist">
+          <li>寸法または容器の表示容量のどちらか一方で計算した</li>
+          <li>不定形の容器ではメーカー表示容量を確認した</li>
+          <li>袋に表示された容量を入力した</li>
+          <li>排水層や作物ごとの条件が計算に含まれないと確認した</li>
+          <li>手持ちの用土で不足がない場合は購入しなくてよいと確認した</li>
+        </ul>
+      </section>
+      <section id="sources" class="article-section">
+        <h2>出典</h2>
+        <ul>
+          <li><a href="https://www.takii.co.jp/info/news_190404.html" target="_blank" rel="noopener">タキイ種苗：プランター菜園の案内</a>（容器の大きさや用土量は栽培条件で異なるための確認先。）</li>
+          <li><a href="https://www.takii.co.jp/info/news_230301.html" target="_blank" rel="noopener">タキイ種苗：土の質・量・水の案内</a>（栽培での用土の扱いを確認する資料。）</li>
+        </ul>
+      </section>
+      <section class="affiliate" data-category="potting-soil" aria-label="園芸用土関連の紹介枠">
+        <span class="placeholder">商品リンク枠（未設定）</span>
+      </section>
+      <section id="faq" class="article-section">
+        <h2>よくある質問</h2>
+        <details><summary>この結果は栽培に必要な用土量ですか？</summary><p>いいえ。容器の幾何上の容量と入力した袋容量から最小袋数を整理します。作物や栽培方法に適した用土量を判定しません。</p></details>
+        <details><summary>容器の内寸はどこを測ればよいですか？</summary><p>容器の内側の長さ・幅と、土を入れる深さを測ります。形が一定でない容器はメーカーの表示容量を使ってください。</p></details>
+        <details><summary>容器の表示容量と寸法を両方入力しますか？</summary><p>いいえ。寸法または容器の表示容量のどちらかを選びます。表示容量方式では寸法を計算に使わず、二重に足しません。</p></details>
+        <details><summary>排水層や植え付け後の沈み込みも計算しますか？</summary><p>いいえ。排水層、土を入れる高さ、沈み込み、作物ごとの条件は推定しません。製品表示や園芸資料を確認してください。</p></details>
+        <details><summary>入力した寸法や容量は送信されますか？</summary><p>計算はブラウザ内で行い、独自サーバーへ入力内容を送信しません。共有URLには入力値が含まれるため、共有先に注意してください。</p></details>
+        <details><summary>袋数が表示されたら購入が必要ですか？</summary><p>いいえ。表示するのは入力した容量だけから計算した最小袋数です。不足がなければ購入は不要です。</p></details>
+      </section>
+    </div>
+    <div class="ad-slot" data-slot="bottom" aria-label="広告掲載枠・準備中"></div>
+  </main>
+  <footer class="site-footer"><div class="container">
+    <nav aria-label="フッターナビゲーション"><a href="../../tools/bichiku/index.html">防災備蓄 計算</a><a href="../../about/index.html">運営者情報</a><a href="../../contact/index.html">お問い合わせ</a><a href="../../privacy/index.html">プライバシーポリシー</a></nav>
+    <p>広告・アフィリエイトの導入を予定しています。Amazonアソシエイトは現在未申請で、参加・承認されていません。</p>
+    <p>現時点では広告タグ・商品紹介リンク・トラッキングは未設置です。</p>
+    <p>運営：supportapp3-lab ／ 暮らしの計算室</p>
+    <span class="placeholder">運営を応援するリンク（Ko-fiなど）は準備中です。</span>
+  </div></footer>
+</body>
+</html>
