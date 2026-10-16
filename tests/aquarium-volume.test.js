@@ -44,7 +44,7 @@ test('blank or zero substrate thickness omits substrate and bag results', () => 
 
 test('bag count rounds up and keeps exact division boundaries', () => {
   assert.equal(calculate(input({ substrateCm: 5, bagLiters: 4 })).bagCount, 3);
-  assert.equal(calculate(input({ substrateCm: 4, bagLiters: 4 })).bagCount, 1);
+  assert.equal(calculate(input({ widthCm: 40, depthCm: 20, substrateCm: 5, bagLiters: 4 })).bagCount, 1);
 });
 
 test('dimension permutations preserve volume', () => {
