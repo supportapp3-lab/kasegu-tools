@@ -1,5 +1,7 @@
 'use strict';
 const assert = require('node:assert/strict');
+const { readFileSync } = require('node:fs');
+const path = require('node:path');
 const { test } = require('node:test');
 const { DEFAULTS, MAX_ITEMS, calculate, normalize, readQuery, writeQuery, formatResult } = require('../assets/js/portable-power.js');
 
@@ -76,4 +78,29 @@ test('normalization and query serialization do not mutate caller input', () => {
   writeQuery(source);
   assert.equal(normalized.items[0].watts, 100);
   assert.equal(source.items[0].name, '');
+});
+
+test('fictional calculation example matches the formula section', () => {
+  const result = calculate(input([
+    item({ watts: 10, hoursPerDay: 5, days: 3 }),
+    item({ watts: 5, hoursPerDay: 2, days: 3 })
+  ]));
+  assert.deepEqual(result.items.map(row => row.wh), [150, 30]);
+  assert.equal(result.totalWh, 180);
+
+  const html = readFileSync(path.join(__dirname, '../tools/portable-power/index.html'), 'utf8');
+  const formulaStart = html.indexOf('<section id="formula"');
+  const formulaEnd = html.indexOf('</section>', formulaStart);
+  assert.ok(formulaStart >= 0 && formulaEnd > formulaStart);
+  const formula = html.slice(formulaStart, formulaEnd);
+  const exampleStart = formula.indexOf('<p class="example">');
+  const exampleEnd = formula.indexOf('</p>', exampleStart);
+  assert.ok(exampleStart >= 0 && exampleEnd > exampleStart);
+  const example = formula.slice(exampleStart, exampleEnd);
+  for (const value of ['150Wh', '30Wh', '180Wh', '架空']) {
+    assert.ok(example.includes(value), 'missing example text: ' + value);
+  }
+  for (const forbidden of ['必要容量', '稼働時間', '推奨Wh', '何時間使える']) {
+    assert.ok(!example.includes(forbidden), 'unexpected example wording: ' + forbidden);
+  }
 });
