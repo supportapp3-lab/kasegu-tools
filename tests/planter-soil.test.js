@@ -137,11 +137,15 @@ test('fictional calculation example matches the formula section', () => {
   assert.equal(result.bagCount, 2);
 
   const html = readFileSync(path.join(__dirname, '../tools/planter-soil/index.html'), 'utf8');
-  const formula = html.match(/<section id="formula"[\\s\\S]*?<\\/section>/);
-  assert.ok(formula);
-  const example = formula[0].match(/<p class="example">([\\s\\S]*?)<\\/p>/);
-  assert.ok(example);
-  assert.match(example[1], /25\\.74L/);
-  assert.match(example[1], /2袋/);
-  assert.match(example[1], /架空/);
+  const formulaStart = html.indexOf('<section id="formula"');
+  const formulaEnd = html.indexOf('</section>', formulaStart);
+  assert.ok(formulaStart >= 0 && formulaEnd > formulaStart);
+  const formula = html.slice(formulaStart, formulaEnd);
+  const exampleStart = formula.indexOf('<p class="example">');
+  const exampleEnd = formula.indexOf('</p>', exampleStart);
+  assert.ok(exampleStart >= 0 && exampleEnd > exampleStart);
+  const example = formula.slice(exampleStart, exampleEnd);
+  assert.ok(example.includes('25.74L'));
+  assert.ok(example.includes('2袋'));
+  assert.ok(example.includes('架空'));
 });
