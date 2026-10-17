@@ -9,6 +9,7 @@ from xml.etree import ElementTree
 
 ROOT = Path(__file__).resolve().parents[1]
 VOID = set('area base br col embed hr img input link meta param source track wbr'.split())
+AMAZON_HOSTS = {'amazon.co.jp', 'www.amazon.co.jp', 'amzn.to', 'amzn.asia'}
 BLOCK = set('article aside div dl fieldset footer form h1 h2 h3 h4 header main nav ol p section table ul'.split())
 
 
@@ -30,9 +31,18 @@ class Lint(HTMLParser):
         self.doctype = False
         self.json_data = None
         self.errors = []
+        self.affiliate_errors = []
+        self.affiliate_slots = []
+        self.has_amazon_link = False
+        self.body_text = []
 
     def fail(self, message):
         self.errors.append(f'{self.path.relative_to(ROOT)}:{self.getpos()[0]}: {message}')
+
+    def fail_affiliate(self, message):
+        error = f'{self.path.relative_to(ROOT)}:{self.getpos()[0]}: {message}'
+        self.affiliate_errors.append(error)
+        self.errors.append(error)
 
     def handle_decl(self, decl):
         if decl.lower() == 'doctype html':
@@ -42,6 +52,22 @@ class Lint(HTMLParser):
         if len(attrs) != len(dict(attrs)):
             self.fail('duplicate attribute')
         attr = dict(attrs)
+        if tag == 'a':
+            href = attr.get('href', '')
+            host = urlsplit(href).hostname
+            rel_tokens = (attr.get('rel') or '').lower().split()
+            if host in AMAZON_HOSTS:
+                self.has_amazon_link = True
+                if 'sponsored' not in rel_tokens:
+                    self.fail_affiliate('affiliate link needs rel=sponsored')
+            if re.match(r'^https?://', href, re.IGNORECASE):
+                for slot in self.affiliate_slots:
+                    slot['links'] += 1
+                    if 'sponsored' not in rel_tokens:
+                        self.fail_affiliate('affiliate link needs rel=sponsored')
+                    if slot['links'] > 1 and not slot['too_many_reported']:
+                        self.fail_affiliate('affiliate slot has more than one link')
+                        slot['too_many_reported'] = True
         if 'p' in self.stack and tag in BLOCK:
             self.fail('block element nested in p')
         if tag == 'a' and 'a' in self.stack:
@@ -79,8 +105,18 @@ class Lint(HTMLParser):
             self.fail('external target needs noopener')
         if tag == 'script' and attr.get('type') == 'application/ld+json':
             self.json_data = ''
+        is_affiliate_slot = (
+            'affiliate' in (attr.get('class') or '').split()
+            and 'data-category' in attr
+        )
         if tag not in VOID:
             self.stack.append(tag)
+            if is_affiliate_slot:
+                self.affiliate_slots.append({
+                    'depth': len(self.stack),
+                    'links': 0,
+                    'too_many_reported': False,
+                })
 
     def handle_startendtag(self, tag, attrs):
         self.handle_starttag(tag, attrs)
@@ -92,6 +128,8 @@ class Lint(HTMLParser):
             self.fail(f'unmatched closing tag: {tag}')
             return
         self.stack.pop()
+        if self.affiliate_slots and self.affiliate_slots[-1]['depth'] == len(self.stack) + 1:
+            self.affiliate_slots.pop()
         if tag == 'script' and self.json_data is not None:
             try:
                 json.loads(self.json_data)
@@ -102,6 +140,8 @@ class Lint(HTMLParser):
     def handle_data(self, data):
         if self.json_data is not None:
             self.json_data += data
+        elif 'body' in self.stack and 'script' not in self.stack and 'style' not in self.stack:
+            self.body_text.append(data)
 
     def finish(self):
         if self.stack:
@@ -110,9 +150,20 @@ class Lint(HTMLParser):
             self.fail('missing doctype/lang/title/description/canonical')
         if self.h1 != 1:
             self.fail('exactly one h1 is required')
+        if self.has_amazon_link and 'Amazonのアソシエイトとして' not in ''.join(self.body_text):
+            self.fail_affiliate('amazon link needs associates disclosure')
         for control in self.inputs:
             if not control or control not in self.labels:
                 self.fail(f'form control has no label: {control}')
+
+
+def affiliate_errors_from_html(html):
+    """Return affiliate-rule errors for one HTML document string."""
+    parser = Lint(ROOT / '__affiliate_test__.html')
+    parser.feed(html)
+    parser.close()
+    parser.finish()
+    return parser.affiliate_errors
 
 
 def main():
