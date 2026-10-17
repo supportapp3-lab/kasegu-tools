@@ -29,7 +29,7 @@ class PaintStockExampleTests(unittest.TestCase):
 
     def test_stock_example_has_safe_fictional_comparison(self):
         section = re.search(
-            r'<section\\b[^>]*\\bid="stock-example"[^>]*>(.*?)</section>',
+            r'<section\b[^>]*\bid="stock-example"[^>]*>(.*?)</section>',
             self.html,
             re.DOTALL,
         )
@@ -60,7 +60,7 @@ class PaintStockExampleTests(unittest.TestCase):
 
     def test_existing_formula_and_six_faqs_remain(self):
         formula = re.search(
-            r'<section\\b[^>]*\\bid="formula"[^>]*>(.*?)</section>',
+            r'<section\b[^>]*\bid="formula"[^>]*>(.*?)</section>',
             self.html,
             re.DOTALL,
         )
@@ -70,16 +70,16 @@ class PaintStockExampleTests(unittest.TestCase):
                 self.assertIn(phrase, formula.group(1))
 
         faq = re.search(
-            r'<section\\b[^>]*\\bid="faq"[^>]*>(.*?)</section>',
+            r'<section\b[^>]*\bid="faq"[^>]*>(.*?)</section>',
             self.html,
             re.DOTALL,
         )
         self.assertIsNotNone(faq)
-        details_count = len(re.findall(r"<details\\b", faq.group(1)))
+        details_count = len(re.findall(r"<details\b", faq.group(1)))
         self.assertEqual(details_count, 6)
 
         scripts = re.findall(
-            r'<script\\b[^>]*\\btype="application/ld\\+json"[^>]*>(.*?)</script>',
+            r'<script\b[^>]*\btype="application/ld\+json"[^>]*>(.*?)</script>',
             self.html,
             re.DOTALL,
         )
