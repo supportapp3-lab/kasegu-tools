@@ -34,6 +34,29 @@ class AffiliateLintTests(unittest.TestCase):
         )
         self.assertTrue(any("affiliate link needs rel=sponsored" in error for error in errors))
 
+    def test_amazon_help_link_without_tag_is_exempt(self):
+        html = document(
+            '<a href="https://www.amazon.co.jp/gp/help/customer/display.html?nodeId=201909010">'
+            '規約案内</a>'
+        )
+        self.assertEqual(site_lint.affiliate_errors_from_html(html), [])
+
+    def test_amazon_help_link_with_tag_requires_sponsored(self):
+        html = document(
+            '<a href="https://www.amazon.co.jp/gp/help/customer/display.html?nodeId=201909010&tag=example-22">'
+            '紹介リンク</a>'
+        )
+        errors = site_lint.affiliate_errors_from_html(html)
+        self.assertTrue(any("affiliate link needs rel=sponsored" in error for error in errors))
+
+    def test_amazon_help_link_with_tag_requires_disclosure(self):
+        html = document(
+            '<a href="https://www.amazon.co.jp/gp/help/customer/display.html?tag=example-22">'
+            '紹介リンク</a>'
+        )
+        errors = site_lint.affiliate_errors_from_html(html)
+        self.assertTrue(any("amazon link needs associates disclosure" in error for error in errors))
+
     def test_affiliate_slot_requires_sponsored_for_other_hosts(self):
         html = document(
             '<div class="card affiliate" data-category="book">'
