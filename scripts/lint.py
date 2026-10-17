@@ -4,7 +4,7 @@ import re
 import sys
 from html.parser import HTMLParser
 from pathlib import Path
-from urllib.parse import unquote, urlsplit
+from urllib.parse import parse_qsl, unquote, urlsplit
 from xml.etree import ElementTree
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -58,9 +58,18 @@ class Lint(HTMLParser):
             rel_tokens = (attr.get('rel') or '').lower().split()
             is_amazon = host in AMAZON_HOSTS
             is_external = bool(re.match(r'^https?://', href, re.IGNORECASE))
-            if is_amazon:
+            url = urlsplit(href)
+            is_terms_help = (
+                host in {'amazon.co.jp', 'www.amazon.co.jp'}
+                and url.path.startswith('/gp/help/')
+                and not any(key == 'tag' for key, _ in parse_qsl(url.query, keep_blank_values=True))
+            )
+            if is_amazon and not is_terms_help:
                 self.has_amazon_link = True
-            if (is_amazon or (is_external and self.affiliate_slots)) and 'sponsored' not in rel_tokens:
+            requires_sponsored = (is_amazon and not is_terms_help) or (
+                is_external and bool(self.affiliate_slots)
+            )
+            if requires_sponsored and 'sponsored' not in rel_tokens:
                 self.fail_affiliate('affiliate link needs rel=sponsored')
             if is_external:
                 for slot in self.affiliate_slots:
