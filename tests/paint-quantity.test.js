@@ -127,12 +127,16 @@ test('fictional calculation example matches the formula section', () => {
   assert.equal(result.canCount, 3);
 
   const html = readFileSync(path.join(__dirname, '../tools/paint-quantity/index.html'), 'utf8');
-  const formula = html.match(/<section id="formula"[\\s\\S]*?<\\/section>/);
-  assert.ok(formula);
-  const example = formula[0].match(/<p class="example">([\\s\\S]*?)<\\/p>/);
-  assert.ok(example);
-  assert.match(example[1], /18㎡/);
-  assert.match(example[1], /36㎡/);
-  assert.match(example[1], /3缶/);
-  assert.match(example[1], /架空/);
+  const formulaStart = html.indexOf('<section id="formula"');
+  const formulaEnd = html.indexOf('</section>', formulaStart);
+  assert.ok(formulaStart >= 0 && formulaEnd > formulaStart);
+  const formula = html.slice(formulaStart, formulaEnd);
+  const exampleStart = formula.indexOf('<p class="example">');
+  const exampleEnd = formula.indexOf('</p>', exampleStart);
+  assert.ok(exampleStart >= 0 && exampleEnd > exampleStart);
+  const example = formula.slice(exampleStart, exampleEnd);
+  assert.ok(example.includes('18㎡'));
+  assert.ok(example.includes('36㎡'));
+  assert.ok(example.includes('3缶'));
+  assert.ok(example.includes('架空'));
 });
