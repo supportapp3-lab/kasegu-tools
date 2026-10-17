@@ -47,6 +47,7 @@ jobs:
           python3 -m unittest discover -s tests -p 'test_pet_pack_example.py' -v
           python3 -m unittest discover -s tests -p 'test_cassette_pack_example.py' -v
           python3 -m unittest discover -s tests -p 'test_water_pack_example.py' -v
+          python3 -m unittest discover -s tests -p 'test_teiden_pack_example.py' -v
           python3 scripts/lint.py
       - name: Prepare static files
         run: |
