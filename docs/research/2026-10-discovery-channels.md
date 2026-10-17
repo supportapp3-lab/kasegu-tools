@@ -1,7 +1,7 @@
 # 検索エンジンに見つけてもらう経路の点検
 
-確認日: 2026-10-17（JST）  
-対象: `main` の `6688c8af4687e00b80297bd932da31b7f9fe57d0`  
+確認日: 2026-10-17（JST）
+対象: `main` の `6688c8af4687e00b80297bd932da31b7f9fe57d0`
 公開URL: [https://supportapp3-lab.github.io/kasegu-tools/](https://supportapp3-lab.github.io/kasegu-tools/)
 
 ## 1. 前提と実測
