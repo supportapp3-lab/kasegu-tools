@@ -44,6 +44,7 @@ jobs:
           python3 -m unittest discover -s tests -p 'test_lint_affiliate.py' -v
           python3 -m unittest discover -s tests -p 'test_paint_stock_example.py' -v
           python3 -m unittest discover -s tests -p 'test_planter_stock_example.py' -v
+          python3 -m unittest discover -s tests -p 'test_wallpaper_stock_check.py' -v
           python3 -m unittest discover -s tests -p 'test_hijoushoku_pack_example.py' -v
           python3 -m unittest discover -s tests -p 'test_baby_pack_example.py' -v
           python3 -m unittest discover -s tests -p 'test_pet_pack_example.py' -v
