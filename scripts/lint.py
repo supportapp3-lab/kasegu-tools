@@ -56,15 +56,15 @@ class Lint(HTMLParser):
             href = attr.get('href', '')
             host = urlsplit(href).hostname
             rel_tokens = (attr.get('rel') or '').lower().split()
-            if host in AMAZON_HOSTS:
+            is_amazon = host in AMAZON_HOSTS
+            is_external = bool(re.match(r'^https?://', href, re.IGNORECASE))
+            if is_amazon:
                 self.has_amazon_link = True
-                if 'sponsored' not in rel_tokens:
-                    self.fail_affiliate('affiliate link needs rel=sponsored')
-            if re.match(r'^https?://', href, re.IGNORECASE):
+            if (is_amazon or (is_external and self.affiliate_slots)) and 'sponsored' not in rel_tokens:
+                self.fail_affiliate('affiliate link needs rel=sponsored')
+            if is_external:
                 for slot in self.affiliate_slots:
                     slot['links'] += 1
-                    if 'sponsored' not in rel_tokens:
-                        self.fail_affiliate('affiliate link needs rel=sponsored')
                     if slot['links'] > 1 and not slot['too_many_reported']:
                         self.fail_affiliate('affiliate slot has more than one link')
                         slot['too_many_reported'] = True
