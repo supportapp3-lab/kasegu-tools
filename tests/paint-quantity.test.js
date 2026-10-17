@@ -119,3 +119,24 @@ test('top page links to paint quantity after planter soil outside the disaster g
   assert.match(living, /09 \/ 塗装の量/);
   assert.match(living, /href="tools\/paint-quantity\/index\.html"/);
 });
+
+test('fictional calculation example matches the formula section', () => {
+  const result = calculate(input({ areas: [10, 8], coats: 2, coveragePerCan: 15 }));
+  assert.equal(result.totalArea, 18);
+  assert.equal(result.requiredCoatArea, 36);
+  assert.equal(result.canCount, 3);
+
+  const html = readFileSync(path.join(__dirname, '../tools/paint-quantity/index.html'), 'utf8');
+  const formulaStart = html.indexOf('<section id="formula"');
+  const formulaEnd = html.indexOf('</section>', formulaStart);
+  assert.ok(formulaStart >= 0 && formulaEnd > formulaStart);
+  const formula = html.slice(formulaStart, formulaEnd);
+  const exampleStart = formula.indexOf('<p class="example">');
+  const exampleEnd = formula.indexOf('</p>', exampleStart);
+  assert.ok(exampleStart >= 0 && exampleEnd > exampleStart);
+  const example = formula.slice(exampleStart, exampleEnd);
+  assert.ok(example.includes('18㎡'));
+  assert.ok(example.includes('36㎡'));
+  assert.ok(example.includes('3缶'));
+  assert.ok(example.includes('架空'));
+});

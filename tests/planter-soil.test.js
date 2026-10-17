@@ -130,3 +130,22 @@ test('top page links from the living and outing section, outside the disaster gr
   assert.equal(home.slice(disasterStart, livingStart).includes('tools/planter-soil/'), false);
   assert.match(home.slice(livingStart), /href="tools\/planter-soil\/index\.html"/);
 });
+
+test('fictional calculation example matches the formula section', () => {
+  const result = calculate(dimensions({ lengthCm: 65, widthCm: 22, depthCm: 18, bagLiters: 14 }));
+  assert.equal(result.volumeLiters, 25.74);
+  assert.equal(result.bagCount, 2);
+
+  const html = readFileSync(path.join(__dirname, '../tools/planter-soil/index.html'), 'utf8');
+  const formulaStart = html.indexOf('<section id="formula"');
+  const formulaEnd = html.indexOf('</section>', formulaStart);
+  assert.ok(formulaStart >= 0 && formulaEnd > formulaStart);
+  const formula = html.slice(formulaStart, formulaEnd);
+  const exampleStart = formula.indexOf('<p class="example">');
+  const exampleEnd = formula.indexOf('</p>', exampleStart);
+  assert.ok(exampleStart >= 0 && exampleEnd > exampleStart);
+  const example = formula.slice(exampleStart, exampleEnd);
+  assert.ok(example.includes('25.74L'));
+  assert.ok(example.includes('2袋'));
+  assert.ok(example.includes('架空'));
+});
