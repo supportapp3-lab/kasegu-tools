@@ -156,8 +156,8 @@ def normalize(raw, source):
 def local_html(url):
     path = unquote(urlsplit(url).path)
     rel = path[len(PREFIX):]
-    candidate = Path(rel or "index.html")
-    if candidate.is_dir() or urlsplit(url).path.endswith("/"):
+    candidate = Path(rel) if rel else Path("index.html")
+    if rel and (candidate.is_dir() or urlsplit(url).path.endswith("/")):
         candidate = candidate / "index.html"
     return candidate if candidate.is_file() else None
 
