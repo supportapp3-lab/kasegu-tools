@@ -41,6 +41,7 @@ jobs:
           node --check assets/js/rolling-stock.js
           node --check assets/js/ensei-hi.js
           python3 -m unittest discover -s tests -p 'test_build_sitemap.py' -v
+          python3 -m unittest discover -s tests -p 'test_og_image.py' -v
           python3 -m unittest discover -s tests -p 'test_lint_affiliate.py' -v
           python3 -m unittest discover -s tests -p 'test_paint_stock_example.py' -v
           python3 -m unittest discover -s tests -p 'test_planter_stock_example.py' -v
