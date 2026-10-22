@@ -1,0 +1,52 @@
+[
+  {
+    "id": "pin-01-bichiku",
+    "board": "bousai",
+    "board_name": "防災備蓄・防災グッズの備え",
+    "title": "家族の防災備蓄、何をどれだけ？ 人数と日数から水・トイレ・主食の目安を計算",
+    "description": "家族の人数と日数を入れると、飲料・調理用水、携帯トイレ、主食の目安量を計算できる無料ツールです。たとえば4人・7日分なら、水84L（2Lボトル42本）、携帯トイレ140回分、主食84食。1人1日あたり水3L・トイレ5回・主食3食で計算した簡易目安です。結果は手持ちの備蓄と見比べて、足りない品目の確認に使えます。生活用水や薬など個別の必需品は別に確認してください。登録不要で使えます。 #防災備蓄 #防災グッズ #ローリングストック",
+    "link": "https://supportapp3-lab.github.io/kasegu-tools/tools/bichiku/",
+    "image": "https://supportapp3-lab.github.io/kasegu-tools/assets/pinterest/01-bichiku.png",
+    "pubDate": "Thu, 22 Oct 2026 13:00:00 +0900"
+  },
+  {
+    "id": "pin-02-toilet-bichiku",
+    "board": "bousai",
+    "board_name": "防災備蓄・防災グッズの備え",
+    "title": "携帯トイレは何回分あれば足りる？ 人数×日数×1日の回数で必要数を計算",
+    "description": "断水や停電でトイレが使えないときに備える携帯トイレの必要回数を、人数・日数・1日の回数から計算できます。たとえば3人で7日分、1日5回なら105回分。在庫が60回分なら、不足は45回分です。1日の回数は家族の普段の様子に合わせて入力してください。購入前には、箱の「何回分」の表示と、凝固剤・処理袋の内訳も確認しておくと安心です。無料・登録不要。 #携帯トイレ #防災備蓄 #防災グッズ",
+    "link": "https://supportapp3-lab.github.io/kasegu-tools/tools/toilet-bichiku/",
+    "image": "https://supportapp3-lab.github.io/kasegu-tools/assets/pinterest/02-toilet-bichiku.png",
+    "pubDate": "Thu, 22 Oct 2026 13:01:00 +0900"
+  },
+  {
+    "id": "pin-03-wallpaper",
+    "board": "diy",
+    "board_name": "DIY・部屋づくりの計算メモ",
+    "title": "壁紙は何枚切り出せばいい？ 壁の幅・高さと柄リピートから必要な長さを計算",
+    "description": "壁紙を貼る前に、壁1面の幅と高さ、壁紙の有効幅、柄リピートから、切り出す枚数と必要な長さを計算できる無料ツールです。架空の例：幅360cm・高さ240cm、有効幅92cm、柄リピートなしなら、4枚・合計9.6m。窓やドアの控除、施工のロス、壁紙と下地の相性は計算に含まないので、製品の説明や販売店の案内もあわせて確認してください。 #壁紙DIY #DIY #セルフリフォーム",
+    "link": "https://supportapp3-lab.github.io/kasegu-tools/tools/wallpaper-quantity/",
+    "image": "https://supportapp3-lab.github.io/kasegu-tools/assets/pinterest/03-wallpaper.png",
+    "pubDate": "Thu, 22 Oct 2026 13:02:00 +0900"
+  },
+  {
+    "id": "pin-04-paint",
+    "board": "diy",
+    "board_name": "DIY・部屋づくりの計算メモ",
+    "title": "塗料は何缶いる？ 塗る面積と塗り回数から最小缶数を計算",
+    "description": "ペンキを買う前に、塗る面積・塗り回数・製品表示の「1缶あたりの塗り面積」から、必要な塗り面積と最小の缶数を計算できます。架空の例：10㎡と8㎡の2面を2回塗りすると36㎡。1缶で15㎡塗れる製品なら、36÷15を切り上げて3缶です。実際に塗れる面積は下地や塗り方で変わるので、製品の表示と注意書きを優先してください。無料・登録不要。 #ペンキDIY #DIY #セルフリフォーム",
+    "link": "https://supportapp3-lab.github.io/kasegu-tools/tools/paint-quantity/",
+    "image": "https://supportapp3-lab.github.io/kasegu-tools/assets/pinterest/04-paint.png",
+    "pubDate": "Thu, 22 Oct 2026 13:03:00 +0900"
+  },
+  {
+    "id": "pin-05-planter-soil",
+    "board": "garden",
+    "board_name": "ベランダ菜園・ガーデニング",
+    "title": "プランターの土は何袋いる？ 容器の内寸から用土の量と袋数を計算",
+    "description": "プランターの内側の寸法（または表示容量）と、用土の袋の容量から、必要な土の量と最小の袋数を計算できます。架空の例：内寸65×22cm・深さ18cmなら約25.74L。14L入りの袋なら2袋です。植え付け後の沈み込みや鉢底石の量、作物に合う土の種類は計算に含まないので、用土の表示や育てる植物の情報も確認してください。無料・登録不要。 #ベランダ菜園 #家庭菜園 #ガーデニング",
+    "link": "https://supportapp3-lab.github.io/kasegu-tools/tools/planter-soil/",
+    "image": "https://supportapp3-lab.github.io/kasegu-tools/assets/pinterest/05-planter-soil.png",
+    "pubDate": "Thu, 22 Oct 2026 13:04:00 +0900"
+  }
+]
