@@ -88,7 +88,9 @@ def update_feeds(root, check=False):
     different = []
     for relative, data in feeds.items():
         path = root / relative
-        if not path.is_file() or path.read_bytes() != data:
+        # Git may check text files out with CRLF on Windows; compare XML text,
+        # while always generating the same UTF-8/LF bytes.
+        if not path.is_file() or path.read_text(encoding='utf-8') != data.decode('utf-8'):
             different.append(relative.as_posix())
         if not check:
             path.write_bytes(data)

@@ -145,6 +145,18 @@ class PinterestFeedTests(unittest.TestCase):
             self.assertIn('garden.xml', result.stderr)
             self.assertEqual(snapshot(root), before)
 
+    def test_check_accepts_windows_checkout_line_endings_without_writing(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            copy_fixture(root)
+            for board in COUNTS:
+                path = root / 'assets/pinterest' / (board + '.xml')
+                path.write_bytes(path.read_text(encoding='utf-8').replace('\n', '\r\n').encode('utf-8'))
+            before = snapshot(root)
+            result = check_cli(root)
+            self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+            self.assertEqual(snapshot(root), before)
+
     def test_generation_sorts_dates_and_escapes_plain_text_deterministically(self):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
@@ -153,7 +165,7 @@ class PinterestFeedTests(unittest.TestCase):
             source = root / 'data/pinterest_pins.json'
             source.write_text(json.dumps(pins, ensure_ascii=False), encoding='utf-8')
             for path, data in builder.build_feeds(root).items():
-                self.assertEqual(data, (ROOT / path).read_bytes())
+                self.assertEqual(data.decode('utf-8'), (ROOT / path).read_text(encoding='utf-8'))
             pins[0]['title'] = 'A & B < C'
             pins[0]['description'] = 'Plain <b>text</b> & "quotes"'
             source.write_text(json.dumps(pins, ensure_ascii=False), encoding='utf-8')
