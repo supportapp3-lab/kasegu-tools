@@ -9,7 +9,18 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'G-5V4X0DLVWC');
+    gtag('config', 'G-5V4X0DLVWC', {
+      page_location: location.origin + location.pathname,
+      page_referrer: (function () {
+        try {
+          if (!document.referrer) return undefined;
+          var r = new URL(document.referrer);
+          return r.origin + r.pathname;
+        } catch (e) {
+          return undefined;
+        }
+      })()
+    });
   </script>
   <title>水槽 水量・底砂量 計算｜内寸から理論Lを整理</title>
   <meta name="description" content="水槽の内側の幅・奥行・水面までの高さから理論上の水容量を計算。底砂の厚みと袋容量を入力すると理論容量と最小袋数を整理します。">

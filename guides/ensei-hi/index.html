@@ -9,7 +9,18 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'G-5V4X0DLVWC');
+    gtag('config', 'G-5V4X0DLVWC', {
+      page_location: location.origin + location.pathname,
+      page_referrer: (function () {
+        try {
+          if (!document.referrer) return undefined;
+          var r = new URL(document.referrer);
+          return r.origin + r.pathname;
+        } catch (e) {
+          return undefined;
+        }
+      })()
+    });
   </script>
   <title>推し活・ライブ遠征費の考え方｜予算と内訳の整理ガイド</title>
   <meta name="description" content="交通・宿泊・チケット・グッズ・食事の費用を、自分で確認した料金から整理するガイド。総額、予算との差、1人・1公演あたりの見方と共有URLの注意を解説。遠征費計算ツールへ案内します。">

@@ -11,7 +11,18 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'G-5V4X0DLVWC');
+    gtag('config', 'G-5V4X0DLVWC', {
+      page_location: location.origin + location.pathname,
+      page_referrer: (function () {
+        try {
+          if (!document.referrer) return undefined;
+          var r = new URL(document.referrer);
+          return r.origin + r.pathname;
+        } catch (e) {
+          return undefined;
+        }
+      })()
+    });
   </script>
   <title>暮らしの計算室｜備えと暮らしの数量を、手元で整理</title>
   <meta name="description" content="登録不要の日本語計算ツール。防災備蓄の目安や備蓄品の期限に加え、プランター用土・塗料・壁紙の必要量、推し活・ライブ遠征の費用を手元の条件から整理できます。">

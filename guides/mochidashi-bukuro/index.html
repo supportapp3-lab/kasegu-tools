@@ -9,7 +9,18 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'G-5V4X0DLVWC');
+    gtag('config', 'G-5V4X0DLVWC', {
+      page_location: location.origin + location.pathname,
+      page_referrer: (function () {
+        try {
+          if (!document.referrer) return undefined;
+          var r = new URL(document.referrer);
+          return r.origin + r.pathname;
+        } catch (e) {
+          return undefined;
+        }
+      })()
+    });
   </script>
   <title>非常用持ち出し袋の準備｜自宅の備蓄との違いと見直し方｜暮らしの計算室</title>
   <meta name="description" content="官邸のチェックリストを入口に、持ち出す物と自宅備蓄の違いを確認。家族の個別用品、置き場所、期限と避難場所・安否確認の共有を説明します。">

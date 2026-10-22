@@ -9,7 +9,18 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'G-5V4X0DLVWC');
+    gtag('config', 'G-5V4X0DLVWC', {
+      page_location: location.origin + location.pathname,
+      page_referrer: (function () {
+        try {
+          if (!document.referrer) return undefined;
+          var r = new URL(document.referrer);
+          return r.origin + r.pathname;
+        } catch (e) {
+          return undefined;
+        }
+      })()
+    });
   </script>
   <title>赤ちゃん 防災 必要量 計算｜ミルク・おむつ・おしりふきの備蓄目安</title>
   <meta name="description" content="お子さんごとの普段の1日量から、ミルク・調乳用水・おむつなどの備蓄量を無料計算。計算結果を家にある用品と照合表で見比べ、買い足し前に不足を整理できます。">

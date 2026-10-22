@@ -9,7 +9,18 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'G-5V4X0DLVWC');
+    gtag('config', 'G-5V4X0DLVWC', {
+      page_location: location.origin + location.pathname,
+      page_referrer: (function () {
+        try {
+          if (!document.referrer) return undefined;
+          var r = new URL(document.referrer);
+          return r.origin + r.pathname;
+        } catch (e) {
+          return undefined;
+        }
+      })()
+    });
   </script>
   <title>停電への備え｜夜間の明かり・スマホ電源・家で過ごす工夫｜暮らしの計算室</title>
   <meta name="description" content="懐中電灯・保安灯、ラジオと予備電池、スマホ電源、調理・断水・医療機器・通電後の火災を確認。地域の公式停電情報への考え方も説明します。">

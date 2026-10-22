@@ -9,7 +9,18 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'G-5V4X0DLVWC');
+    gtag('config', 'G-5V4X0DLVWC', {
+      page_location: location.origin + location.pathname,
+      page_referrer: (function () {
+        try {
+          if (!document.referrer) return undefined;
+          var r = new URL(document.referrer);
+          return r.origin + r.pathname;
+        } catch (e) {
+          return undefined;
+        }
+      })()
+    });
   </script>
   <title>通電火災とは｜地震後の電気とブレーカーの落とし方｜暮らしの計算室</title>
   <meta name="description" content="地震直後と復電時の電気火災、避難時にブレーカーを切る理由、手動操作が難しい場合と帰宅後の確認を解説。消防・内閣府の公式案内を優先します。">

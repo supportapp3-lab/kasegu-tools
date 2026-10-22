@@ -9,7 +9,18 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'G-5V4X0DLVWC');
+    gtag('config', 'G-5V4X0DLVWC', {
+      page_location: location.origin + location.pathname,
+      page_referrer: (function () {
+        try {
+          if (!document.referrer) return undefined;
+          var r = new URL(document.referrer);
+          return r.origin + r.pathname;
+        } catch (e) {
+          return undefined;
+        }
+      })()
+    });
   </script>
   <title>家具の転倒防止対策｜地震に備える配置と固定の基本｜暮らしの計算室</title>
   <meta name="description" content="家具を減らす・配置を見直す・固定する・移動を防ぐ順に確認。賃貸の器具の組み合わせ、高層階、ガラス・収納物、公的チェックリストを案内します。">

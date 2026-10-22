@@ -9,7 +9,18 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'G-5V4X0DLVWC');
+    gtag('config', 'G-5V4X0DLVWC', {
+      page_location: location.origin + location.pathname,
+      page_referrer: (function () {
+        try {
+          if (!document.referrer) return undefined;
+          var r = new URL(document.referrer);
+          return r.origin + r.pathname;
+        } catch (e) {
+          return undefined;
+        }
+      })()
+    });
   </script>
   <title>雪道の立ち往生に備える｜車に積むものと閉じ込められたときの注意｜暮らしの計算室</title>
   <meta name="description" content="大雪時の外出判断、道路・気象情報、冬用タイヤとチェーン、公式の携行品、救援・防寒・一酸化炭素への注意を、公的資料に沿って整理します。">

@@ -9,7 +9,18 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'G-5V4X0DLVWC');
+    gtag('config', 'G-5V4X0DLVWC', {
+      page_location: location.origin + location.pathname,
+      page_referrer: (function () {
+        try {
+          if (!document.referrer) return undefined;
+          var r = new URL(document.referrer);
+          return r.origin + r.pathname;
+        } catch (e) {
+          return undefined;
+        }
+      })()
+    });
   </script>
   <title>停電時の電力量 整理｜機器のW表示から理想上のWh合計を計算</title>
   <meta name="description" content="機器の銘板や説明書にあるW表示と、使いたい時間・日数から理想上の電力量を整理します。実際の使用量や必要な製品容量を診断する計算ではありません。">

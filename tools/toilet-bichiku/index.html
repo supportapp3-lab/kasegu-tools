@@ -9,7 +9,18 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'G-5V4X0DLVWC');
+    gtag('config', 'G-5V4X0DLVWC', {
+      page_location: location.origin + location.pathname,
+      page_referrer: (function () {
+        try {
+          if (!document.referrer) return undefined;
+          var r = new URL(document.referrer);
+          return r.origin + r.pathname;
+        } catch (e) {
+          return undefined;
+        }
+      })()
+    });
   </script>
   <title>携帯トイレ 必要数 計算｜家族の人数・日数から何回分・何個必要か</title>
   <meta name="description" content="人数・日数・1日の回数から携帯トイレの必要回数と在庫との不足を無料計算。購入前に箱の回分表示と凝固剤・処理袋の内訳を確かめる確認項目も掲載。">

@@ -9,7 +9,18 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'G-5V4X0DLVWC');
+    gtag('config', 'G-5V4X0DLVWC', {
+      page_location: location.origin + location.pathname,
+      page_referrer: (function () {
+        try {
+          if (!document.referrer) return undefined;
+          var r = new URL(document.referrer);
+          return r.origin + r.pathname;
+        } catch (e) {
+          return undefined;
+        }
+      })()
+    });
   </script>
   <title>防災備蓄は何日分？公的な目安・水の用途・在庫の考え方｜暮らしの計算室</title>
   <meta name="description" content="食料の日数目安を公的案内から読み、水は飲料・調理用と生活用水に分けて確認。家族の条件と手元の在庫を整理する考え方を解説します。">

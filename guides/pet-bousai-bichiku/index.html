@@ -9,7 +9,18 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'G-5V4X0DLVWC');
+    gtag('config', 'G-5V4X0DLVWC', {
+      page_location: location.origin + location.pathname,
+      page_referrer: (function () {
+        try {
+          if (!document.referrer) return undefined;
+          var r = new URL(document.referrer);
+          return r.origin + r.pathname;
+        } catch (e) {
+          return undefined;
+        }
+      })()
+    });
   </script>
   <title>ペットの防災備蓄｜フード・水は何日分？犬猫の備え方｜暮らしの計算室</title>
   <meta name="description" content="環境省のフード・水の備蓄日数と用品の優先順位を確認。普段の使用量から計算し、人用と分けて準備する手順と同行避難の注意を説明します。">
