@@ -10,12 +10,23 @@ ROOT = Path(__file__).resolve().parents[1]
 BASE = 'https://supportapp3-lab.github.io/kasegu-tools/'
 MEASUREMENT_ID = 'G-5V4X0DLVWC'
 GA4_SRC = 'https://www.googletagmanager.com/gtag/js?id=' + MEASUREMENT_ID
-CONFIG = re.compile(r"gtag\(\s*['\"]config['\"]\s*,\s*['\"]G-5V4X0DLVWC['\"]\s*\)")
+CONFIG = re.compile(r"gtag\(\s*['\"]config['\"]\s*,\s*['\"]G-5V4X0DLVWC['\"]")
 IDENTIFIER = re.compile(r'\b(?:GTM-[A-Z0-9]+|UA-\d+-\d+|G-[A-Z0-9]+)\b')
 EXPECTED_INLINE = """window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
-gtag('config', 'G-5V4X0DLVWC');"""
+gtag('config', 'G-5V4X0DLVWC', {
+page_location: location.origin + location.pathname,
+page_referrer: (function () {
+try {
+if (!document.referrer) return undefined;
+var r = new URL(document.referrer);
+return r.origin + r.pathname;
+} catch (e) {
+return undefined;
+}
+})()
+});"""
 
 
 class Page(HTMLParser):
@@ -104,6 +115,31 @@ class AnalyticsTests(unittest.TestCase):
                 self.assertEqual(page.head_tags[index + 1], ('script', {}))
                 self.assertEqual(page.head_tags[index + 2][0], 'title')
 
+    def test_inline_scripts_are_identical_and_exclude_query_and_fragment(self):
+        scripts = []
+        for path in public_pages():
+            with self.subTest(page=path.relative_to(ROOT)):
+                _, page = parse(path)
+                inline = [s['text'] for s in page.scripts if s['head'] and CONFIG.search(s['text'])]
+                self.assertEqual(len(inline), 1)
+                script = inline[0]
+                scripts.append(script)
+                self.assertEqual(len(CONFIG.findall(script)), 1)
+                for required in ('page_location:', 'page_referrer:', 'location.origin + location.pathname',
+                                 'new URL(document.referrer)', 'r.origin + r.pathname'):
+                    self.assertIn(required, script)
+                for forbidden in ('location.href', 'location.search', 'location.hash'):
+                    self.assertNotIn(forbidden, script)
+        self.assertEqual(len(set(scripts)), 1)
+
+    def test_top_page_keeps_both_site_verification_meta_tags(self):
+        _, page = parse(ROOT / 'index.html')
+        for name in ('google-site-verification', 'p:domain_verify'):
+            with self.subTest(name=name):
+                tags = [attrs for tag, attrs in page.head_tags if tag == 'meta' and attrs.get('name') == name]
+                self.assertEqual(len(tags), 1)
+                self.assertTrue(tags[0].get('content'))
+
     def test_only_exact_ga4_external_script_and_no_other_measurement_ids(self):
         for path in public_pages():
             with self.subTest(page=path.relative_to(ROOT)):
@@ -125,6 +161,8 @@ class AnalyticsTests(unittest.TestCase):
             self.assertIn(term, text)
         self.assertIn('https://policies.google.com/technologies/partner-sites', page.links)
         self.assertIn('https://tools.google.com/dlpage/gaoptout', page.links)
+        self.assertIn('GA4には、閲覧ページと参照元のURLからクエリ（計算条件など）とフラグメントを除いたURLを送信します。', text)
+        self.assertNotIn('閲覧ページのURLには共有用の計算条件が含まれる場合がある', text)
 
     def test_policy_and_about_do_not_claim_analytics_is_uninstalled(self):
         for name in ('privacy/index.html', 'about/index.html'):

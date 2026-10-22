@@ -9,7 +9,18 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'G-5V4X0DLVWC');
+    gtag('config', 'G-5V4X0DLVWC', {
+      page_location: location.origin + location.pathname,
+      page_referrer: (function () {
+        try {
+          if (!document.referrer) return undefined;
+          var r = new URL(document.referrer);
+          return r.origin + r.pathname;
+        } catch (e) {
+          return undefined;
+        }
+      })()
+    });
   </script>
   <title>塗料 必要量 計算｜面積と塗り回数から必要缶数を整理</title>
   <meta name="description" content="塗る面積・塗り回数・製品表示の1缶当たりの塗り面積から、必要な塗り面積と最小缶数を整理します。塗料の適合や施工条件は判定しません。">

@@ -9,7 +9,18 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'G-5V4X0DLVWC');
+    gtag('config', 'G-5V4X0DLVWC', {
+      page_location: location.origin + location.pathname,
+      page_referrer: (function () {
+        try {
+          if (!document.referrer) return undefined;
+          var r = new URL(document.referrer);
+          return r.origin + r.pathname;
+        } catch (e) {
+          return undefined;
+        }
+      })()
+    });
   </script>
   <title>防災備蓄の考え方｜家族・トイレ・ペット・期限管理のツール案内</title>
   <meta name="description" content="家族の備蓄量、携帯トイレの不足、ペット・赤ちゃんの個別用品、買ったものの期限管理を順に確認。暮らしの計算室の防災5ツールの使い分けと、計算に含まれないものを解説します。">

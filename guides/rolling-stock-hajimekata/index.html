@@ -9,7 +9,18 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'G-5V4X0DLVWC');
+    gtag('config', 'G-5V4X0DLVWC', {
+      page_location: location.origin + location.pathname,
+      page_referrer: (function () {
+        try {
+          if (!document.referrer) return undefined;
+          var r = new URL(document.referrer);
+          return r.origin + r.pathname;
+        } catch (e) {
+          return undefined;
+        }
+      })()
+    });
   </script>
   <title>ローリングストックの始め方｜使う・買い足す手順を解説｜暮らしの計算室</title>
   <meta name="description" content="普段使う食品や用品を買い置きし、使った分を補充する手順を解説。品目の選び方、保管場所、期限を確認して続ける方法を整理し、期限を一覧管理するツールも案内します。">

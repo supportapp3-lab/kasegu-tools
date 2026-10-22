@@ -9,7 +9,18 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'G-5V4X0DLVWC');
+    gtag('config', 'G-5V4X0DLVWC', {
+      page_location: location.origin + location.pathname,
+      page_referrer: (function () {
+        try {
+          if (!document.referrer) return undefined;
+          var r = new URL(document.referrer);
+          return r.origin + r.pathname;
+        } catch (e) {
+          return undefined;
+        }
+      })()
+    });
   </script>
   <title>遠征費 計算｜推し活・ライブ遠征の交通費・宿泊費をまとめてシミュレーション</title>
   <meta name="description" content="推し活・ライブ・イベント遠征の交通費、宿泊費、チケット、グッズ、食事をまとめて計算。人数・公演数から1人あたりと1公演あたり、予算の残りや超過を確認。無料・登録不要・共有URL付き。">

@@ -9,7 +9,18 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'G-5V4X0DLVWC');
+    gtag('config', 'G-5V4X0DLVWC', {
+      page_location: location.origin + location.pathname,
+      page_referrer: (function () {
+        try {
+          if (!document.referrer) return undefined;
+          var r = new URL(document.referrer);
+          return r.origin + r.pathname;
+        } catch (e) {
+          return undefined;
+        }
+      })()
+    });
   </script>
   <title>感震ブレーカーとは｜種類と設置の考え方｜暮らしの計算室</title>
   <meta name="description" content="消防庁の4タイプと工事・遮断範囲、医療機器や照明の備え、復電前の確認、点検と自治体の補助を説明。製品の適合は専門業者と説明書で確認します。">

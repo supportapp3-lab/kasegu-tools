@@ -9,7 +9,18 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'G-5V4X0DLVWC');
+    gtag('config', 'G-5V4X0DLVWC', {
+      page_location: location.origin + location.pathname,
+      page_referrer: (function () {
+        try {
+          if (!document.referrer) return undefined;
+          var r = new URL(document.referrer);
+          return r.origin + r.pathname;
+        } catch (e) {
+          return undefined;
+        }
+      })()
+    });
   </script>
   <title>地震が起きたら｜揺れの直後に身を守る行動と注意点｜暮らしの計算室</title>
   <meta name="description" content="揺れ・緊急地震速報でまず身の安全。頭の保護、高層階の家具、揺れが収まった後の火の始末・出口確保、屋外の注意を公的案内で確認します。">

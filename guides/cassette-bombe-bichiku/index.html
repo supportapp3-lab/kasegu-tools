@@ -9,7 +9,18 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'G-5V4X0DLVWC');
+    gtag('config', 'G-5V4X0DLVWC', {
+      page_location: location.origin + location.pathname,
+      page_referrer: (function () {
+        try {
+          if (!document.referrer) return undefined;
+          var r = new URL(document.referrer);
+          return r.origin + r.pathname;
+        } catch (e) {
+          return undefined;
+        }
+      })()
+    });
   </script>
   <title>カセットボンベは何本備える？防災の熱源とカセットコンロの備え｜暮らしの計算室</title>
   <meta name="description" content="農林水産省のボンベ本数・使用期限の目安を確認。コンロ、水、器具を合わせて備え、数量と期限、製品の安全上の指定を分けて見返します。">

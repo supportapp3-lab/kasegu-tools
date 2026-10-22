@@ -9,7 +9,18 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'G-5V4X0DLVWC');
+    gtag('config', 'G-5V4X0DLVWC', {
+      page_location: location.origin + location.pathname,
+      page_referrer: (function () {
+        try {
+          if (!document.referrer) return undefined;
+          var r = new URL(document.referrer);
+          return r.origin + r.pathname;
+        } catch (e) {
+          return undefined;
+        }
+      })()
+    });
   </script>
   <title>携帯トイレの備蓄回数と箱の表示の読み方｜暮らしの計算室</title>
   <meta name="description" content="携帯トイレの備蓄回数を考える目安と、箱の「何回分」表示・構成品の読み方を解説。手持ちの使用可能な回数や購入前の確認方法を紹介し、条件別の計算ツールへ案内します。">

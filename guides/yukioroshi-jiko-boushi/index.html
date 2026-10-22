@@ -9,7 +9,18 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'G-5V4X0DLVWC');
+    gtag('config', 'G-5V4X0DLVWC', {
+      page_location: location.origin + location.pathname,
+      page_referrer: (function () {
+        try {
+          if (!document.referrer) return undefined;
+          var r = new URL(document.referrer);
+          return r.origin + r.pathname;
+        } catch (e) {
+          return undefined;
+        }
+      })()
+    });
   </script>
   <title>雪下ろし・雪かきの事故を防ぐ｜除雪中の事故防止10箇条と注意点｜暮らしの計算室</title>
   <meta name="description" content="官邸の除雪事故防止10箇条と国交省の安全資料を確認。装備・はしご・複数人作業・除雪機・体調・空き家の相談を、原典に沿って説明します。">

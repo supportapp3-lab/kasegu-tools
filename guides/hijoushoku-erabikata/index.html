@@ -9,7 +9,18 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'G-5V4X0DLVWC');
+    gtag('config', 'G-5V4X0DLVWC', {
+      page_location: location.origin + location.pathname,
+      page_referrer: (function () {
+        try {
+          if (!document.referrer) return undefined;
+          var r = new URL(document.referrer);
+          return r.origin + r.pathname;
+        } catch (e) {
+          return undefined;
+        }
+      })()
+    });
   </script>
   <title>非常食の選び方｜日常食品との分け方と備蓄のバランス｜暮らしの計算室</title>
   <meta name="description" content="非常食と日常食品を使う目的で分け、準備条件・家族の食事・容量・保管を見比べる解説。公的な日数の背景と量・期限管理への導線も案内します。">

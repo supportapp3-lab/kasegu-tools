@@ -9,7 +9,18 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'G-5V4X0DLVWC');
+    gtag('config', 'G-5V4X0DLVWC', {
+      page_location: location.origin + location.pathname,
+      page_referrer: (function () {
+        try {
+          if (!document.referrer) return undefined;
+          var r = new URL(document.referrer);
+          return r.origin + r.pathname;
+        } catch (e) {
+          return undefined;
+        }
+      })()
+    });
   </script>
   <title>ハザードマップの見方と避難場所・避難経路の決め方｜暮らしの計算室</title>
   <meta name="description" content="公的ポータルと自治体の地図を使い分け、災害別のリスク、避難場所・避難所の違い、屋内安全確保の条件、家族での経路・連絡確認を解説します。">

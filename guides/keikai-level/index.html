@@ -9,7 +9,18 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'G-5V4X0DLVWC');
+    gtag('config', 'G-5V4X0DLVWC', {
+      page_location: location.origin + location.pathname,
+      page_referrer: (function () {
+        try {
+          if (!document.referrer) return undefined;
+          var r = new URL(document.referrer);
+          return r.origin + r.pathname;
+        } catch (e) {
+          return undefined;
+        }
+      })()
+    });
   </script>
   <title>警戒レベルとは｜避難指示・高齢者等避難の意味と取るべき行動｜暮らしの計算室</title>
   <meta name="description" content="令和8年3月改定版と気象庁の現行名称で、警戒レベルと相当情報、避難指示・高齢者等避難の違い、レベル5を待たない行動と公式情報の確認を説明します。">
