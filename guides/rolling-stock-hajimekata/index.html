@@ -22,6 +22,7 @@
   <meta name="twitter:description" content="普段使う食品や用品を買い置きし、使った分を補充する手順を解説。品目の選び方、保管場所、期限を確認して続ける方法を整理し、期限を一覧管理するツールも案内します。">
   <link rel="stylesheet" href="../../assets/css/style.css">
   <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Article", "headline": "ローリングストックの始め方｜使う・買い足す手順を解説｜暮らしの計算室", "description": "普段使う食品や用品を買い置きし、使った分を補充する手順を解説。品目の選び方、保管場所、期限を確認して続ける方法を整理し、期限を一覧管理するツールも案内します。", "url": "https://supportapp3-lab.github.io/kasegu-tools/guides/rolling-stock-hajimekata/", "inLanguage": "ja", "author": {"@type": "Organization", "name": "supportapp3-lab"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "トップ", "item": "https://supportapp3-lab.github.io/kasegu-tools/"}, {"@type": "ListItem", "position": 2, "name": "解説記事", "item": "https://supportapp3-lab.github.io/kasegu-tools/guides/"}, {"@type": "ListItem", "position": 3, "name": "ローリングストックの始め方", "item": "https://supportapp3-lab.github.io/kasegu-tools/guides/rolling-stock-hajimekata/"}]}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "ローリングストックは、専用の非常食だけで行いますか？", "acceptedAnswer": {"@type": "Answer", "text": "このページでは、普段使うものを買い置きし、使った分を買い足していく方法として説明しています。特定の商品やブランドを勧めるものではありません。何を備えるかは、普段の食事、製品表示、必要な個別の条件を確認して選びます。すべてを同じ食品に揃えることや、品名から保存期間を推定することはしません。"}}, {"@type": "Question", "name": "期限が同じ品目は、ひとつの行にまとめてもよいですか？", "acceptedAnswer": {"@type": "Answer", "text": "同じ品目をどう管理するかは、実際の在庫を確認できる形で整理します。期限や保管場所が違うものを同じ行にまとめると、どの製品の情報か分かりにくくなります。期限管理ツールでは品名、数量、期限、メモを登録できるので、必要なら行を分けてください。使ったものや買い足したものに合わせて一覧も更新します。"}}, {"@type": "Question", "name": "期限切れと表示されたら、必ず捨てるのですか？", "acceptedAnswer": {"@type": "Answer", "text": "期限管理ツールの表示は、登録した日付とブラウザのローカル日付を比べたものです。食品の安全性や用品を使えるかどうかを判定しません。実際の期限表示、保存条件、開封後の扱いなどを確認してください。このページでは、期限を過ぎた食品の使用や廃棄を一律に決める方法は示していません。"}}, {"@type": "Question", "name": "保存した一覧は、別の端末でも自動で見られますか？", "acceptedAnswer": {"@type": "Answer", "text": "自動では共有されません。ローリングストックの一覧は、その端末・ブラウザのlocalStorageに保存します。別のブラウザやプロフィールでも別の保存内容です。別の端末へ移す場合は、JSONを書き出して取り込みます。共有URLに個人の備蓄リストを載せる機能はありません。JSONに含まれる品名やメモは、共有前に確認してください。"}}, {"@type": "Question", "name": "JSONを取り込むときは、追記と上書きのどちらを使いますか？", "acceptedAnswer": {"@type": "Answer", "text": "現在の一覧へ追加したい場合は追記、取り込む一覧へ置き換えたい場合は上書きを選びます。追記を繰り返すと同じ品目が重複する場合があり、上書きは確認後に現在の内容を置き換えます。読み込めるJSON配列の不正な行はスキップ数を表示します。JSON全体が壊れている場合などは変更せず、画面の案内を表示します。"}}, {"@type": "Question", "name": "一覧をつければ、備蓄の量も自動で足りますか？", "acceptedAnswer": {"@type": "Answer", "text": "一覧は登録した在庫や期限を管理する機能で、家庭に必要な量を自動で判断するものではありません。人数や日数で量を確認したい場合は、防災備蓄の計算を別に使います。使った品目を消し忘れたり買い足した品目を登録し忘れたりすると、画面と在庫がずれます。必要量の目安と実際の在庫を、両方見返してください。"}},{"@type":"Question","name":"離れた場所に置いた備蓄はどう管理しますか？","acceptedAnswer":{"@type":"Answer","text":"家族が置き場所を見つけられるよう、家庭内で分かる呼び方と確認日を記録します。安全な保管場所は住まいにより異なるため、重い物の置き方などは建物や自治体の案内を確認してください。"}}]}]}</script>
+  <script src="../../assets/js/share.js" defer></script>
 </head>
 <body>
   <a class="skip" href="#main">本文へ移動</a>
@@ -73,6 +74,17 @@
       </section>
       <section class="article-section" id="related"><h2>関連記事</h2><p><a href="../bousai-bichiku/index.html">防災備蓄ツールの使い分けガイド</a></p><p><a href="../bichiku-nannichibun/index.html">防災備蓄は何日分？</a></p><p><a href="../index.html">解説記事の一覧へ</a></p></section>
     </article><div class="ad-slot" data-slot="bottom" aria-label="広告掲載枠・準備中"></div>
+  <section class="page-share" aria-labelledby="page-share-title">
+    <h2 id="page-share-title">このページを共有</h2>
+    <div class="share-links">
+      <a href="https://social-plugins.line.me/lineit/share?url=https%3A%2F%2Fsupportapp3-lab.github.io%2Fkasegu-tools%2Fguides%2Frolling-stock-hajimekata%2F" target="_blank" rel="noopener noreferrer">LINE</a>
+      <a href="https://b.hatena.ne.jp/entry/s/supportapp3-lab.github.io/kasegu-tools/guides/rolling-stock-hajimekata/" target="_blank" rel="noopener noreferrer">はてブに追加</a>
+      <a href="https://x.com/intent/post?url=https%3A%2F%2Fsupportapp3-lab.github.io%2Fkasegu-tools%2Fguides%2Frolling-stock-hajimekata%2F&amp;text=%E3%83%AD%E3%83%BC%E3%83%AA%E3%83%B3%E3%82%B0%E3%82%B9%E3%83%88%E3%83%83%E3%82%AF%E3%81%AE%E5%A7%8B%E3%82%81%E6%96%B9%EF%BD%9C%E4%BD%BF%E3%81%86%E3%83%BB%E8%B2%B7%E3%81%84%E8%B6%B3%E3%81%99%E6%89%8B%E9%A0%86%E3%82%92%E8%A7%A3%E8%AA%AC%EF%BD%9C%E6%9A%AE%E3%82%89%E3%81%97%E3%81%AE%E8%A8%88%E7%AE%97%E5%AE%A4" target="_blank" rel="noopener noreferrer">X</a>
+      <button type="button" data-share-copy data-share-url="https://supportapp3-lab.github.io/kasegu-tools/guides/rolling-stock-hajimekata/">URLをコピー</button>
+    </div>
+    <p class="share-status" data-share-status role="status" aria-live="polite"></p>
+    <p class="share-fallback" data-share-fallback hidden>このURLを選択してコピーしてください：<span>https://supportapp3-lab.github.io/kasegu-tools/guides/rolling-stock-hajimekata/</span></p>
+  </section>
   </main>
   <footer class="site-footer"><div class="container">
     <nav aria-label="フッターナビゲーション"><a href="../../tools/bichiku/index.html">防災備蓄 計算</a><a href="../../about/index.html">運営者情報</a><a href="../../contact/index.html">お問い合わせ</a><a href="../../privacy/index.html">プライバシーポリシー</a></nav>

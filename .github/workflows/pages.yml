@@ -28,6 +28,7 @@ jobs:
           node tests/aquarium-volume.test.js
           node tests/rolling-stock.test.js
           node tests/ensei-hi.test.js
+          node tests/share.test.js
           node --check assets/js/bichiku.js
           node --check assets/js/custom-food-stock.js
           node --check assets/js/pet-bichiku.js
@@ -40,6 +41,7 @@ jobs:
           node --check assets/js/aquarium-volume.js
           node --check assets/js/rolling-stock.js
           node --check assets/js/ensei-hi.js
+          node --check assets/js/share.js
           python3 -m unittest discover -s tests -p 'test_build_sitemap.py' -v
           python3 -m unittest discover -s tests -p 'test_og_image.py' -v
           python3 -m unittest discover -s tests -p 'test_lint_affiliate.py' -v
@@ -55,6 +57,7 @@ jobs:
           python3 -m unittest discover -s tests -p 'test_teiden_pack_example.py' -v
           python3 -m unittest discover -s tests -p 'test_mochidashi_transfer_example.py' -v
           python3 -m unittest discover -s tests -p 'test_funnel_guides_structure.py' -v
+          python3 -m unittest discover -s tests -p 'test_share_links.py' -v
           python3 scripts/lint.py
       - name: Prepare static files
         run: |

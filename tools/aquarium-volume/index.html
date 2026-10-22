@@ -23,6 +23,7 @@
   <link rel="stylesheet" href="../../assets/css/style.css">
   <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","name":"水槽 水量・底砂量 計算","url":"https://supportapp3-lab.github.io/kasegu-tools/tools/aquarium-volume/","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","inLanguage":"ja","isAccessibleForFree":true,"description":"水槽の内側の幅・奥行・水面までの高さから理論上の水容量を計算。底砂の厚みと袋容量を入力すると理論容量と最小袋数を整理します。","offers":{"@type":"Offer","price":0,"priceCurrency":"JPY"}},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"このページの水容量は実際に入る水の量ですか？","acceptedAnswer":{"@type":"Answer","text":"いいえ。内寸を直方体として計算した理論値です。ガラス厚、機材、底砂などで実際の水量は小さくなり、実水量や設置可否を保証しません。"}},{"@type":"Question","name":"水面までの高さはどこを測りますか？","acceptedAnswer":{"@type":"Answer","text":"水槽の内側で、底から想定する水面までの高さを使います。満水を想定した理論値なので、実際の水位に合わせてください。"}},{"@type":"Question","name":"底砂の容量と袋数はどう計算しますか？","acceptedAnswer":{"@type":"Answer","text":"内側の幅×奥行×入力した厚み÷1,000で底砂の理論容量を計算します。袋容量を入力した場合だけ、その容量から計算した最小袋数を切り上げて表示します。"}},{"@type":"Question","name":"底砂の厚みは何cmにすればよいですか？","acceptedAnswer":{"@type":"Answer","text":"このページは厚みを推奨しません。日本ペット用品工業会のFAQには水草の有無による例が案内されていますが、レイアウトや使い方に合わせて資料・製品説明をご確認ください。"}},{"@type":"Question","name":"水槽や台の耐荷重、生体への適性も分かりますか？","acceptedAnswer":{"@type":"Answer","text":"いいえ。水と底砂は重く、このページは重さや台の耐荷重、水質、濾過、生体への適性を判定しません。水槽・台のメーカー説明や飼育資料を優先してください。"}},{"@type":"Question","name":"入力内容や出典メモは送信されますか？","acceptedAnswer":{"@type":"Answer","text":"計算はブラウザ内で行い、独自サーバーへ入力内容を送信しません。寸法や袋容量は共有URLのクエリに含まれますが、出典メモは含まれません。共有先に注意してください。"}}]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"トップ","item":"https://supportapp3-lab.github.io/kasegu-tools/"},{"@type":"ListItem","position":2,"name":"水槽 水量・底砂量 計算","item":"https://supportapp3-lab.github.io/kasegu-tools/tools/aquarium-volume/"}]}]}</script>
   <script src="../../assets/js/aquarium-volume.js" defer></script>
+  <script src="../../assets/js/share.js" defer></script>
 </head>
 <body>
   <a class="skip" href="#main">本文へ移動</a>
@@ -158,6 +159,17 @@
       <li><a href="../paint-quantity/index.html">塗料 必要量 計算</a>：面積と塗り回数から必要缶数を整理</li>
       <li><a href="../wallpaper-quantity/index.html">壁紙 必要量 計算</a>：壁の幅・高さと柄リピートから切り出し枚数を整理</li>
     </ul>
+  </section>
+  <section class="page-share" aria-labelledby="page-share-title">
+    <h2 id="page-share-title">このページを共有</h2>
+    <div class="share-links">
+      <a href="https://social-plugins.line.me/lineit/share?url=https%3A%2F%2Fsupportapp3-lab.github.io%2Fkasegu-tools%2Ftools%2Faquarium-volume%2F" target="_blank" rel="noopener noreferrer">LINE</a>
+      <a href="https://b.hatena.ne.jp/entry/s/supportapp3-lab.github.io/kasegu-tools/tools/aquarium-volume/" target="_blank" rel="noopener noreferrer">はてブに追加</a>
+      <a href="https://x.com/intent/post?url=https%3A%2F%2Fsupportapp3-lab.github.io%2Fkasegu-tools%2Ftools%2Faquarium-volume%2F&amp;text=%E6%B0%B4%E6%A7%BD%20%E6%B0%B4%E9%87%8F%E3%83%BB%E5%BA%95%E7%A0%82%E9%87%8F%20%E8%A8%88%E7%AE%97%EF%BD%9C%E5%86%85%E5%AF%B8%E3%81%8B%E3%82%89%E7%90%86%E8%AB%96L%E3%82%92%E6%95%B4%E7%90%86" target="_blank" rel="noopener noreferrer">X</a>
+      <button type="button" data-share-copy data-share-url="https://supportapp3-lab.github.io/kasegu-tools/tools/aquarium-volume/">URLをコピー</button>
+    </div>
+    <p class="share-status" data-share-status role="status" aria-live="polite"></p>
+    <p class="share-fallback" data-share-fallback hidden>このURLを選択してコピーしてください：<span>https://supportapp3-lab.github.io/kasegu-tools/tools/aquarium-volume/</span></p>
   </section>
   </main>
   <footer class="site-footer"><div class="container">
