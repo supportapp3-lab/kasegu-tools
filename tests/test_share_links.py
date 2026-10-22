@@ -5,6 +5,7 @@ from pathlib import Path
 from urllib.parse import parse_qs, unquote, urlsplit
 
 ROOT = Path(__file__).resolve().parents[1]
+GA4_SRC = 'https://www.googletagmanager.com/gtag/js?id=G-5V4X0DLVWC'
 
 
 class Page(HTMLParser):
@@ -36,7 +37,7 @@ class Page(HTMLParser):
             self.current['buttons'].append(attrs)
         if tag == 'script' and attrs.get('src'):
             self.scripts.append(attrs['src'])
-            if urlsplit(attrs['src']).netloc:
+            if urlsplit(attrs['src']).netloc and attrs['src'] != GA4_SRC:
                 self.external.append(attrs['src'])
         if tag == 'iframe':
             self.external.append('iframe')
@@ -103,7 +104,7 @@ class ShareLinkTests(unittest.TestCase):
                 html = page.read_text(encoding='utf-8')
                 self.assertLess(html.index('class="page-share"'), html.index('</main>'))
 
-    def test_no_external_scripts_or_iframes_on_target_pages(self):
+    def test_no_external_scripts_except_exact_ga4_or_iframes_on_target_pages(self):
         for page in list((ROOT / 'tools').glob('*/index.html')) + list((ROOT / 'guides').glob('*/index.html')):
             with self.subTest(page=page.relative_to(ROOT)):
                 self.assertEqual(parse(page).external, [])
