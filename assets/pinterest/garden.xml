@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='utf-8'?>
+<rss xmlns:media="http://search.yahoo.com/mrss/" version="2.0">
+  <channel>
+    <title>暮らしの計算室｜ベランダ菜園・ガーデニング</title>
+    <link>https://supportapp3-lab.github.io/kasegu-tools/</link>
+    <description>暮らしの計算室の「ベランダ菜園・ガーデニング」のピンを紹介します。</description>
+    <language>ja</language>
+    <item>
+      <title>プランターの土は何袋いる？ 容器の内寸から用土の量と袋数を計算</title>
+      <description>プランターの内側の寸法（または表示容量）と、用土の袋の容量から、必要な土の量と最小の袋数を計算できます。架空の例：内寸65×22cm・深さ18cmなら約25.74L。14L入りの袋なら2袋です。植え付け後の沈み込みや鉢底石の量、作物に合う土の種類は計算に含まないので、用土の表示や育てる植物の情報も確認してください。無料・登録不要。 #ベランダ菜園 #家庭菜園 #ガーデニング</description>
+      <link>https://supportapp3-lab.github.io/kasegu-tools/tools/planter-soil/</link>
+      <guid isPermaLink="false">pin-05-planter-soil</guid>
+      <pubDate>Thu, 22 Oct 2026 13:04:00 +0900</pubDate>
+      <enclosure url="https://supportapp3-lab.github.io/kasegu-tools/assets/pinterest/05-planter-soil.png" type="image/png" length="103879" />
+      <media:content url="https://supportapp3-lab.github.io/kasegu-tools/assets/pinterest/05-planter-soil.png" medium="image" type="image/png" width="1000" height="1500" />
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='utf-8'?>
+<rss xmlns:media="http://search.yahoo.com/mrss/" version="2.0">
+  <channel>
+    <title>暮らしの計算室｜防災備蓄・防災グッズの備え</title>
+    <link>https://supportapp3-lab.github.io/kasegu-tools/</link>
+    <description>暮らしの計算室の「防災備蓄・防災グッズの備え」のピンを紹介します。</description>
+    <language>ja</language>
+    <item>
+      <title>家族の防災備蓄、何をどれだけ？ 人数と日数から水・トイレ・主食の目安を計算</title>
+      <description>家族の人数と日数を入れると、飲料・調理用水、携帯トイレ、主食の目安量を計算できる無料ツールです。たとえば4人・7日分なら、水84L（2Lボトル42本）、携帯トイレ140回分、主食84食。1人1日あたり水3L・トイレ5回・主食3食で計算した簡易目安です。結果は手持ちの備蓄と見比べて、足りない品目の確認に使えます。生活用水や薬など個別の必需品は別に確認してください。登録不要で使えます。 #防災備蓄 #防災グッズ #ローリングストック</description>
+      <link>https://supportapp3-lab.github.io/kasegu-tools/tools/bichiku/</link>
+      <guid isPermaLink="false">pin-01-bichiku</guid>
+      <pubDate>Thu, 22 Oct 2026 13:00:00 +0900</pubDate>
+      <enclosure url="https://supportapp3-lab.github.io/kasegu-tools/assets/pinterest/01-bichiku.png" type="image/png" length="120758" />
+      <media:content url="https://supportapp3-lab.github.io/kasegu-tools/assets/pinterest/01-bichiku.png" medium="image" type="image/png" width="1000" height="1500" />
+    </item>
+    <item>
+      <title>携帯トイレは何回分あれば足りる？ 人数×日数×1日の回数で必要数を計算</title>
+      <description>断水や停電でトイレが使えないときに備える携帯トイレの必要回数を、人数・日数・1日の回数から計算できます。たとえば3人で7日分、1日5回なら105回分。在庫が60回分なら、不足は45回分です。1日の回数は家族の普段の様子に合わせて入力してください。購入前には、箱の「何回分」の表示と、凝固剤・処理袋の内訳も確認しておくと安心です。無料・登録不要。 #携帯トイレ #防災備蓄 #防災グッズ</description>
+      <link>https://supportapp3-lab.github.io/kasegu-tools/tools/toilet-bichiku/</link>
+      <guid isPermaLink="false">pin-02-toilet-bichiku</guid>
+      <pubDate>Thu, 22 Oct 2026 13:01:00 +0900</pubDate>
+      <enclosure url="https://supportapp3-lab.github.io/kasegu-tools/assets/pinterest/02-toilet-bichiku.png" type="image/png" length="114817" />
+      <media:content url="https://supportapp3-lab.github.io/kasegu-tools/assets/pinterest/02-toilet-bichiku.png" medium="image" type="image/png" width="1000" height="1500" />
+    </item>
+  </channel>
+</rss>

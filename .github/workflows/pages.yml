@@ -59,6 +59,7 @@ jobs:
           python3 -m unittest discover -s tests -p 'test_funnel_guides_structure.py' -v
           python3 -m unittest discover -s tests -p 'test_share_links.py' -v
           python3 -m unittest discover -s tests -p 'test_analytics.py' -v
+          python3 -m unittest discover -s tests -p 'test_pinterest_feeds.py' -v
           python3 scripts/lint.py
       - name: Prepare static files
         run: |
