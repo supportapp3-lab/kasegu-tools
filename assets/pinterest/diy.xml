@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='utf-8'?>
+<rss xmlns:media="http://search.yahoo.com/mrss/" version="2.0">
+  <channel>
+    <title>暮らしの計算室｜DIY・部屋づくりの計算メモ</title>
+    <link>https://supportapp3-lab.github.io/kasegu-tools/</link>
+    <description>暮らしの計算室の「DIY・部屋づくりの計算メモ」のピンを紹介します。</description>
+    <language>ja</language>
+    <item>
+      <title>壁紙は何枚切り出せばいい？ 壁の幅・高さと柄リピートから必要な長さを計算</title>
+      <description>壁紙を貼る前に、壁1面の幅と高さ、壁紙の有効幅、柄リピートから、切り出す枚数と必要な長さを計算できる無料ツールです。架空の例：幅360cm・高さ240cm、有効幅92cm、柄リピートなしなら、4枚・合計9.6m。窓やドアの控除、施工のロス、壁紙と下地の相性は計算に含まないので、製品の説明や販売店の案内もあわせて確認してください。 #壁紙DIY #DIY #セルフリフォーム</description>
+      <link>https://supportapp3-lab.github.io/kasegu-tools/tools/wallpaper-quantity/</link>
+      <guid isPermaLink="false">pin-03-wallpaper</guid>
+      <pubDate>Thu, 22 Oct 2026 13:02:00 +0900</pubDate>
+      <enclosure url="https://supportapp3-lab.github.io/kasegu-tools/assets/pinterest/03-wallpaper.png" type="image/png" length="123062" />
+      <media:content url="https://supportapp3-lab.github.io/kasegu-tools/assets/pinterest/03-wallpaper.png" medium="image" type="image/png" width="1000" height="1500" />
+    </item>
+    <item>
+      <title>塗料は何缶いる？ 塗る面積と塗り回数から最小缶数を計算</title>
+      <description>ペンキを買う前に、塗る面積・塗り回数・製品表示の「1缶あたりの塗り面積」から、必要な塗り面積と最小の缶数を計算できます。架空の例：10㎡と8㎡の2面を2回塗りすると36㎡。1缶で15㎡塗れる製品なら、36÷15を切り上げて3缶です。実際に塗れる面積は下地や塗り方で変わるので、製品の表示と注意書きを優先してください。無料・登録不要。 #ペンキDIY #DIY #セルフリフォーム</description>
+      <link>https://supportapp3-lab.github.io/kasegu-tools/tools/paint-quantity/</link>
+      <guid isPermaLink="false">pin-04-paint</guid>
+      <pubDate>Thu, 22 Oct 2026 13:03:00 +0900</pubDate>
+      <enclosure url="https://supportapp3-lab.github.io/kasegu-tools/assets/pinterest/04-paint.png" type="image/png" length="105360" />
+      <media:content url="https://supportapp3-lab.github.io/kasegu-tools/assets/pinterest/04-paint.png" medium="image" type="image/png" width="1000" height="1500" />
+    </item>
+  </channel>
+</rss>
